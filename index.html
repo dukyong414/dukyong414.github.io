@@ -8,61 +8,77 @@
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      background: #4E2A84;
-      color: #222;
+      background: #fff;
+      color: #111;
     }
     header {
-      background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
+      background: #111;
       color: #fff;
       padding: 2em 1em;
       text-align: center;
     }
-    h1 { margin: 0; font-size: 2.5em; }
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
     main {
-      max-width: 900px;
+      max-width: 800px;
       margin: 2em auto;
       padding: 1em;
       background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 6px 32px rgba(44,62,80,0.07);
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.03);
     }
     section {
       margin-bottom: 2em;
     }
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr;
       gap: 1.5em;
     }
+    @media (min-width: 600px) {
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
     .project-card {
-      background: #f9fafc;
-      border-radius: 8px;
+      background: #fafafa;
+      border-radius: 6px;
       padding: 1em;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+      border: 1px solid #eee;
       transition: box-shadow 0.2s;
     }
     .project-card:hover {
-      box-shadow: 0 8px 24px rgba(44,62,80,0.11);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
     }
     .project-title {
-      font-size: 1.2em;
+      font-size: 1.15em;
       margin: 0.2em 0;
-      color: #2a5298;
+      color: #111;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .project-desc {
       font-size: 0.97em;
       margin: 0.5em 0 0.7em 0;
-      color: #555;
+      color: #333;
     }
     .project-links a {
-      color: #1e3c72;
-      text-decoration: none;
+      color: #000;
+      text-decoration: underline;
       margin-right: 1em;
       font-weight: bold;
+      font-size: 0.97em;
     }
     .project-tags {
-      color: #666;
+      color: #555;
       font-size: 0.93em;
+      font-style: italic;
+      margin-top: 0.5em;
     }
     .profile-links {
       margin: 1em 0;
@@ -71,23 +87,28 @@
     .profile-links a {
       display: inline-block;
       margin: 0 1em;
-      color: #2a5298;
+      color: #fff;
+      background: #111;
+      padding: 0.4em 1em;
+      border-radius: 4px;
       font-weight: bold;
       text-decoration: none;
-      font-size: 1.1em;
-      transition: color 0.2s;
+      font-size: 1.05em;
+      transition: background 0.2s, color 0.2s;
     }
     .profile-links a:hover {
-      color: #1e3c72;
-      text-decoration: underline;
+      background: #fff;
+      color: #111;
+      border: 1px solid #111;
     }
     footer {
       text-align: center;
-      padding: 1.5em 1em;
+      padding: 1.2em 1em;
       font-size: 1em;
-      background: #f5f8fb;
-      color: #888;
+      background: #111;
+      color: #fff;
       border-top: 1px solid #eee;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -96,8 +117,8 @@
     <h1>Dukyong414</h1>
     <p>Research Portfolio & Projects Showcase</p>
     <div class="profile-links">
-      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank">LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=YOUR-SCHOLAR-ID" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/dukyong-kim-3729a3257" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=ttgBYggAAAAJ&hl=ko&oi=ao" target="_blank">Google Scholar</a>
       <a href="https://github.com/dukyong414" target="_blank">GitHub</a>
     </div>
   </header>
@@ -105,7 +126,8 @@
     <section>
       <h2>About Me</h2>
       <p>
-        Welcome! I am a passionate researcher focused on [Your Research Area]. Here you'll find my projects, publications, and technical work.
+        Welcome! I am a passionate Mechanical Engineering PhD student focused on laser-based manufacturing technologies. 
+        Here you'll find my projects, publications, and technical work.
       </p>
     </section>
     <section>
@@ -135,7 +157,7 @@
     <section>
       <h2>Contact</h2>
       <p>
-        Email: <a href="mailto:your@email.com">your@email.com</a> <br>
+        Email: <a href="mailto:dukyong4.14@email.com">your@email.com</a> <br>
         GitHub: <a href="https://github.com/dukyong414">dukyong414</a>
       </p>
     </section>
@@ -145,4 +167,3 @@
   </footer>
 </body>
 </html>
-
