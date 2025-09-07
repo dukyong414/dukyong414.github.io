@@ -43,6 +43,43 @@
       border: 1px solid #eee;
       box-shadow: 0 4px 32px rgba(0,0,0,0.03);
     }
+    .about-me-section {
+    margin-bottom: 2em;
+    }
+    
+    .about-me-flex {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+    
+    .about-me-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px; /* rectangular with soft corners */
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      display: block;
+    }
+    
+    .about-me-text {
+      flex: 1;
+      min-width: 220px;
+    }
+    
+    @media (max-width: 600px) {
+      .about-me-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2em;
+      }
+      .about-me-photo {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+      }
+    }
     section {
       margin-bottom: 2em;
     }
@@ -218,6 +255,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
