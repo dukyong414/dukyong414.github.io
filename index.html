@@ -8,157 +8,101 @@
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      background: #fff;
+      background: #fafbfc;
       color: #111;
     }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 2em 1em;
-      text-align: center;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-      letter-spacing: 2px;
-    }
-
-    .profile-img {
-    width: 200%;
-    max-width: 400px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0px; /* rounded corners, but not a circle */
-    margin: 0 auto 1.5em auto;
-    display: block;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08); /* soft shadow for elegance */
-    border: none; /* no border */
-    }
-        main {
-      max-width: 800px;
+    .container {
+      max-width: 1100px;
       margin: 2em auto;
-      padding: 1em;
       background: #fff;
-      border-radius: 8px;
-      border: 1px solid #eee;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.03);
+      border-radius: 12px;
+      box-shadow: 0 6px 36px rgba(0,0,0,0.04);
+      padding: 2em 2em 2.5em 2em;
     }
-    .about-me-section {
-    margin-bottom: 2em;
-    }
-    
-    .about-me-flex {
+    .profile-flex {
       display: flex;
-      align-items: center;
-      gap: 2em;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2.5em;
       flex-wrap: wrap;
     }
-    
-    .about-me-photo {
-      width: 180px;
-      height: 180px;
+    .profile-img {
+      width: 320px;
+      max-width: 100%;
+      height: auto;
       object-fit: cover;
-      border-radius: 0px; /* rectangular with soft corners */
+      border-radius: 8px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      margin-bottom: 0.7em;
+      background: #eee;
+      border: none;
       display: block;
     }
-    
-    .about-me-text {
-      flex: 1;
-      min-width: 220px;
+    .bio-section {
+      flex: 1 1 400px;
     }
-    
-    @media (max-width: 600px) {
-      .about-me-flex {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.2em;
-      }
-      .about-me-photo {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-      }
-    }
-    section {
-      margin-bottom: 2em;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5em;
-    }
-    @media (min-width: 600px) {
-      .projects {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    .project-card {
-      background: #fafafa;
-      border-radius: 6px;
-      padding: 1em;
-      border: 1px solid #eee;
-      transition: box-shadow 0.2s;
-    }
-    .project-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
-    }
-    .project-title {
-      font-size: 1.15em;
-      margin: 0.2em 0;
-      color: #111;
-      font-weight: normal;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-    .project-title a {
-      color: #111;
-      text-decoration: none;
-      font-weight: normal;
-    }
-    .project-title a:hover {
-      text-decoration: underline;
-      color: #333;
-    }
-    .project-desc {
-      font-size: 0.97em;
-      margin: 0.5em 0 0.7em 0;
-      color: #333;
-    }
-    .project-links a {
-      color: #000;
-      text-decoration: underline;
-      margin-right: 1em;
+    .profile-name {
+      font-size: 2.7em;
       font-weight: bold;
-      font-size: 0.97em;
-    }
-    .project-tags {
-      color: #555;
-      font-size: 0.93em;
-      font-style: italic;
-      margin-top: 0.5em;
+      margin-bottom: 0.1em;
+      margin-top: 0.2em;
+      letter-spacing: 1px;
     }
     .profile-links {
-      margin: 1em 0;
-      text-align: center;
+      margin: 0.6em 0 1.2em 0;
     }
     .profile-links a {
-      display: inline-block;
-      margin: 0 1em;
-      color: #fff;
-      background: #111;
-      padding: 0.4em 1em;
-      border-radius: 4px;
-      font-weight: normal;
-      text-decoration: none;
-      font-size: 1.05em;
-      transition: background 0.2s, color 0.2s;
+      color: #222;
+      font-weight: 500;
+      text-decoration: underline;
+      margin-right: 1.4em;
+      font-size: 1.08em;
+      transition: color 0.2s;
     }
     .profile-links a:hover {
-      background: #fff;
+      color: #0056b3;
+      text-decoration: underline;
+    }
+    .profile-desc {
+      font-size: 1.15em;
+      color: #333;
+      margin-bottom: 1em;
+    }
+    .edu-list {
+      font-size: 1.08em;
+      line-height: 1.8em;
+      margin-bottom: 2em;
+      margin-top: 1em;
+    }
+    .edu-list .degree {
+      font-weight: bold;
       color: #111;
-      border: 1px solid #111;
+    }
+    .edu-list .advisor {
+      color: #555;
+      font-size: 0.98em;
+    }
+    .about-me-section {
+      margin-top: 1em;
+      font-size: 1.09em;
+      color: #222;
+      line-height: 1.7em;
+      background: #f7f7f8;
+      border-radius: 7px;
+      padding: 1.2em 1em 1.2em 1em;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .project-image-section {
+      margin: 2.5em 0 0.8em 0;
+      text-align: center;
+    }
+    .project-diagram {
+      width: 98%;
+      max-width: 900px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      background: #fff;
     }
     footer {
       text-align: center;
@@ -168,106 +112,66 @@
       color: #fff;
       border-top: 1px solid #eee;
       letter-spacing: 1px;
+      margin-top: 2em;
+    }
+    @media (max-width: 800px) {
+      .container {
+        padding: 1em 0.5em;
+      }
+      .profile-flex {
+        flex-direction: column;
+        gap: 1.8em;
+      }
+      .bio-section {
+        min-width: 0;
+      }
+      .project-diagram {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Dukyong Kim</h1>
-    <p>Research Portfolio</p>
-    <div class="profile-links">
-      <a href="https://www.linkedin.com/in/dukyong-kim-3729a3257" target="_blank">LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=ttgBYggAAAAJ&hl=ko&oi=ao" target="_blank">Google Scholar</a>
-      <a href="https://drive.google.com/file/d/1Eo6kPW1ozjqUOsOBqE0dap626F5C0UkW/view?usp=sharing" target="blank">CV</a>
-    </div>
-  </header>
-  <main>
-    <!-- Profile photo above About Me -->
-    <img src="Research.png" alt="Dukyong Kim profile photo" class="profile-img">
-
-    <section class="about-me-section">
-      <div class="about-me-flex">
-        <img src="Dukyong pic.jpg" alt="Profile Photo" class="about-me-photo">
-        <div class="about-me-text">
-          <h2>About Me</h2>
+  <div class="container">
+    <div class="profile-flex">
+      <img src="Dukyong pic.jpg" alt="Dukyong Kim profile photo" class="profile-img">
+      <div class="bio-section">
+        <div class="profile-name">Dukyong Kim</div>
+        <div class="profile-desc">Data-Driven Design & Advanced Manufacturing</div>
+        <div class="profile-links">
+          <a href="https://scholar.google.com/citations?user=ttgBYggAAAAJ&hl=ko&oi=ao" target="_blank">Google Scholar</a>
+          <a href="https://drive.google.com/file/d/1Eo6kPW1ozjqUOsOBqE0dap626F5C0UkW/view?usp=sharing" target="_blank">Curriculum Vitae</a>
+          <a href="https://www.linkedin.com/in/dukyong-kim-3729a3257" target="_blank">LinkedIn</a>
+        </div>
+        <div class="edu-list">
+          <div><span class="degree">Ph.D.</span> in Mechanical Engineering – Northwestern University (<b>Expected 2030</b>)<br>
+            <span class="advisor">Advisor: [Professor Tao Sun]</span></div>
+          <div><span class="degree">M.S.</span> in Mechanical Engineering – Hanyang University (<b>2025</b>)<br>
+            <span class="advisor">Advisor: [Professor Seung Hwan Lee]</span></div>
+          <div><span class="degree">B.S.</span> in Mechanical Engineering – Hanyang University (<b>2023</b>)<br>
+            
+        </div>
+        <div class="about-me-section">
+          <h2 style="margin-top:0;">About Me</h2>
           <p>
-            Hello everyone. <br>
-            My name is Dukyong Kim, and I am currently pursuing a Ph.D. in Mechanical Engineering at Northwestern University’s Evanston campus. 
-            I was born and raised in Seoul, South Korea, where I earned both my B.S. and M.S. degrees from Hanyang University. 
-            As a passionate enthusiast of automobiles—from Hot Wheels to Formula One—I’ve long been fascinated by the mechanical behavior of cars. 
-            This curiosity led me to delve deeply into mechanical engineering, where I became captivated by the multifunctionality of lasers in manufacturing—not only in the automotive industry but also across aerospace, shipbuilding, and semiconductor sectors. 
-            During my undergraduate studies, I focused on laser-based Additive Manufacturing (AM) processes for my senior research project. Building on that foundation, I expanded my expertise into pulsed laser-induced shock wave testing, commonly known as the Laser Spallation Test, which is highly effective for quantifying the interfacial adhesion properties of thin films. 
-            As I advance through my Ph.D. journey at Northwestern, I aim to collaborate with distinguished researchers and leverage cutting-edge experimental facilities to deepen my understanding of laser–material interactions during AM processes. 
+            Hello everyone.<br>
+            My name is Dukyong Kim, and I am currently pursuing a Ph.D. in Mechanical Engineering at Northwestern University’s Evanston campus.
+            I was born and raised in Seoul, South Korea, where I earned both my B.S. and M.S. degrees from Hanyang University.
+            As a passionate enthusiast of automobiles—from Hot Wheels to Formula One—I’ve long been fascinated by the mechanical behavior of cars.
+            This curiosity led me to delve deeply into mechanical engineering, where I became captivated by the multifunctionality of lasers in manufacturing—not only in the automotive industry but also across advanced sectors.
+            During my undergraduate studies, I focused on laser-based Additive Manufacturing (AM) processes for my senior research project. Building on that foundation, I expanded my expertise into pulsed laser testing and interfacial adhesion analysis for advanced packaging.
+            As I advance through my Ph.D. journey at Northwestern, I aim to collaborate with distinguished researchers and leverage cutting-edge experimental facilities to deepen my understanding of laser-based manufacturing.
             My goal is to identify and mitigate defect formation mechanisms, ultimately contributing to the global advancement and reliability of next-generation manufacturing technologies.
           </p>
         </div>
       </div>
-    </section>
-    <section>
-      <h2>Previous Research Projects</h2>
-      <div class="projects">
-        <div class="project-card">
-          <div class="project-title">
-            <a href="laser-spallation.html">Laser Spallation Test</a>
-          </div>
-          <div class="project-desc">
-            Quantified the thin film's interfacial adhesion strength with aim of enhancing the reliability of Advanced Packaging (AVP) process.
-          </div>
-          <div class="project-links">
-            <a href="#">Detail</a>
-            <a href="#">Paper</a>
-          </div>
-          <div class="project-tags">Pulse laser-induced shock wave test, Laser Interferometry, Multi-sensors</div>
-        </div>
-        <div class="project-card">
-          <div class="project-title">
-            <a href="laser-am.html">Laser Additive Manufacturing (AM) Process</a>
-          </div>
-          <div class="project-desc">
-            Evaluated the deposition quality of IN625 deposited at extreme laser nozzle tilting angles in purpose of enhacing aerospace & shipyard AM industry
-          </div>
-          <div class="project-links">
-            <a href="#">Detail</a>
-            <a href="#">Paper</a>
-          </div>
-          <div class="project-tags">Laser Direct Energy Deposition (L-DED), Specimen preparation, Optical Microscopy (OM) technologies</div>
-        </div>
-        <div class="project-card">
-          <div class="project-title">
-            <a href="physics-informed-ml.html">Physics-informed Machine Learning</a>
-          </div>
-          <div class="project-desc">
-            Prediction of fatigue life of welded joints and remaining useful lifetime of fuel cells by incorporating physical knowledge into ML models
-          </div>
-          <div class="project-links">
-            <a href="#">Detail</a>
-            <a href="#">Paper</a>
-          </div>
-          <div class="project-tags">Gaussian Process Regression (GPR), Deep Neural Network(DNN)</div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:kdy0414@u.northwestern.edu">kdy0414@u.northwestern.edu</a> <br>
-      </p>
-    </section>
-  </main>
+    </div>
+    <div class="project-image-section">
+      <img src="Research.png" alt="Research Project Diagram" class="project-diagram">
+    </div>
+  </div>
   <footer>
-    &copy; 2025 Dukyong414 | Powered by GitHub Pages
+    &copy; 2025 Dukyong Kim | Powered by GitHub Pages
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
