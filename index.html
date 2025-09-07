@@ -2,55 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Dukyong414 | Research Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dukyong Kim's website!</title>
   <style>
     body {
-      font-family: Times new roman, sans-serif;
-      background: #f5f5f5;
+      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      background: #f4f8fb;
+      color: #222;
     }
     header {
-      background: #24292e;
+      background: linear-gradient(90deg, #2a5298 0%, #1e3c72 100%);
       color: #fff;
       padding: 2em 1em;
+      text-align: center;
     }
+    h1 { margin: 0; font-size: 2.5em; }
     main {
+      max-width: 900px;
       margin: 2em auto;
-      max-width: 600px;
+      padding: 1em;
       background: #fff;
-      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0 6px 32px rgba(44,62,80,0.07);
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5em;
+    }
+    .project-card {
+      background: #f9fafc;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1em;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.04);
+      transition: box-shadow 0.2s;
     }
-    a {
-      color: #0366d6;
+    .project-card:hover {
+      box-shadow: 0 8px 24px rgba(44,62,80,0.11);
+    }
+    .project-title {
+      font-size: 1.2em;
+      margin: 0.2em 0;
+      color: #2a5298;
+    }
+    .project-desc {
+      font-size: 0.97em;
+      margin: 0.5em 0 0.7em 0;
+      color: #555;
+    }
+    .project-links a {
+      color: #1e3c72;
       text-decoration: none;
+      margin-right: 1em;
+      font-weight: bold;
     }
-    a:hover {
+    .project-tags {
+      color: #666;
+      font-size: 0.93em;
+    }
+    .profile-links {
+      margin: 1em 0;
+      text-align: center;
+    }
+    .profile-links a {
+      display: inline-block;
+      margin: 0 1em;
+      color: #2a5298;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    .profile-links a:hover {
+      color: #1e3c72;
       text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5em 1em;
+      font-size: 1em;
+      background: #f5f8fb;
+      color: #888;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hello, Mechanical Engineers!</h1>
-    <p>My name is Dukyong Kim </p>
-    <p>This is a website that illustrates my work </p>
+    <h1>Dukyong414</h1>
+    <p>Research Portfolio & Projects Showcase</p>
+    <div class="profile-links">
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME" target="_blank">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=YOUR-SCHOLAR-ID" target="_blank">Google Scholar</a>
+      <a href="https://github.com/dukyong414" target="_blank">GitHub</a>
+    </div>
   </header>
   <main>
-    <h2>About This Site</h2>
-    <p>This is a simple example of an <code>index.html</code> file for your GitHub Pages site.</p>
-    <p>Edit this file to add your own content and style!</p>
-    <hr>
-    <p>View my <a href="https://github.com/dukyong414">GitHub profile</a>.</p>
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Welcome! I am a passionate researcher focused on [Your Research Area]. Here you'll find my projects, publications, and technical work.
+      </p>
+    </section>
+    <section>
+      <h2>Research Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-title">Project Alpha</div>
+          <div class="project-desc">Investigating the application of machine learning in bioinformatics.</div>
+          <div class="project-links">
+            <a href="#">Paper</a>
+            <a href="#">GitHub</a>
+          </div>
+          <div class="project-tags">Python, ML, Bioinformatics</div>
+        </div>
+        <div class="project-card">
+          <div class="project-title">Project Beta</div>
+          <div class="project-desc">A web-based visualization tool for scientific datasets.</div>
+          <div class="project-links">
+            <a href="#">Demo</a>
+            <a href="#">GitHub</a>
+          </div>
+          <div class="project-tags">JavaScript, D3.js, DataViz</div>
+        </div>
+        <!-- Add more projects as needed -->
+      </div>
+    </section>
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:your@email.com">your@email.com</a> <br>
+        GitHub: <a href="https://github.com/dukyong414">dukyong414</a>
+      </p>
+    </section>
   </main>
+  <footer>
+    &copy; 2025 Dukyong414 | Powered by GitHub Pages
+  </footer>
 </body>
-
 </html>
-
-
-
-
