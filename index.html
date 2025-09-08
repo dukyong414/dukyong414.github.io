@@ -107,27 +107,27 @@
       right: 0;
       transform: none;
     }
+    .project-diagram {
+      width: 600px;
+      height: 440px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      background: #fff;
+      display: block;
+      margin: 0 auto;
+      max-width: none;
+      max-height: none;
+    }
+    @media (max-width: 900px), (max-width: 600px) {
       .project-diagram {
-        width: 600px;
-        height: 440px;
-        object-fit: contain;
-        border-radius: 8px;
-        border: 1px solid #eee;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        background: #fff;
-        display: block;
-        margin: 0 auto;
-        max-width: none;
-        max-height: none;
+        width: 600px !important;
+        height: 440px !important;
+        max-width: none !important;
+        max-height: none !important;
       }
-      @media (max-width: 900px), (max-width: 600px) {
-        .project-diagram {
-          width: 600px !important;
-          height: 440px !important;
-          max-width: none !important;
-          max-height: none !important;
-        }
-      }
+    }
     }
     .projects-section {
       margin-top: 2.7em;
@@ -434,6 +434,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
