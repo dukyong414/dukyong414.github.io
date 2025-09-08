@@ -98,16 +98,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100vw;
+      width: 100%;
       position: relative;
-      left: 50%;
-      right: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
+      transform: none;
     }
     .project-diagram {
-      width: 50vw;
-      max-width: 50vw;
-      height: 100vh;
+      /* Fixed size regardless of zoom/viewport */
+      width: 600px;
+      height: 400px;
+      max-width: 600px;
+      max-height: 400px;
       object-fit: contain;
       border-radius: 8px;
       border: 1px solid #eee;
@@ -120,15 +122,11 @@
       margin-top: 2.7em;
     }
     .projects {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 1.5em;
       margin-top: 1.2em;
-    }
-    @media (min-width: 600px) {
-      .projects {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      width: 100%;
     }
     .project-card {
       background: #fafafa;
@@ -136,6 +134,13 @@
       padding: 1em;
       border: 1px solid #eee;
       transition: box-shadow 0.2s;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      /* Ensure equal card size */
+      width: 100%;
     }
     .project-card:hover {
       box-shadow: 0 8px 24px rgba(0,0,0,0.07);
@@ -176,6 +181,14 @@
       font-style: italic;
       margin-top: 0.5em;
     }
+    .project-paper-links {
+      margin-top: 0.4em;
+      font-size: 0.96em;
+    }
+    .project-paper-links span {
+      font-weight: bold;
+      margin-right: 0.5em;
+    }
     footer {
       text-align: center;
       padding: 1.2em 1em;
@@ -198,14 +211,16 @@
         min-width: 0;
       }
       .project-image-section {
-        width: 100vw;
-        left: 50%;
-        right: 50%;
-        transform: translateX(-50%);
+        width: 100%;
+        left: 0;
+        right: 0;
+        transform: none;
       }
       .project-diagram {
+        width: 100vw;
         max-width: 100vw;
-        height: 100vw;
+        height: 60vw;
+        max-height: 60vw;
       }
     }
   </style>
@@ -237,9 +252,9 @@
             My name is Dukyong Kim, and I am currently pursuing a Ph.D. in Mechanical Engineering at Northwestern University’s Evanston campus.
             I was born and raised in Seoul, South Korea, where I earned both my B.S. and M.S. degrees from Hanyang University.
             As a passionate enthusiast of automobiles—from Hot Wheels to Formula One—I’ve long been fascinated by the mechanical behavior of cars.
-            This curiosity led me to delve deeply into mechanical engineering, where I became captivated by the multifunctionality of lasers in manufacturing—not only in the automotive industry but also across aerospace, shipbuilding, and semiconductor sectors.
-            During my undergraduate studies, I focused on laser-based Additive Manufacturing (AM) processes for my senior research project. Building on that foundation, I expanded my expertise into pulsed laser-induced shock wave testing, commonly known as the Laser Spallation Test, which is highly effective for quantifying the interfacial adhesion properties of thin films.
-            As I advance through my Ph.D. journey at Northwestern, I aim to collaborate with distinguished researchers and leverage cutting-edge experimental facilities to deepen my understanding of laser–material interactions during AM processes. My goal is to identify and mitigate defect formation mechanisms, ultimately contributing to the global advancement and reliability of next-generation manufacturing technologies.
+            This curiosity led me to delve deeply into mechanical engineering, where I became captivated by the multifunctionality of lasers in manufacturing—not only in the automotive industry but [...]
+            During my undergraduate studies, I focused on laser-based Additive Manufacturing (AM) processes for my senior research project. Building on that foundation, I expanded my expertise into pu[...]
+            As I advance through my Ph.D. journey at Northwestern, I aim to collaborate with distinguished researchers and leverage cutting-edge experimental facilities to deepen my understanding of l[...]
           </p>
         </div>
       </div>
@@ -266,42 +281,40 @@
             <a href="https://www.sciencedirect.com/science/article/pii/S0306261925000480?dgcid=coauthor" target="_blank">Paper 2</a>
           </div>
           <div class="project-tags">Laser Direct Energy Deposition (L-DED), Specimen preparation, Optical Microscopy (OM) technologies</div>
-    </div>
-    <div class="projects">
-      <div class="project-card">
-        <div class="project-title">
-          <a href="laser-spallation.html">Laser Metal Additive Manufacturing Test</a>
         </div>
-        <div class="project-desc">
-          Quantified the thin film's interfacial adhesion strength with aim of enhancing the reliability of Advanced Packaging (AVP) process.
-        </div>
-        <div class="project-links">
-          <a href="Detail3.html">Detail</a>
-        </div>
-        <div class="project-paper-links">
+        <div class="project-card">
+          <div class="project-title">
+            <a href="laser-spallation.html">Laser Metal Additive Manufacturing Test</a>
+          </div>
+          <div class="project-desc">
+            Quantified the thin film's interfacial adhesion strength with aim of enhancing the reliability of Advanced Packaging (AVP) process.
+          </div>
+          <div class="project-links">
+            <a href="Detail3.html">Detail</a>
+          </div>
+          <div class="project-paper-links">
             <span>Papers:</span>
             <a href="https://www.sciencedirect.com/science/article/pii/S0142112324005036" target="_blank">Paper 1</a>
             <a href="https://www.sciencedirect.com/science/article/pii/S0306261925000480?dgcid=coauthor" target="_blank">Paper 2</a>
           </div>
           <div class="project-tags">Pulse laser-induced shock wave test, Laser Interferometry, Multi-sensors</div>
-    </div>      
-    <div class="projects">
-      <div class="project-card">
-        <div class="project-title">
-          <a href="laser-spallation.html">Physics-informed Machine Learning</a>
         </div>
-        <div class="project-desc">
-          Prediction of fatigue life of welded joints and remaining useful lifetime of fuel cells by incorporating physical knowledge into ML models
-        </div>
-        <div class="project-links">
-          <a href="Detail3.html">Detail</a>
-        </div>
-        <div class="project-paper-links">
+        <div class="project-card">
+          <div class="project-title">
+            <a href="laser-spallation.html">Physics-informed Machine Learning</a>
+          </div>
+          <div class="project-desc">
+            Prediction of fatigue life of welded joints and remaining useful lifetime of fuel cells by incorporating physical knowledge into ML models
+          </div>
+          <div class="project-links">
+            <a href="Detail3.html">Detail</a>
+          </div>
+          <div class="project-paper-links">
             <span>Papers:</span>
             <a href="https://www.sciencedirect.com/science/article/pii/S0142112324005036" target="_blank">Paper 1</a>
             <a href="https://www.sciencedirect.com/science/article/pii/S0306261925000480?dgcid=coauthor" target="_blank">Paper 2</a>
-        </div>
-        <div class="project-tags">Gaussian Process Regression (GPR), Deep Neural Network(DNN)</div>
+          </div>
+          <div class="project-tags">Gaussian Process Regression (GPR), Deep Neural Network(DNN)</div>
         </div>
       </div>
     </div>
@@ -311,5 +324,3 @@
   </footer>
 </body>
 </html>
-
-
