@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Dukyong Kim | Research Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       background: #fafbfc;
       color: #111;
+      /* Prevent horizontal scroll on mobile */
+      overflow-x: hidden;
     }
     .container {
       max-width: 1100px;
@@ -18,6 +20,7 @@
       border-radius: 12px;
       box-shadow: 0 6px 36px rgba(0,0,0,0.04);
       padding: 2em 2em 2.5em 2em;
+      box-sizing: border-box;
     }
     .profile-flex {
       display: flex;
@@ -105,11 +108,10 @@
       transform: none;
     }
     .project-diagram {
-      /* Enlarged size; fixed regardless of zoom/viewport */
       width: 1100px;
       height: 800px;
-      max-width: 1100px;
-      max-height: 800px;
+      max-width: 100%;
+      max-height: 55vw;
       object-fit: contain;
       border-radius: 8px;
       border: 1px solid #eee;
@@ -139,7 +141,6 @@
       flex-direction: column;
       justify-content: space-between;
       box-sizing: border-box;
-      /* Ensure equal card size */
       width: 100%;
     }
     .project-card:hover {
@@ -199,30 +200,111 @@
       letter-spacing: 1px;
       margin-top: 2em;
     }
-    @media (max-width: 800px) {
+    /* Mobile Styles */
+    @media (max-width: 900px) {
       .container {
-        padding: 1em 0.5em;
+        padding: 1em 0.7em;
+        margin: 1em;
+        max-width: 100vw;
       }
       .profile-flex {
         flex-direction: column;
-        gap: 1.8em;
+        gap: 1.4em;
+        align-items: center;
       }
-      .bio-section {
-        min-width: 0;
+      .profile-img {
+        width: 88vw;
+        min-width: 180px;
+        max-width: 320px;
+      }
+      .profile-name {
+        font-size: 2em;
+        text-align: center;
+      }
+      .profile-links {
+        text-align: center;
+      }
+      .about-me-section {
+        font-size: 1em;
+        padding: 1em 0.7em;
       }
       .project-image-section {
-        width: 200%;
-        left: 0;
-        right: 0;
-        transform: none;
+        width: 100vw;
+        margin: 0.7em 0;
       }
       .project-diagram {
-        /* On mobile, keep diagram fixed and slightly larger than before */
-        width: 100vw;
-        max-width: 100vw;
-        height: 70vw;
-        max-height: 70vw;
+        width: 98vw;
+        max-width: 98vw;
+        height: auto;
+        max-height: 53vw;
       }
+      .projects-section {
+        margin-top: 2em;
+      }
+      .project-card {
+        padding: 0.7em;
+        min-height: 0;
+      }
+      .project-title, .project-desc {
+        font-size: 1em;
+      }
+      .project-tags, .project-paper-links {
+        font-size: 0.9em;
+      }
+      footer {
+        font-size: 0.95em;
+        padding: 1em 0.5em;
+      }
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 0.5em 0.3em;
+        margin: 0.5em;
+        border-radius: 0;
+      }
+      .profile-img {
+        width: 95vw;
+        max-width: 95vw;
+        min-width: 120px;
+      }
+      .profile-name {
+        font-size: 1.3em;
+      }
+      .about-me-section {
+        font-size: 0.98em;
+        padding: 0.7em 0.4em;
+      }
+      .project-image-section {
+        margin: 0.7em 0;
+      }
+      .project-diagram {
+        width: 98vw;
+        max-width: 98vw;
+        height: auto;
+        max-height: 50vw;
+      }
+      .projects-section {
+        margin-top: 1.5em;
+      }
+      .project-card {
+        padding: 0.5em;
+        font-size: 0.97em;
+      }
+      .project-title, .project-desc {
+        font-size: 0.98em;
+      }
+      .project-tags, .project-paper-links {
+        font-size: 0.87em;
+      }
+      footer {
+        font-size: 0.89em;
+        padding: 0.8em 0.2em;
+      }
+    }
+    /* Prevent horizontal overflow for all elements */
+    html, body, .container, .project-image-section {
+      max-width: 100vw;
+      overflow-x: hidden;
     }
   </style>
 </head>
@@ -244,7 +326,6 @@
           <div><span class="degree">M.S.</span> in Mechanical Engineering – Hanyang University, Seoul Campus (<b>2025</b>)<br>
             <span class="advisor">Advisor: [Professor Seung Hwan Lee]</span></div>
           <div><span class="degree">B.S.</span> in Mechanical Engineering – Hanyang University, Seoul Campus (<b>2023</b>)<br>
-            
         </div>
         <div class="about-me-section">
           <h2 style="margin-top:0;">About Me</h2>
@@ -287,7 +368,7 @@
             <span>Publications:</span>
             </div>
             <a href="https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163" target="_blank">[Coauthored paper] Virtual and Physical Prototyping | 2025</a>
-            <a href="https://pubs.aip.org/lia/jla/article-abstract/35/2/022025/2878595/Study-on-the-influence-of-processing-variables?redirectedFrom=fulltext" target="_blank">[First-authored paper] Journal of Laser Applications | 2023</a>
+            <a href="https://pubs.aip.org/lia/jla/article-abstract/35/2/022025/2878595/Study-on-the-influence-of-processing-variables?redirectedFrom=fulltext" target="_blank">[First-authored paper] Jo[...]
           <div class="project-tags">Laser Direct Energy Deposition (L-DED), Specimen preparation, Optical Microscopy (OM) technologies</div>
         </div>
         <div class="project-card">
@@ -300,7 +381,7 @@
             thin film are prone to interfacial delamination due to their brittle nature during the AVP process (due to processes such as the dicing process or heat accumulation).
             Therefore, quantitively knowing the interfacial properties of these thin film is required, however conventional contact-type testing methods have limitations due to
             plastic deformation during the jigging process. The only method known to quantitively perform/acquire the thin film's interfacial property is the laser spallation test. 
-            This is because the delamination energy source, which is the shock wave of GPa magnitude that is generated upon the impingment of the pulse laser, minimizes the plastic deformation owing to
+            This is because the delamination energy source, which is the shock wave of GPa magnitude that is generated upon the impingment of the pulse laser, minimizes the plastic deformation owing t[...]
             its high strain rate behavior.
             Based on this previous literature study of the laser spallation test, I co-worked with SK Hynix to build the laser spallation system (consisting of a pulse laser for ablation and
             Michelson interferomter of subnanosecond-time region resolution) for the first time in South Korea. This allowed our reseach team to quantify various thin film material and structure.
@@ -322,7 +403,7 @@
             Even more, many processes also require predictions of the outcome, which can effectively reduce the waste and also decision-making time. 
             That said, the optimization and prediction process can be easily performed by utilizing Machine Learning models. Now however, the trend is to imply some physical meaning into the
             ML models. This is because the black-box type ML model lacks in generalization and also require high-cost experimental data to train the model (not to mention that
-            physics-based model require a heavy load of computation and also time). My contribution of this study in Machine learning was to imply the mechanical/chemical physicys background into the ML model
+            physics-based model require a heavy load of computation and also time). My contribution of this study in Machine learning was to imply the mechanical/chemical physicys background into the [...]
             to predict the fatigue life of welded joints (which are vurnerable to cyclic loads) and also remaining useful lifetime of fuel cells (which faces 
             commercialization issues owing to its short lifespan; although predicting the lifespan fuel cells are not deeply related to the manufacturing process, it can still enlight an idea to 
             other manufacturing sectors.).
@@ -343,15 +424,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
