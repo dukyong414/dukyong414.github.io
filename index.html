@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Dukyong Kim | Research Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       background: #fafbfc;
       color: #111;
-      /* Prevent horizontal scroll on mobile */
       overflow-x: hidden;
     }
     .container {
@@ -21,6 +20,7 @@
       box-shadow: 0 6px 36px rgba(0,0,0,0.04);
       padding: 2em 2em 2.5em 2em;
       box-sizing: border-box;
+      width: 100%;
     }
     .profile-flex {
       display: flex;
@@ -28,6 +28,8 @@
       align-items: flex-start;
       gap: 2.5em;
       flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
     }
     .profile-img {
       width: 320px;
@@ -108,30 +110,34 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
+      width: 100vw;
       position: relative;
       left: 0;
       right: 0;
       transform: none;
       max-width: 100vw;
-      overflow-x: hidden;
+      overflow-x: auto;
+      box-sizing: border-box;
     }
     .project-diagram {
-      width: 1100px;
-      height: 800px;
-      object-fit: contain;
+      width: 100vw;
+      max-width: 100vw;
+      height: auto;
       border-radius: 8px;
       border: 1px solid #eee;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       background: #fff;
       display: block;
       margin: 0 auto;
-      max-width: 100%;
-      max-height: 100%;
-      height: auto;
+      max-height: 800px;
+      box-sizing: border-box;
     }
     .projects-section {
       margin-top: 2.7em;
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
+      overflow-x: hidden;
     }
     .projects {
       display: flex;
@@ -139,6 +145,7 @@
       gap: 1.5em;
       margin-top: 1.2em;
       width: 100%;
+      box-sizing: border-box;
     }
     .project-card {
       background: #fafafa;
@@ -215,19 +222,27 @@
       border-top: 1px solid #eee;
       letter-spacing: 1px;
       margin-top: 2em;
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
     }
 
     /* Mobile Styles */
     @media (max-width: 900px) {
       .container {
-        padding: 1em 0.7em;
-        margin: 1em;
+        padding: 0.5em 0;
+        margin: 0;
         max-width: 100vw;
+        width: 100vw;
+        border-radius: 0;
+        box-sizing: border-box;
       }
       .profile-flex {
         flex-direction: column;
         gap: 1.4em;
         align-items: center;
+        width: 100%;
+        box-sizing: border-box;
       }
       .profile-img {
         width: 88vw;
@@ -248,15 +263,23 @@
       .project-image-section {
         width: 100vw;
         margin: 0.7em 0;
+        padding: 0;
+        overflow-x: auto;
+        box-sizing: border-box;
       }
       .project-diagram {
-        width: 98vw;
-        max-width: 98vw;
+        width: 100vw;
+        max-width: 100vw;
         height: auto;
         max-height: 53vw;
+        margin: 0 auto;
+        box-sizing: border-box;
       }
       .projects-section {
         margin-top: 2em;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
       }
       .project-card {
         padding: 0.7em;
@@ -271,6 +294,9 @@
       footer {
         font-size: 0.95em;
         padding: 1em 0.5em;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
       }
     }
     @media (max-width: 600px) {
@@ -278,9 +304,12 @@
         font-size: 1em;
       }
       .container {
-        padding: 0.5em 0.3em;
-        margin: 0.5em;
+        padding: 0.2em 0;
+        margin: 0;
+        max-width: 100vw;
+        width: 100vw;
         border-radius: 0;
+        box-sizing: border-box;
       }
       .profile-img {
         width: 95vw;
@@ -295,16 +324,25 @@
         padding: 0.7em 0.4em;
       }
       .project-image-section {
+        width: 100vw;
         margin: 0.7em 0;
+        padding: 0;
+        overflow-x: auto;
+        box-sizing: border-box;
       }
       .project-diagram {
-        width: 98vw;
-        max-width: 98vw;
+        width: 100vw;
+        max-width: 100vw;
         height: auto;
         max-height: 50vw;
+        margin: 0 auto;
+        box-sizing: border-box;
       }
       .projects-section {
         margin-top: 1.5em;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
       }
       .project-card {
         padding: 0.5em;
@@ -319,12 +357,17 @@
       footer {
         font-size: 0.89em;
         padding: 0.8em 0.2em;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
       }
     }
     /* Prevent horizontal overflow for all elements */
-    html, body, .container, .project-image-section {
+    html, body, .container, .project-image-section, .projects-section, footer {
       max-width: 100vw;
       overflow-x: hidden;
+      box-sizing: border-box;
+      width: 100vw;
     }
   </style>
 </head>
@@ -402,8 +445,8 @@
             thin film are prone to interfacial delamination due to their brittle nature during the AVP process (due to processes such as the dicing process or heat accumulation).
             Therefore, quantitively knowing the interfacial properties of these thin film is required, however conventional contact-type testing methods have limitations due to
             plastic deformation during the jigging process. The only method known to quantitively perform/acquire the thin film's interfacial property is the laser spallation test. 
-            This is because the delamination energy source, which is the shock wave of GPa magnitude that is generated upon the impingment of the pulse laser, minimizes the plastic deformation owing t[...]
-            its high strain rate behavior.
+            This is because the delamination energy source, which is the shock wave of GPa magnitude that is generated upon the impingment of the pulse laser, minimizes the plastic deformation owing 
+            to its high strain rate behavior.
             Based on this previous literature study of the laser spallation test, I co-worked with SK Hynix to build the laser spallation system (consisting of a pulse laser for ablation and
             Michelson interferomter of subnanosecond-time region resolution) for the first time in South Korea. This allowed our reseach team to quantify various thin film material and structure.
           </div>
@@ -424,8 +467,8 @@
             Even more, many processes also require predictions of the outcome, which can effectively reduce the waste and also decision-making time. 
             That said, the optimization and prediction process can be easily performed by utilizing Machine Learning models. Now however, the trend is to imply some physical meaning into the
             ML models. This is because the black-box type ML model lacks in generalization and also require high-cost experimental data to train the model (not to mention that
-            physics-based model require a heavy load of computation and also time). My contribution of this study in Machine learning was to imply the mechanical/chemical physicys background into the [...]
-            to predict the fatigue life of welded joints (which are vurnerable to cyclic loads) and also remaining useful lifetime of fuel cells (which faces 
+            physics-based model require a heavy load of computation and also time). My contribution of this study in Machine learning was to imply the mechanical/chemical physicys background 
+            into the ML model to predict the fatigue life of welded joints (which are vurnerable to cyclic loads) and also remaining useful lifetime of fuel cells (which faces 
             commercialization issues owing to its short lifespan; although predicting the lifespan fuel cells are not deeply related to the manufacturing process, it can still enlight an idea to 
             other manufacturing sectors.).
           </div>
