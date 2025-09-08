@@ -120,16 +120,16 @@
       box-sizing: border-box;
     }
     .project-diagram {
-      width: 500vw;
-      max-width: 500vw;
-      height: 1500vw;
+      width: 100%;
+      max-width: 650px;   /* reasonable max width for desktop */
+      height: auto;        /* preserves aspect ratio */
       border-radius: 8px;
       border: 1px solid #eee;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
       background: #fff;
       display: block;
       margin: 0 auto;
-      max-height: 800px;
+      max-height: 800px;   /* prevents it from getting too tall */
       box-sizing: border-box;
     }
     .projects-section {
@@ -488,6 +488,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
