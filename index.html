@@ -5,26 +5,22 @@
   <title>Dukyong Kim | Research Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style>
-    html, body {
-      max-width: 100vw;
-      overflow-x: hidden;
-    }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       background: #fafbfc;
       color: #111;
+      /* Prevent horizontal scroll on mobile */
+      overflow-x: hidden;
     }
     .container {
       max-width: 1100px;
-      width: 100vw;
       margin: 2em auto;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 6px 36px rgba(0,0,0,0.04);
       padding: 2em 2em 2.5em 2em;
       box-sizing: border-box;
-      overflow-x: hidden;
     }
     .profile-flex {
       display: flex;
@@ -35,7 +31,7 @@
     }
     .profile-img {
       width: 320px;
-      max-width: 95vw;
+      max-width: 100%;
       height: auto;
       object-fit: cover;
       border-radius: 8px;
@@ -47,7 +43,6 @@
     }
     .bio-section {
       flex: 1 1 400px;
-      min-width: 0;
     }
     .profile-name {
       font-size: 2.7em;
@@ -106,19 +101,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100vw;
-      max-width: 100vw;
+      width: 100%;
       position: relative;
       left: 0;
       right: 0;
       transform: none;
-      overflow-x: hidden;
     }
     .project-diagram {
-      width: 100vw;
-      max-width: 100vw;
-      height: auto;
-      max-height: 60vw;
+      width: 1100px;
+      height: 800px;
+      max-width: 100%;
+      max-height: 55vw;
       object-fit: contain;
       border-radius: 8px;
       border: 1px solid #eee;
@@ -207,34 +200,60 @@
       letter-spacing: 1px;
       margin-top: 2em;
     }
-    @media (max-width: 800px) {
+    /* Mobile Styles */
+    @media (max-width: 900px) {
       .container {
-        padding: 1em 0.5em;
+        padding: 1em 0.7em;
+        margin: 1em;
         max-width: 100vw;
       }
       .profile-flex {
         flex-direction: column;
-        gap: 1.8em;
+        gap: 1.4em;
         align-items: center;
       }
-      .bio-section {
-        min-width: 0;
-      }
       .profile-img {
-        width: 95vw;
-        max-width: 95vw;
+        width: 88vw;
+        min-width: 180px;
+        max-width: 320px;
+      }
+      .profile-name {
+        font-size: 2em;
+        text-align: center;
+      }
+      .profile-links {
+        text-align: center;
+      }
+      .about-me-section {
+        font-size: 1em;
+        padding: 1em 0.7em;
       }
       .project-image-section {
         width: 100vw;
-        left: 0;
-        right: 0;
-        transform: none;
+        margin: 0.7em 0;
       }
       .project-diagram {
         width: 98vw;
         max-width: 98vw;
         height: auto;
-        max-height: 60vw;
+        max-height: 53vw;
+      }
+      .projects-section {
+        margin-top: 2em;
+      }
+      .project-card {
+        padding: 0.7em;
+        min-height: 0;
+      }
+      .project-title, .project-desc {
+        font-size: 1em;
+      }
+      .project-tags, .project-paper-links {
+        font-size: 0.9em;
+      }
+      footer {
+        font-size: 0.95em;
+        padding: 1em 0.5em;
       }
     }
     @media (max-width: 600px) {
@@ -242,11 +261,10 @@
         padding: 0.5em 0.3em;
         margin: 0.5em;
         border-radius: 0;
-        max-width: 100vw;
       }
       .profile-img {
-        width: 98vw;
-        max-width: 98vw;
+        width: 95vw;
+        max-width: 95vw;
         min-width: 120px;
       }
       .profile-name {
@@ -258,7 +276,6 @@
       }
       .project-image-section {
         margin: 0.7em 0;
-        width: 100vw;
       }
       .project-diagram {
         width: 98vw;
@@ -284,8 +301,12 @@
         padding: 0.8em 0.2em;
       }
     }
+    /* Prevent horizontal overflow for all elements */
+    html, body, .container, .project-image-section {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
   </style>
-
 </head>
 <body>
   <div class="container">
