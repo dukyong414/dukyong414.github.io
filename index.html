@@ -95,11 +95,20 @@
     }
     .project-image-section {
       margin: 2.5em 0 0.8em 0;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      transform: translateX(-50%);
     }
     .project-diagram {
-      width: 100%;
-      max-width: 950px;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
+      object-fit: contain;
       border-radius: 8px;
       border: 1px solid #eee;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -188,8 +197,15 @@
       .bio-section {
         min-width: 0;
       }
+      .project-image-section {
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+      }
       .project-diagram {
-        max-width: 100%;
+        max-width: 100vw;
+        height: 100vw;
       }
     }
   </style>
@@ -221,9 +237,9 @@
             My name is Dukyong Kim, and I am currently pursuing a Ph.D. in Mechanical Engineering at Northwestern University’s Evanston campus.
             I was born and raised in Seoul, South Korea, where I earned both my B.S. and M.S. degrees from Hanyang University.
             As a passionate enthusiast of automobiles—from Hot Wheels to Formula One—I’ve long been fascinated by the mechanical behavior of cars.
-            This curiosity led me to delve deeply into mechanical engineering, where I became captivated by the multifunctionality of lasers in manufacturing—not only in the automotive industry but also across advanced sectors.
-            During my undergraduate studies, I focused on laser-based Additive Manufacturing (AM) processes for my senior research project. Building on that foundation, I expanded my expertise into pulsed laser testing and interfacial adhesion analysis for advanced packaging.
-            As I advance through my Ph.D. journey at Northwestern, I aim to collaborate with distinguished researchers and leverage cutting-edge experimental facilities to deepen my understanding of laser-based manufacturing.
+            This curiosity led me to delve deeply into mechanical engineering, where I became captivated by the multifunctionality of lasers in manufacturing—not only in the automotive industry but [...]
+            During my undergraduate studies, I focused on laser-based Additive Manufacturing (AM) processes for my senior research project. Building on that foundation, I expanded my expertise into pu[...]
+            As I advance through my Ph.D. journey at Northwestern, I aim to collaborate with distinguished researchers and leverage cutting-edge experimental facilities to deepen my understanding of l[...]
             My goal is to identify and mitigate defect formation mechanisms, ultimately contributing to the global advancement and reliability of next-generation manufacturing technologies.
           </p>
         </div>
@@ -282,5 +298,3 @@
   </footer>
 </body>
 </html>
-
-
