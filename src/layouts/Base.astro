@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import type { SiteContent } from "../data/types";
+
+interface Props {
+  content: SiteContent;
+}
+const { content } = Astro.props;
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Dukyong Kim",
+  alternateName: "김덕용",
+  jobTitle: "Ph.D. Student",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: "Northwestern University",
+    department: "Department of Mechanical Engineering",
+    url: "https://fast-am.mech.northwestern.edu/",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Hanyang University",
+  },
+  knowsLanguage: ["Korean", "English", "Japanese"],
+  sameAs: content.contact.links.map((link) => link.href),
+};
+---
+
+<!doctype html>
+<html lang={content.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{content.meta.title}</title>
+    <meta name="description" content={content.meta.description} />
+    <meta name="author" content="Dukyong Kim" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="en" href="/" />
+    <link rel="alternate" hreflang="ko" href="/ko/" />
+    <meta property="og:title" content={content.meta.title} />
+    <meta property="og:description" content={content.meta.description} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="/images/portrait.jpg" />
+    <meta property="og:locale" content={content.lang === "ko" ? "ko_KR" : "en_US"} />
+    <script is:inline>
+      (function () {
+        try {
+          var page = document.documentElement.getAttribute("lang");
+          var stored = localStorage.getItem("lang");
+          if (stored && stored !== page) {
+            location.replace((stored === "ko" ? "/ko/" : "/") + location.hash);
+            return;
+          }
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark") {
+            t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          }
+          document.documentElement.dataset.theme = t;
+          document.documentElement.classList.add("js");
+        } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import "../scripts/site.ts";
+    </script>
+  </body>
+</html>

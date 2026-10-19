@@ -1,0 +1,471 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "./Icon.astro";
+import type { SiteContent } from "../data/types";
+
+interface Props {
+  content: SiteContent;
+}
+const { content: c } = Astro.props;
+const pubs = c.publications.items;
+const journalCount = pubs.filter((item) => item.kind === "journal").length;
+const conferenceCount = pubs.length - journalCount;
+const presentingCount = c.talks.items.filter((item) => item.role !== "coauthor").length;
+const coauthorCount = c.talks.items.length - presentingCount;
+---
+
+<Base content={c}>
+  <a class="skip" href="#main">{c.ui.skip}</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href={c.home}>Dukyong Kim</a>
+      <nav class="nav-scroll" aria-label={c.lang === "ko" ? "섹션" : "Sections"}>
+        {c.nav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+      <div class="tools">
+        <div class="lang" role="group" aria-label={c.ui.language}>
+          <a href="/" hreflang="en" data-set-lang="en" aria-current={c.lang === "en" ? "page" : undefined}>EN</a>
+          <a href="/ko/" hreflang="ko" data-set-lang="ko" aria-current={c.lang === "ko" ? "page" : undefined}>한국어</a>
+        </div>
+        <button
+          class="icon-btn"
+          type="button"
+          data-theme-toggle
+          data-label-light={c.ui.themeToLight}
+          data-label-dark={c.ui.themeToDark}
+          aria-label={c.ui.themeToDark}
+        >
+          <span class="icon-sun"><Icon name="sun" /></span>
+          <span class="icon-moon"><Icon name="moon" /></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <section class="hero" id="top">
+        <div class="hero-row">
+          <div class="hero-copy">
+            <p class="eyebrow">{c.hero.eyebrow}</p>
+            <h1>{c.hero.name}</h1>
+            <p class="alt-name">{c.hero.altName}</p>
+            <p class="role">{c.hero.role}</p>
+            <p class="lede">{c.hero.lede}</p>
+            <p class="affiliation">
+              <a href={c.hero.affiliationHref} target="_blank" rel="noopener noreferrer">{c.hero.affiliation}</a>
+              <span> · </span>
+              <a href={c.hero.piHref} target="_blank" rel="noopener noreferrer">{c.hero.pi}</a>
+            </p>
+            <div class="hero-links">
+              {c.hero.links.map((link, index) => (
+                <a class:list={["pill", index === 0 && "primary"]} href={link.href} target="_blank" rel="noopener noreferrer">
+                  <Icon name={link.label.toLowerCase().includes("scholar") ? "scholar" : link.label.toLowerCase().includes("orcid") ? "orcid" : link.label.toLowerCase().includes("linkedin") ? "linkedin" : "github"} />
+                  {link.label}
+                  <span class="sr-only">({c.ui.external})</span>
+                </a>
+              ))}
+              <a class="pill" href="/cv/Dukyong-Kim-CV.pdf">
+                <Icon name="download" />
+                {c.ui.downloadCv}
+              </a>
+            </div>
+          </div>
+          <figure class="hero-photo">
+            <picture>
+              <source srcset="/images/portrait.avif" type="image/avif" />
+              <source srcset="/images/portrait.webp" type="image/webp" />
+              <img
+                src="/images/portrait.jpg"
+                width="2400"
+                height="1655"
+                alt={c.media.portraitAlt}
+              />
+            </picture>
+            <figcaption class="portrait-cap">{c.media.portraitCaption}</figcaption>
+          </figure>
+        </div>
+        <ul class="facts">
+            {c.hero.facts.map((fact) => (
+              <li>
+                {fact.href ? (
+                  <a href={fact.href} target="_blank" rel="noopener noreferrer">
+                    <strong>{fact.value}</strong>
+                    <span>{fact.label}</span>
+                  </a>
+                ) : (
+                  <div class="fact">
+                    <strong>{fact.value}</strong>
+                    <span>{fact.label}</span>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+      </section>
+
+      <section class="section reveal" id="about">
+        <header class="section-head">
+          <h2>{c.about.title}</h2>
+          <p class="dek">{c.about.dek}</p>
+        </header>
+        <div class="about-grid">
+          <div class="prose">
+            {c.about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+          <figure>
+            <img class="frame campus" src="/images/campus.jpg" width="2000" height="1125" alt={c.media.campusAlt} />
+            <figcaption>{c.media.campusCaption}</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section reveal" id="research">
+        <header class="section-head">
+          <h2>{c.research.title}</h2>
+          <p class="dek">{c.research.dek}</p>
+        </header>
+        <div class="kicker-row">
+          <p>{c.ui.keywords}</p>
+        </div>
+        <ul class="chips">
+          {c.research.keywords.map((word) => <li>{word}</li>)}
+        </ul>
+        <div class="cards">
+          {c.research.cards.map((card) => (
+            <article class="card">
+              <p class="badge">{card.kicker}</p>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul class="tags">
+                {card.tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+              <div class="card-links">
+                {card.links.map((link) => (
+                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                    <span class="sr-only"> ({c.ui.external})</span>
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="mosaic">
+          <figure class="span">
+            <img class="frame" src="/images/research-overview.jpg" width="1259" height="874" alt={c.media.overviewAlt} />
+            <figcaption>{c.media.overviewCaption}</figcaption>
+          </figure>
+          <figure>
+            <img class="frame" src="/images/spallation-system.jpg" width="900" height="704" alt={c.media.spallationAlt} />
+            <figcaption>{c.media.spallationCaption}</figcaption>
+          </figure>
+          <figure>
+            <img class="frame lab-photo" src="/images/lab.jpg" width="1400" height="1867" alt={c.media.labAlt} />
+            <figcaption>{c.media.labCaption}</figcaption>
+          </figure>
+        </div>
+        <figure class="strip">
+          <img src="/images/lmd-diagram.jpg" width="900" height="191" alt={c.media.lmdAlt} />
+          <figcaption>{c.media.lmdCaption}</figcaption>
+        </figure>
+
+        <h3 class="subhead">{c.research.experienceTitle}</h3>
+        <p class="dek">{c.research.experienceDek}</p>
+        <div class="periods">
+          {c.research.periods.map((period) => (
+            <article class="period">
+              <header>
+                <strong>{period.where}</strong>
+                <span class="when">{period.when}</span>
+              </header>
+              <ul>
+                {period.points.map((point) => <li>{point}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <h3 class="subhead">{c.research.beamtimeTitle}</h3>
+        <p class="dek">{c.research.beamtimeDek}</p>
+        <ol class="beam-list">
+          {c.research.beamtimes.map((item) => (
+            <li class="beam-item">
+              <a href={`https://doi.org/${item.doi}`} target="_blank" rel="noopener noreferrer">{item.title}</a>
+              <span class="when">{item.date} · {item.doi}</span>
+            </li>
+          ))}
+        </ol>
+
+        <h3 class="subhead">{c.research.projectsTitle}</h3>
+        <p class="dek">{c.research.projectsDek}</p>
+        <ul class="projects">
+          {c.research.projects.map((project) => <li class="project">{project}</li>)}
+        </ul>
+
+        <div class="lab-grid" id="lab">
+          <article class="lab-card">
+            <p class="badge">{c.lang === "ko" ? "현재" : "Current"}</p>
+            <h3>{c.lab.name}</h3>
+            <p class="pi">{c.lab.pi}</p>
+            <p class="place">{c.lab.place}</p>
+            <p>{c.lab.summary}</p>
+            <p class="badge">{c.ui.labApproaches}</p>
+            <ul class="approach">
+              {c.lab.approaches.map((item) => <li>{item}</li>)}
+            </ul>
+            <p><a href={c.lab.url} target="_blank" rel="noopener noreferrer">{c.lab.urlLabel}</a></p>
+            <p class="note">{c.ui.labAttribution}</p>
+          </article>
+          <article class="lab-card past">
+            <p class="badge">{c.lang === "ko" ? "석사과정" : "Master’s"}</p>
+            <h3>{c.pastLab.name}</h3>
+            <p class="pi">{c.pastLab.pi}</p>
+            <p class="place">{c.pastLab.place}</p>
+            <p>{c.pastLab.summary}</p>
+            <p><a href={c.pastLab.url} target="_blank" rel="noopener noreferrer">{c.pastLab.urlLabel}</a></p>
+            <p class="note">{c.ui.pastLabAttribution}</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="publications">
+        <header class="section-head">
+          <h2>{c.publications.title}</h2>
+          <p class="dek">{c.publications.dek}</p>
+        </header>
+        <div class="toolbar">
+          <div class="filters" role="group" aria-label={c.ui.pubFilters} data-filter-group="#pub-list">
+            <button type="button" data-filter="all" aria-pressed="true">{c.ui.all} ({pubs.length})</button>
+            <button type="button" data-filter="journal" aria-pressed="false">{c.ui.journal} ({journalCount})</button>
+            <button type="button" data-filter="conference" aria-pressed="false">{c.ui.conference} ({conferenceCount})</button>
+          </div>
+          <a class="pill primary" href={c.hero.links[0].href} target="_blank" rel="noopener noreferrer">
+            <Icon name="scholar" />
+            {c.ui.scholarCta}
+          </a>
+        </div>
+        <ol class="pubs" id="pub-list">
+          {pubs.map((pub) => (
+            <li class="pub" id={pub.id} data-kind={pub.kind}>
+              <div>
+                <p class="meta-line">
+                  <span>{c.ui.role[pub.role]}</span>
+                  <span class="when">{pub.year}</span>
+                </p>
+                {pub.authors.length > 0 && (
+                  <p class="authors">
+                    {pub.authors.map((author, authorIndex) => (
+                      <span>
+                        {authorIndex > 0 && ", "}
+                        {author.name === "Dukyong Kim" ? <strong>{author.name}</strong> : author.name}
+                        {author.equal && <sup>†</sup>}
+                        {author.corresponding && <sup>*</sup>}
+                      </span>
+                    ))}
+                  </p>
+                )}
+                <h3 class="pub-title">{pub.title}</h3>
+                <p class="venue">{pub.venue}</p>
+                {pub.detail && <p class="detail">{pub.detail}</p>}
+                <p class="pub-links">
+                  <a href={pub.href} target="_blank" rel="noopener noreferrer">{c.ui.article}</a>
+                  {pub.doi && (
+                    <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer">{c.ui.doi}</a>
+                  )}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <p class="legend">{c.ui.equal} · {c.ui.corresponding}</p>
+      </section>
+
+      <section class="section reveal" id="talks">
+        <header class="section-head">
+          <h2>{c.talks.title}</h2>
+          <p class="dek">{c.talks.dek}</p>
+        </header>
+        <h3 class="subhead">{c.talks.videosTitle}</h3>
+        <p class="dek">{c.talks.videosDek}</p>
+        <div class="videos">
+          {c.talks.videos.map((video) => (
+            <article class="video">
+              <div class="video-frame">
+                <button type="button" data-youtube={video.youtubeId} data-title={video.title}>
+                  <img
+                    src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                    alt=""
+                    width="480"
+                    height="360"
+                    loading="lazy"
+                  />
+                  <span class="play-btn"><Icon name="play" /></span>
+                  <span class="sr-only">{c.ui.play}: {video.title}</span>
+                </button>
+              </div>
+              <h3>{video.title}</h3>
+              <p>{video.detail}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="toolbar" style="margin-top:1.6rem">
+          <div class="filters" role="group" aria-label={c.ui.talksFilters} data-filter-group="#talk-list">
+            <button type="button" data-filter="all" aria-pressed="true">{c.ui.all} ({c.talks.items.length})</button>
+            <button type="button" data-filter="presenting" aria-pressed="false">{c.ui.presenting} ({presentingCount})</button>
+            <button type="button" data-filter="coauthor" aria-pressed="false">{c.ui.coauthor} ({coauthorCount})</button>
+          </div>
+        </div>
+        <ol class="talks" id="talk-list">
+          {c.talks.items.map((talk) => (
+            <li class="talk" id={talk.id} data-kind={talk.role}>
+              <div>
+                <p class="meta-line">
+                  <span>{c.ui.role[talk.role]}</span>
+                  <span class="when">{talk.date}</span>
+                </p>
+                <h3 class="talk-title">{talk.title}</h3>
+                <p class="venue">{talk.event}</p>
+                {talk.youtubeId && (
+                  <div class="video-frame talk-video">
+                    <button type="button" data-youtube={talk.youtubeId} data-title={talk.title}>
+                      <img
+                        src={`https://i.ytimg.com/vi/${talk.youtubeId}/hqdefault.jpg`}
+                        alt=""
+                        width="480"
+                        height="360"
+                        loading="lazy"
+                      />
+                      <span class="play-btn"><Icon name="play" /></span>
+                      <span class="sr-only">{c.ui.play}: {talk.title}</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section reveal" id="awards">
+        <header class="section-head">
+          <h2>{c.awards.title}</h2>
+          <p class="dek">{c.awards.dek}</p>
+        </header>
+        <article class="feature">
+          <h3>{c.awards.fellowship.title}</h3>
+          <p class="meta">{c.awards.fellowship.meta}</p>
+          {c.awards.fellowship.detail && <p>{c.awards.fellowship.detail}</p>}
+        </article>
+        <div class="split">
+          <div>
+            <h3>{c.awards.scholarshipsTitle}</h3>
+            <ul class="scholarships">
+              {c.awards.scholarships.map((item) => (
+                <li class="award-row">
+                  <strong>{item.title}</strong>
+                  <div class="meta">{item.meta}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>{c.awards.awardsTitle}</h3>
+            <ul class="scholarships">
+              {c.awards.items.map((item) => (
+                <li class="award-row">
+                  <strong>{item.title}</strong>
+                  <div class="meta">{item.meta}</div>
+                </li>
+              ))}
+            </ul>
+            <h3 style="margin-top:1.4rem">{c.awards.activitiesTitle}</h3>
+            <ul class="activities">
+              {c.awards.activities.map((item) => <li class="project">{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="experience">
+        <header class="section-head">
+          <h2>{c.timeline.title}</h2>
+          <p class="dek">{c.timeline.dek}</p>
+        </header>
+        <ol class="tl">
+          {c.timeline.items.map((item) => (
+            <li class="tl-item">
+              <div class="tl-top">
+                <span class="badge">{c.ui.kind[item.kind]}</span>
+                <span class="when">{item.dates}{item.place ? ` · ${item.place}` : ""}</span>
+              </div>
+              <h3>{item.title}</h3>
+              <p class="org">
+                {item.orgUrl ? (
+                  <a href={item.orgUrl} target="_blank" rel="noopener noreferrer">{item.org}</a>
+                ) : item.org}
+              </p>
+              {item.points.length > 0 && (
+                <ul>
+                  {item.points.map((point) => <li>{point}</li>)}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="section reveal" id="skills">
+        <header class="section-head">
+          <h2>{c.skills.title}</h2>
+          <p class="dek">{c.skills.dek}</p>
+        </header>
+        <div class="skill-grid">
+          {c.skills.groups.map((group) => (
+            <article>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section reveal" id="contact">
+        <header class="section-head">
+          <h2>{c.contact.title}</h2>
+          <p class="dek">{c.contact.dek}</p>
+        </header>
+        <div class="contact-panel">
+          <div class="prose">
+            {c.contact.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            <div class="contact-links">
+              {c.contact.links.map((link) => (
+                <a class="pill" href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+              ))}
+            </div>
+          </div>
+          <div class="cv-actions">
+            <a href="/cv/Dukyong-Kim-CV.pdf"><Icon name="download" /> {c.ui.cvPdf}</a>
+            <a href="/cv/Dukyong-Kim-CV.docx"><Icon name="download" /> {c.ui.cvDocx}</a>
+            <p class="note">{c.contact.cvNote}</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>{c.footer}</span>
+        <span>
+          <a href={c.lab.url} target="_blank" rel="noopener noreferrer">{c.lab.name}</a>
+          {" · "}
+          <a href={c.pastLab.url} target="_blank" rel="noopener noreferrer">{c.pastLab.name}</a>
+        </span>
+      </footer>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,19 @@
+{
+  "name": "dukyong-kim",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0 --port 43123",
+    "build": "node scripts/check-content.mjs && astro build",
+    "preview": "astro preview --host 0.0.0.0 --port 43123",
+    "check": "node scripts/check-content.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.4.0"
+  }
+}

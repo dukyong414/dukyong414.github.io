@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found · Dukyong Kim</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t !== "light" && t !== "dark") {
+            t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          }
+          document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="wrap missing">
+      <p class="eyebrow">404</p>
+      <h1>This page is not on the site.</h1>
+      <p>이 주소에는 페이지가 없습니다.</p>
+      <p><a href="/">English</a> · <a href="/ko/">한국어</a></p>
+    </main>
+  </body>
+</html>
