@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Site editor</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="stylesheet" href="/editor.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <div class="bar-title">
+        <p class="mark" id="product">Site editor</p>
+        <p class="who">Dukyong Kim</p>
+      </div>
+      <div class="bar-actions">
+        <p class="state" id="state"></p>
+        <div class="lang" role="group" aria-label="Editor language">
+          <button type="button" id="lang-en" class="btn tiny">EN</button>
+          <button type="button" id="lang-ko" class="btn tiny">한글</button>
+        </div>
+        <button type="button" id="preview" class="btn"></button>
+        <button type="button" id="publish" class="btn"></button>
+        <button type="button" id="save" class="btn primary"></button>
+      </div>
+    </header>
+    <div class="layout">
+      <nav id="nav" class="side"></nav>
+      <main id="main"></main>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+    <div id="modal" class="modal-back" hidden></div>
+    <script src="/editor.js"></script>
+  </body>
+</html>

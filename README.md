@@ -2,7 +2,13 @@
 
 Personal academic site for Dukyong Kim, Ph.D. student in mechanical engineering at Northwestern University (Fast-AM Laboratory, Professor Tao Sun). English and Korean. Static files, so it can be hosted later without a server.
 
-This copy is private. Do not deploy it and do not publish it to GitHub Pages until he decides to.
+The site is published at <https://dukyong414.github.io/>.
+
+To change the words, photos, or CV without editing code, use the local editor. Step-by-step instructions in Korean and English are in [EDITOR.md](EDITOR.md).
+
+```bash
+python editor.py
+```
 
 ## Preview
 
@@ -23,7 +29,7 @@ npm run preview # serves dist/ on the same port
 
 ## Edit the words
 
-All visible copy lives in two files:
+The editor in [EDITOR.md](EDITOR.md) writes these files for you. If you edit them by hand, all visible copy lives in two files:
 
 - `src/data/en.json` — English
 - `src/data/ko.json` — Korean
