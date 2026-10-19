@@ -1,0 +1,944 @@
+{
+  "lang": "en",
+  "home": "/",
+  "meta": {
+    "title": "Dukyong Kim · Mechanical Engineering, Northwestern University",
+    "description": "Ph.D. student in mechanical engineering at Northwestern University. Fast-AM Laboratory with Professor Tao Sun: operando synchrotron x-ray imaging, laser additive manufacturing, and the open-source software SMAXI."
+  },
+  "nav": [
+    {
+      "href": "#about",
+      "label": "About"
+    },
+    {
+      "href": "#research",
+      "label": "Research"
+    },
+    {
+      "href": "#publications",
+      "label": "Publications"
+    },
+    {
+      "href": "#talks",
+      "label": "Talks"
+    },
+    {
+      "href": "#awards",
+      "label": "Awards"
+    },
+    {
+      "href": "#experience",
+      "label": "Experience"
+    },
+    {
+      "href": "#skills",
+      "label": "Skills"
+    },
+    {
+      "href": "#contact",
+      "label": "Contact"
+    }
+  ],
+  "ui": {
+    "skip": "Skip to content",
+    "themeToLight": "Switch to light mode",
+    "themeToDark": "Switch to dark mode",
+    "language": "Language",
+    "downloadCv": "CV",
+    "cvPdf": "Download CV (PDF)",
+    "cvDocx": "Download CV (Word)",
+    "all": "All",
+    "journal": "Journal articles",
+    "conference": "Conference papers",
+    "presenting": "Presenting",
+    "coauthor": "Co-author",
+    "article": "Article",
+    "doi": "DOI",
+    "play": "Play video",
+    "equal": "† equally contributed",
+    "corresponding": "* corresponding author",
+    "role": {
+      "first": "First author",
+      "coauthor": "Co-author",
+      "oral": "Presenting author, oral",
+      "poster": "Presenting author, poster"
+    },
+    "kind": {
+      "education": "Education",
+      "employment": "Employment",
+      "teaching": "Teaching",
+      "service": "Service"
+    },
+    "keywords": "Keywords",
+    "beamtimeLabel": "APS proposal",
+    "labApproaches": "Approaches listed by the lab",
+    "labAttribution": "Short description drawn from the public Fast-AM Laboratory website.",
+    "pastLabAttribution": "Short description drawn from the public Smart Manufacturing Laboratory website.",
+    "scholarCta": "Google Scholar profile",
+    "talksFilters": "Filter talks",
+    "pubFilters": "Filter publications",
+    "external": "Opens in a new tab"
+  },
+  "hero": {
+    "eyebrow": "Ph.D. student · Mechanical Engineering",
+    "name": "Dukyong Kim",
+    "altName": "김덕용",
+    "role": "Fast-AM Laboratory · Advisor Professor Tao Sun",
+    "lede": "I study multi-element stranded wire laser directed energy deposition (L-DED) at Northwestern University, using operando synchrotron x-ray imaging and open-source analysis software to see how defects form.",
+    "affiliation": "Fast-AM Laboratory, Department of Mechanical Engineering, Northwestern University",
+    "affiliationHref": "https://fast-am.mech.northwestern.edu/",
+    "pi": "Professor Tao Sun",
+    "piHref": "https://fast-am.mech.northwestern.edu/",
+    "facts": [
+      {
+        "value": "Fast-AM",
+        "label": "Northwestern · Prof. Tao Sun",
+        "href": "https://fast-am.mech.northwestern.edu/"
+      },
+      {
+        "value": "PS&ED",
+        "label": "Cluster Fellow, 2026–2027"
+      },
+      {
+        "value": "APS",
+        "label": "Advanced Photon Source (APS), Argonne National Laboratory"
+      }
+    ],
+    "links": [
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=6eHbSF8AAAAJ&hl=en&oi=ao"
+      },
+      {
+        "label": "ORCID",
+        "href": "https://orcid.org/0000-0002-5665-8317"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/dukyong-kim-3729a3257/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/dukyong414"
+      }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "dek": "Seoul, then Evanston. Lasers, thin films, and the images of a melt pool.",
+    "paragraphs": [
+      "I am a Ph.D. student in the Department of Mechanical Engineering at Northwestern University, in the Fast-AM Laboratory with Professor Tao Sun. I am also a visiting graduate student in the XSD-IMG group at the Advanced Photon Source (APS), Argonne National Laboratory.",
+      "I was born and raised in Seoul. I earned a B.S. in mechanical engineering at Hanyang University, Summa Cum Laude, and an M.S. in mechanical convergence engineering there, in the Smart Manufacturing Laboratory with Professor Seung Hwan Lee. An interest in automobiles — from Hot Wheels to Formula One — brought me into mechanical engineering. Lasers held me there: a manufacturing tool in the automotive, aerospace, shipbuilding, and semiconductor industries.",
+      "As an undergraduate I studied multi-axis laser metal deposition, and how nozzle tilt and substrate inclination change the quality of Inconel 625. In the master’s I contributed to South Korea’s first laser spallation system, a pulsed-laser shock-wave method for the adhesion of thin films, and I worked on physics-informed machine learning for fatigue life and for proton-exchange membrane fuel cells.",
+      "The doctorate is about laser–material interaction and defect formation in additive manufacturing, watched with operando synchrotron x-ray imaging, including multi-element stranded wire laser directed energy deposition (L-DED). Part of that work is SMAXI, open-source software for full-field x-ray images. I am a Predictive Science and Engineering Design (PS&ED) Cluster Fellow for 2026–2027."
+    ]
+  },
+  "media": {
+    "portraitAlt": "Dukyong Kim smiling in front of Buckingham Fountain, with the Chicago skyline behind him.",
+    "portraitCaption": "Chicago",
+    "campusAlt": "Brick university buildings and a lawn at Northwestern University in Evanston.",
+    "campusCaption": "Northwestern University, Evanston.",
+    "labAlt": "Dukyong Kim in a white lab coat and hairnet, standing in a laboratory.",
+    "labCaption": "In the lab.",
+    "overviewAlt": "Collage of research figures covering multi-axis laser deposition, copper thin films, a laser spallation layout, and machine-learning models for fatigue and fuel cells.",
+    "overviewCaption": "Research themes carried from Hanyang to Northwestern: multi-axis laser metal deposition, laser spallation, and physics-informed learning.",
+    "spallationAlt": "Optical table with a laser spallation setup: a laser head, mirrors, lenses, and a sample stage.",
+    "spallationCaption": "Laser spallation system for thin-film adhesion, built during the Hanyang master’s.",
+    "lmdAlt": "Diagram of multi-axis laser metal deposition with nozzle angle alpha and substrate inclination beta.",
+    "lmdCaption": "Multi-axis laser metal deposition: nozzle angle and substrate inclination."
+  },
+  "research": {
+    "title": "Research",
+    "dek": "Operando x-ray imaging of laser additive manufacturing, the software that reads those images, and earlier work on thin-film adhesion and physics-informed prediction.",
+    "keywords": [
+      "Metal additive manufacturing",
+      "Synchrotron x-ray imaging",
+      "Machine learning",
+      "Software development",
+      "Laser spallation"
+    ],
+    "cards": [
+      {
+        "id": "xray",
+        "kicker": "Synchrotron imaging",
+        "title": "Operando imaging of multi-element stranded wire laser directed energy deposition (L-DED)",
+        "body": "With the Advanced Photon Source (APS), Argonne National Laboratory, in Lemont, I use high-speed synchrotron x-ray imaging to watch multi-element stranded wire laser directed energy deposition (L-DED) while it runs. The experiments sit with the Fast-AM Laboratory’s work on energy–matter interaction and how defects are generated.",
+        "tags": [
+          "L-DED",
+          "Synchrotron x-ray",
+          "Multi-element stranded wire"
+        ],
+        "links": [
+          {
+            "label": "Fast-AM Laboratory",
+            "href": "https://fast-am.mech.northwestern.edu/"
+          }
+        ]
+      },
+      {
+        "id": "smaxi",
+        "kicker": "Open-source software",
+        "title": "SMAXI",
+        "body": "SMAXI is open-source software for multidimensional full-field x-ray image analysis. It brings in current machine-learning models for object annotation and tracking. Professor Tao Sun and I are corresponding authors on the Journal of Synchrotron Radiation paper.",
+        "tags": [
+          "Machine learning",
+          "X-ray imaging",
+          "Open source"
+        ],
+        "links": [
+          {
+            "label": "Source code",
+            "href": "https://github.com/dukyong414/SMAXI"
+          },
+          {
+            "label": "Paper",
+            "href": "https://journals.iucr.org/s/issues/2026/05/00/tv5094/index.html"
+          }
+        ]
+      },
+      {
+        "id": "spallation",
+        "kicker": "Thin films",
+        "title": "Laser spallation",
+        "body": "Laser spallation is a pulsed-laser shock-wave test for the interfacial adhesion of thin films. Peel and stud-pull tests grip the film and mix plastic deformation into the number; the shock wave does not. During my master’s at Hanyang I contributed to South Korea’s first laser spallation system — pulsed-laser optics and a Michelson interferometer — in work that included packaging reliability with SK Hynix. The thesis measured LPCVD silicon nitride and copper (UCI: I804:11062-200000826436).",
+        "tags": [
+          "Laser spallation",
+          "Thin films",
+          "Interferometry"
+        ],
+        "links": [
+          {
+            "label": "Applied Surface Science Advances",
+            "href": "https://www.sciencedirect.com/science/article/pii/S2666523925000911"
+          },
+          {
+            "label": "IEEE ECTC",
+            "href": "https://ieeexplore.ieee.org/abstract/document/10565166"
+          },
+          {
+            "label": "Smart Manufacturing Lab",
+            "href": "https://smlab.hanyang.ac.kr/home"
+          }
+        ]
+      },
+      {
+        "id": "multiaxis",
+        "kicker": "Additive manufacturing",
+        "title": "Multi-axis laser metal deposition",
+        "body": "Curved surfaces and overhangs — a propeller blade, a rocket-engine casing — need the nozzle or the substrate tilted. Powder flowing on that incline is easy to get wrong. My undergraduate work on Inconel 625 mapped how process parameters, including laser power and beam diameter, change deposition quality at extreme angles, and turned that map into a guideline. The undergraduate thesis was a Gaussian-process model of the deposit geometry.",
+        "tags": [
+          "L-DED",
+          "Inconel 625",
+          "Process variables"
+        ],
+        "links": [
+          {
+            "label": "Journal of Laser Applications",
+            "href": "https://pubs.aip.org/lia/jla/article/35/2/022025/2878595"
+          },
+          {
+            "label": "Virtual and Physical Prototyping",
+            "href": "https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163"
+          }
+        ]
+      },
+      {
+        "id": "piml",
+        "kicker": "Machine learning",
+        "title": "Physics-informed prognostics",
+        "body": "A black-box model needs more experiments than a process lab can afford, and it does not carry the mechanics. With co-first authors I worked on a physics-informed Gaussian process for the fatigue life of welded joints, and a physics-informed neural network for the remaining life of proton-exchange membrane fuel cells.",
+        "tags": [
+          "Gaussian processes",
+          "Neural networks",
+          "Fatigue",
+          "Fuel cells"
+        ],
+        "links": [
+          {
+            "label": "International Journal of Fatigue",
+            "href": "https://www.sciencedirect.com/science/article/pii/S0142112324005036?via%3Dihub"
+          },
+          {
+            "label": "Applied Energy",
+            "href": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480?dgcid=coauthor"
+          }
+        ]
+      }
+    ],
+    "experienceTitle": "Research experience",
+    "experienceDek": "As written on the CV, from the doctorate back to the undergraduate thesis.",
+    "periods": [
+      {
+        "id": "nu",
+        "when": "Sep. 2025 – current",
+        "where": "Graduate student, Northwestern University",
+        "points": [
+          "Experiments conducted with the Advanced Photon Source (APS), Argonne National Laboratory."
+        ]
+      },
+      {
+        "id": "hy-ms",
+        "when": "Mar. 2023 – Feb. 2025",
+        "where": "Graduate student, Hanyang University",
+        "points": [
+          "Contributed toward building the nation’s first laser spallation system.",
+          "Master’s thesis: Measurement of the interfacial adhesion strength of low-pressure chemical vapor deposition processed Silicon Nitride and Copper thin films by laser spallation test (UCI: I804:11062-200000826436).",
+          "Developed physics-informed machine learning models for prognostics and health management (PHM)."
+        ]
+      },
+      {
+        "id": "hy-bs",
+        "when": "Feb. 2022 – Mar. 2023",
+        "where": "Undergraduate research student, Hanyang University",
+        "points": [
+          "Advisor: Prof. Seung Hwan Lee.",
+          "Explored the effect of laser nozzle tilting and substrate inclination angle on the deposition quality of Inconel 625 fabricated by the multi-axis laser metal deposition (LMD) process.",
+          "Undergraduate thesis: “Development of geometry prediction model based on Gaussian process regression for evaluation of Inconel 625 formed by LMD method.”"
+        ]
+      }
+    ],
+    "beamtimeTitle": "Synchrotron proposals",
+    "beamtimeDek": "Advanced Photon Source (APS), Argonne National Laboratory proposals listed on the CV, newest first. Two entries share a title and differ by DOI and date.",
+    "beamtimes": [
+      {
+        "title": "Abnormal Columnar-to-Equiaxed Transition in Metals Processed Under Non-Equilibrium Conditions in Laser Additive Manufacturing",
+        "doi": "10.46936/APS-195894/60018199",
+        "date": "09.22.26"
+      },
+      {
+        "title": "Establishing a Data-Driven Predictive Framework for Spatter-Induced Porosity in Laser Additive Manufacturing through High-Throughput Synchrotron Micro-CT",
+        "doi": "10.46936/APS-195705/60018025",
+        "date": "09.11.26"
+      },
+      {
+        "title": "Micro computed tomography characterization of spatter-induced porosity in additive manufacturing Ti-6Al-4V",
+        "doi": "10.46936/APS-194891/60017462",
+        "date": "07.10.26"
+      },
+      {
+        "title": "Operando X-ray Imaging of Laser Directed Energy Deposition Process with Stranded Multi-Material Wires",
+        "doi": "10.46936/APS-193419/60016438",
+        "date": "03.30.26"
+      },
+      {
+        "title": "Abnormal Columnar-to-Equiaxed Transition in Metals Processed Under Non-Equilibrium Conditions in Laser Additive Manufacturing",
+        "doi": "10.46936/APS-193316/60016390",
+        "date": "03.25.26"
+      },
+      {
+        "title": "Development of hybrid manufacturing process for building large-scale stress-free metallic parts",
+        "doi": "10.46936/APS-191914/60015668",
+        "date": "12.19.25"
+      },
+      {
+        "title": "Simultaneous x-ray imaging and ultrasound detection of keyhole porosity in laser powder bed fusion",
+        "doi": "10.46936/APS-191010/60014768",
+        "date": "10.20.25"
+      }
+    ],
+    "projectsTitle": "Funded projects",
+    "projectsDek": "Roles and sponsors as listed on the CV.",
+    "projects": [
+      "Development of smart DPO (Design, Production, Operation) open platform for fuel cell system, 2021–2025 (48 months), researcher, Ministry of Trade, Industry and Energy, Korea",
+      "Study on the technology of fault diagnosis and predictive maintenance of the fuel cell system using PHM (Prognostics and Health Management), 2021–2023 (24 months), Hanyang University Industry-University Cooperation Foundation, Korea",
+      "Analysis of the relationship between the laser nozzle angle and the deposition quality, 2022 (6 months), DN Solutions Incorporate, Korea",
+      "Development of prediction technology of packaging process and reliability based on Die MLM thin film interface property and laser behavior, 2022–2024 (24 months), SK Hynix Incorporation, Korea"
+    ]
+  },
+  "lab": {
+    "name": "Fast-AM Laboratory",
+    "pi": "Professor Tao Sun",
+    "place": "Department of Mechanical Engineering, Northwestern University · 2145 Sheridan Rd, Evanston, IL 60208",
+    "url": "https://fast-am.mech.northwestern.edu/",
+    "urlLabel": "fast-am.mech.northwestern.edu",
+    "summary": "The Fast-AM Laboratory investigates fundamental issues in advanced manufacturing with in situ and ex situ characterization. The group’s present focus is energy–matter interaction, mass and heat flow, defect generation, and how structure develops in additive manufacturing, toward manufacturing technology for a more sustainable industrial future.",
+    "approaches": [
+      "Laser powder bed fusion and wire-laser directed energy deposition",
+      "Binder jetting and direct ink writing",
+      "High-speed x-ray imaging, high-energy diffraction, and 4D x-ray imaging",
+      "Multi-physics simulation, molecular dynamics, and CALPHAD",
+      "Machine learning for in-process defect detection and simulation optimization"
+    ]
+  },
+  "pastLab": {
+    "name": "Smart Manufacturing Laboratory",
+    "pi": "Professor Seung Hwan Lee",
+    "place": "Department of Mechanical Engineering, Hanyang University, Seoul",
+    "url": "https://smlab.hanyang.ac.kr/home",
+    "urlLabel": "smlab.hanyang.ac.kr",
+    "summary": "The Smart Manufacturing Laboratory works on making conventional manufacturing smarter. The group combines process technology with lasers, artificial intelligence, metallurgy, and CFD — both to develop processes that had not been tried and to apply AI so production costs fall."
+  },
+  "publications": {
+    "title": "Publications",
+    "dek": "Nine papers from the CV. Journal articles are listed first, then the three items the CV groups as conference papers. Dukyong Kim is marked in bold.",
+    "items": [
+      {
+        "id": "smaxi-jsr",
+        "kind": "journal",
+        "role": "first",
+        "year": "2026/09",
+        "title": "SMAXI: A machine learning-powered open-source software for multidimensional full-field x-ray image analysis",
+        "venue": "Journal of Synchrotron Radiation",
+        "authors": [
+          {
+            "name": "Dukyong Kim",
+            "corresponding": true
+          },
+          {
+            "name": "Tao Sun",
+            "corresponding": true
+          }
+        ],
+        "href": "https://journals.iucr.org/s/issues/2026/05/00/tv5094/index.html",
+        "detail": "The CV dates the author line 2026/07 and the journal 2026/09."
+      },
+      {
+        "id": "vpp-superalloys",
+        "kind": "journal",
+        "role": "coauthor",
+        "year": "2025/07",
+        "title": "Energy-Assisted additive manufacturing for weldable and non-weldable Ni-based superalloys: a review",
+        "venue": "Virtual and Physical Prototyping",
+        "authors": [
+          {
+            "name": "Junmyoung Jang"
+          },
+          {
+            "name": "Taehwan Ko"
+          },
+          {
+            "name": "Jaeheon Lee"
+          },
+          {
+            "name": "Dukyong Kim"
+          },
+          {
+            "name": "Hwani Hwang"
+          },
+          {
+            "name": "Taesoon Jeong"
+          },
+          {
+            "name": "Heuisu Kim"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163",
+        "doi": "10.1080/17452759.2025.2512163"
+      },
+      {
+        "id": "assa-spallation",
+        "kind": "journal",
+        "role": "first",
+        "year": "2025/03",
+        "title": "Measurement of interfacial adhesion strength of Copper- Silicon based dielectric interfaces via laser spallation test",
+        "venue": "Applied Surface Science Advances",
+        "authors": [
+          {
+            "name": "Young-Min Ju",
+            "equal": true
+          },
+          {
+            "name": "Dukyong Kim",
+            "equal": true
+          },
+          {
+            "name": "Se-Min Lee"
+          },
+          {
+            "name": "Daewoong Lee"
+          },
+          {
+            "name": "Yeontaek Hwang"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          },
+          {
+            "name": "Hak-Sung Kim",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.sciencedirect.com/science/article/pii/S2666523925000911"
+      },
+      {
+        "id": "apen-pinn",
+        "kind": "journal",
+        "role": "first",
+        "year": "2025/03",
+        "title": "Physics-informed neural network for long-term prognostics of proton exchange membrane fuel cell",
+        "venue": "Applied Energy",
+        "authors": [
+          {
+            "name": "Taehwan Ko",
+            "equal": true
+          },
+          {
+            "name": "Dukyong Kim",
+            "equal": true
+          },
+          {
+            "name": "Jaewoong Park"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480?dgcid=coauthor"
+      },
+      {
+        "id": "ijf-gpr",
+        "kind": "journal",
+        "role": "first",
+        "year": "2024/10",
+        "title": "Physics-informed Gaussian process regression model for predicting the fatigue life of welded joints",
+        "venue": "International Journal of Fatigue",
+        "authors": [
+          {
+            "name": "Dukyong Kim",
+            "equal": true
+          },
+          {
+            "name": "Dong-Yoon Kim",
+            "equal": true
+          },
+          {
+            "name": "Taehwan Ko",
+            "equal": true
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.sciencedirect.com/science/article/pii/S0142112324005036?via%3Dihub"
+      },
+      {
+        "id": "jla-lmd",
+        "kind": "journal",
+        "role": "first",
+        "year": "2023/05",
+        "title": "Study on the influence of processing variables under various tilting angles of laser nozzle and substrate on the deposition quality of the multi-axis laser metal deposition",
+        "venue": "Journal of Laser Applications",
+        "authors": [
+          {
+            "name": "Dukyong Kim"
+          },
+          {
+            "name": "Taehwan Ko"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://pubs.aip.org/lia/jla/article/35/2/022025/2878595"
+      },
+      {
+        "id": "jwj-monitoring",
+        "kind": "conference",
+        "role": "coauthor",
+        "year": "2024/07",
+        "title": "Review on welding process monitoring based on deep learning using time-series data",
+        "venue": "Journal of Welding and Joining",
+        "authors": [],
+        "href": "https://www.e-jwj.org/journal/view.php?number=2032344"
+      },
+      {
+        "id": "jwj-pinn",
+        "kind": "conference",
+        "role": "coauthor",
+        "year": "2024/07",
+        "title": "Review of recent additive manufacturing and welding research with application of physics-informed neural networks",
+        "venue": "Journal of Welding and Joining",
+        "authors": [],
+        "href": "https://www.e-jwj.org/journal/view.php?number=2032346"
+      },
+      {
+        "id": "ectc-2024",
+        "kind": "conference",
+        "role": "coauthor",
+        "year": "2024/05",
+        "title": "Measurement of the interfacial strength of thin metal film by laser spallation method for advanced wafer level package",
+        "venue": "2024 IEEE 74th Electronic Components and Technology Conference",
+        "authors": [],
+        "href": "https://ieeexplore.ieee.org/abstract/document/10565166"
+      }
+    ]
+  },
+  "talks": {
+    "title": "Talks and videos",
+    "dek": "Six presenting-author talks and eleven co-author talks. The AESCAPE oral talk was September 11, 2026, in Dallas, Texas. The recording is part of that entry.",
+    "items": [
+      {
+        "id": "tms-poster-2027",
+        "role": "poster",
+        "title": "Multi-material stranded-wire laser directed energy deposition for in-space manufacturing",
+        "event": "The Minerals, Metals, and Materials (TMS) 156th Annual Meeting",
+        "date": "05.14.2027"
+      },
+      {
+        "id": "aescape-2026",
+        "role": "oral",
+        "title": "Machine learning accelerated open-source software for analyzing operando full-field x-ray image of additive manufacturing process",
+        "event": "AI-Empowered Simulations & CAE Applications via Engineering Software 2.0 and 3.0 2026 · Dallas, Texas",
+        "date": "09.11.2026",
+        "youtubeId": "GvaxMWbJm4k"
+      },
+      {
+        "id": "aps-seminar-2026",
+        "role": "oral",
+        "title": "Machine learning-powered open-source full-field x-ray image analysis software",
+        "event": "Advanced Photon Source (APS) User Science Seminar",
+        "date": "03.27.2026"
+      },
+      {
+        "id": "kwjs-2024-10",
+        "role": "oral",
+        "title": "Physics-informed Gaussian process regression model for predicting the fatigue life of welded joints",
+        "event": "The Korean Welding and Joining Society",
+        "date": "10.17.2024"
+      },
+      {
+        "id": "ismp-2023",
+        "role": "oral",
+        "title": "Laser spallation test for measuring interface strength of thin films",
+        "event": "21st International Symposium on Microelectronics and Packaging (ISMP)",
+        "date": "10.25.2023"
+      },
+      {
+        "id": "kwjs-2023",
+        "role": "oral",
+        "title": "Measurement of the interfacial adhesion of thin films by laser spallation test",
+        "event": "The Korean Welding and Joining Society",
+        "date": "10.12.2023"
+      },
+      {
+        "id": "tms-co-2027",
+        "role": "coauthor",
+        "title": "Operando X-ray Imaging of Porosity Formation During Wire-Laser Directed Energy Deposition",
+        "event": "The Minerals, Metals, and Materials (TMS) 156th Annual Meeting",
+        "date": "05.14.2027"
+      },
+      {
+        "id": "icam-2026",
+        "role": "coauthor",
+        "title": "Domain adaptation from bare-late to powder-bed data for real-time keyhole porosity detection in laser powder bed fusion",
+        "event": "ASTM International Conference on Advanced Manufacturing (ICAM 2026)",
+        "date": "10.01.2026"
+      },
+      {
+        "id": "asa-cavitation",
+        "role": "coauthor",
+        "title": "Direct observation of acoustic cavitation in laser additive manufacturing of Aluminum using high-speed synchrotron X-ray imaging",
+        "event": "Acoustical Society of America (ASA) conference",
+        "date": "05.11.2026"
+      },
+      {
+        "id": "asa-bubble",
+        "role": "coauthor",
+        "title": "From bubble to pore: Acoustic signatures of keyhole cavity collapse",
+        "event": "Acoustical Society of America (ASA) conference",
+        "date": "05.11.2026"
+      },
+      {
+        "id": "asa-ae",
+        "role": "coauthor",
+        "title": "X-Ray-Informed Acoustic Emission Modeling of Melt Pool and Keyhole Dynamics in Laser Powder Bed Fusion",
+        "event": "Acoustical Society of America (ASA) conference",
+        "date": "05.11.2026"
+      },
+      {
+        "id": "kspe-2025",
+        "role": "coauthor",
+        "title": "Evaluation of Interfacial Adhesion Strength Between Copper and Silicon Nitride Thin Films Deposited by LPCVD and PECVD Using Laser Spallation Test",
+        "event": "Korean Society for Precision Engineering",
+        "date": "05.14.2025"
+      },
+      {
+        "id": "icmdt-2025",
+        "role": "coauthor",
+        "title": "Laser spallation test for quantifying the interfacial adhesion between copper and silicon nitride thin films deposited by low-pressure chemical vapor deposition and plasma-enhanced chemical vapor deposition process",
+        "event": "The 10th International Conference on Manufacturing, Machine Design and Tribology",
+        "date": "04.24.2025"
+      },
+      {
+        "id": "ismp-2024",
+        "role": "coauthor",
+        "title": "Laser Spallation Test for Measurement of the Interfacial Adhesion of LPCVD and PECVD Silicon Nitride/Copper Films",
+        "event": "22nd International Symposium on Microelectronics and Packaging (ISMP)",
+        "date": "11.07.2024"
+      },
+      {
+        "id": "ksme-2024",
+        "role": "coauthor",
+        "title": "Investigation of adhesion at LPCVD and PECVD silicon nitride/copper film interface by laser spallation technique",
+        "event": "The Korean Society of Mechanical Engineers",
+        "date": "06.27.2024"
+      },
+      {
+        "id": "ectc-talk",
+        "role": "coauthor",
+        "title": "Measurement of the interfacial properties of thin metal film by laser spallation method for advanced wafer level package",
+        "event": "IEEE 74th Electronic Components and Technology Conference",
+        "date": "05.28.2024"
+      },
+      {
+        "id": "kmeps-2024",
+        "role": "coauthor",
+        "title": "Laser spallation test for measurement of interfacial properties of thin film",
+        "event": "The Korean Microelectronic and Packaging Society",
+        "date": "04.03.2024"
+      }
+    ],
+    "videosTitle": "Videos",
+    "videosDek": "SMAXI recordings from the channel. Play starts when you press the image.",
+    "videos": [
+      {
+        "youtubeId": "sCgA6VVVTUc",
+        "title": "SMAXI introductory video",
+        "detail": "Overview of the software"
+      },
+      {
+        "youtubeId": "hc3nLJa31L8",
+        "title": "SMAXI tutorial video",
+        "detail": "Updated June 11, 2026"
+      }
+    ]
+  },
+  "awards": {
+    "title": "Awards and fellowships",
+    "dek": "The PS&ED fellowship, scholarships, presentation awards, and activities outside the lab.",
+    "fellowship": {
+      "title": "Predictive Science and Engineering Design (PS&ED) Cluster Fellow",
+      "meta": "Northwestern University · 2026–2027",
+      "detail": "A competitive, interdisciplinary Northwestern University Graduate School fellowship on integrating data science, physics-based simulation, and uncertainty quantification into advanced engineering design."
+    },
+    "scholarshipsTitle": "Scholarships",
+    "scholarships": [
+      {
+        "title": "BK21 FOUR (Brain Korea 21) Research Assistant scholarship",
+        "meta": "Sep. 2023 – Dec. 2023"
+      },
+      {
+        "title": "HY-IN Scholarship, Hanyang University (master’s program)",
+        "meta": "Mar. 2023 – Dec. 2024"
+      },
+      {
+        "title": "Hanyang College of Engineering International Student Ambassador scholarship",
+        "meta": "Mar. 2021 – Feb. 2022"
+      },
+      {
+        "title": "National Science and Engineering Undergraduate Scholarship",
+        "meta": "Mar. 2017 – Feb. 2023 · full support from the Korean government"
+      }
+    ],
+    "awardsTitle": "Awards",
+    "items": [
+      {
+        "title": "Best Oral Presentation Award",
+        "meta": "Conference of The Korean Welding and Joining Society · 2024/10"
+      },
+      {
+        "title": "Undergraduate Academic Excellence Award, Summa Cum Laude",
+        "meta": "2023/02"
+      },
+      {
+        "title": "Hanyang English Essay Contest, Excellent Award",
+        "meta": "2020/12"
+      }
+    ],
+    "activitiesTitle": "Activities",
+    "activities": [
+      "Social chair of the Mechanical Engineering Graduate Student Society, Northwestern University (2026)",
+      "Co-translation of “Manufacturing Engineering and Technology” by S. Kalpakjian (2023, 6 months)",
+      "International student ambassador, Hanyang University College of Engineering (2021, 12 months)",
+      "President of the Hanyang University materials-science department band club (2020, 12 months)"
+    ]
+  },
+  "timeline": {
+    "title": "Education and experience",
+    "dek": "Degrees, appointments, teaching, and military service. GPAs are the ones printed on the CV.",
+    "items": [
+      {
+        "id": "phd",
+        "kind": "education",
+        "dates": "Sep. 2025 – current",
+        "place": "Illinois, U.S.",
+        "title": "Ph.D. student, Mechanical Engineering",
+        "org": "Northwestern University, Evanston",
+        "orgUrl": "https://fast-am.mech.northwestern.edu/",
+        "points": [
+          "Department of Mechanical Engineering.",
+          "Fast-AM Laboratory (PI: Prof. Tao Sun).",
+          "Cumulative GPA: 3.92/4.0.",
+          "Predictive Science and Engineering Design (PS&ED) Cluster Fellow (2026–2027)."
+        ]
+      },
+      {
+        "id": "aps",
+        "kind": "employment",
+        "dates": "Aug. 2026 – current",
+        "place": "Illinois, U.S.",
+        "title": "Visiting Graduate Student",
+        "org": "Advanced Photon Source (APS), Argonne National Laboratory · XSD-IMG group",
+        "points": []
+      },
+      {
+        "id": "ta-char",
+        "kind": "teaching",
+        "dates": "2026.09",
+        "place": "",
+        "title": "Teaching assistant",
+        "org": "Characterization of Materials",
+        "points": []
+      },
+      {
+        "id": "elp",
+        "kind": "teaching",
+        "dates": "2026.06–07",
+        "place": "",
+        "title": "ELP Foundations Online Peer Mentor",
+        "org": "English Language Programs",
+        "points": []
+      },
+      {
+        "id": "kidi",
+        "kind": "employment",
+        "dates": "Jun. 2025 – Jul. 2025",
+        "place": "Seoul, South Korea",
+        "title": "Automobile accident classification analysis",
+        "org": "Korea Insurance Development Institute · Korea Automobile Insurance Repair Research & Training Center",
+        "points": []
+      },
+      {
+        "id": "hyri",
+        "kind": "employment",
+        "dates": "Mar. 2025 – Jun. 2025",
+        "place": "Seoul, South Korea",
+        "title": "Graduate Researcher (4 months)",
+        "org": "Hanyang University · The Research Institute of Industrial Science",
+        "points": []
+      },
+      {
+        "id": "ms",
+        "kind": "education",
+        "dates": "Mar. 2023 – Feb. 2025",
+        "place": "Seoul, South Korea",
+        "title": "M.S., Mechanical Convergence Engineering",
+        "org": "Hanyang University, Seoul",
+        "orgUrl": "https://smlab.hanyang.ac.kr/home",
+        "points": [
+          "Smart Manufacturing Laboratory (PI: Prof. Seung Hwan Lee).",
+          "Cumulative GPA: 4.0/4.0."
+        ]
+      },
+      {
+        "id": "ta-linalg",
+        "kind": "teaching",
+        "dates": "2023.03, 2024.03",
+        "place": "",
+        "title": "Teaching assistant",
+        "org": "Linear algebra and its applications",
+        "points": []
+      },
+      {
+        "id": "bs",
+        "kind": "education",
+        "dates": "Mar. 2017 – Feb. 2023",
+        "place": "Seoul, South Korea",
+        "title": "B.S., Mechanical Engineering",
+        "org": "Hanyang University, Seoul",
+        "points": [
+          "Cumulative GPA: 3.84/4.0 (Summa Cum Laude).",
+          "Major GPA: 3.84/4.0. Third- and fourth-year GPA: 3.92/4.0.",
+          "Supported by a full National Science and Engineering Undergraduate Scholarship from the Korean government.",
+          "Undergraduate research advisor: Prof. Seung Hwan Lee."
+        ]
+      },
+      {
+        "id": "army",
+        "kind": "service",
+        "dates": "2018.03.12 – 2019.11.10",
+        "place": "Republic of Korea",
+        "title": "Republic of Korea Army",
+        "org": "Military service, 20 months",
+        "points": []
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "dek": "Languages, experimental methods, and software from the CV.",
+    "groups": [
+      {
+        "title": "Languages",
+        "items": [
+          "Korean: native",
+          "English: native",
+          "Japanese: intermediate",
+          "TOEFL, February 2024 — 111/120 (reading 30, listening 28, speaking 25, writing 28)",
+          "GRE General Test, February 2022 — verbal 160/170 (84%), quantitative 170/170 (92%), analytical writing 4.0/6.0 (59%)"
+        ]
+      },
+      {
+        "title": "Experiments",
+        "items": [
+          "Metal additive manufacturing: laser powder bed fusion, powder-blown and wire-fed L-DED",
+          "Laser optics for laser spallation: Q-switched Nd:YAG, disk laser, diode-pumped solid-state laser, Michelson interferometer",
+          "Universal testing machine: axial fatigue, tensile shear",
+          "Material characterization: SEM, EDS, EBSD"
+        ]
+      },
+      {
+        "title": "Software",
+        "items": [
+          "Python, MATLAB, NX (Siemens), Delmia (Dassault Systèmes), Adobe Creative Suite",
+          "Abaqus, Flow3D, ANSYS",
+          "Computer Specialist in Spreadsheet and Database, Level 1"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "dek": "Department of Mechanical Engineering, Northwestern University, Evanston, Illinois.",
+    "paragraphs": [
+      "I am a Ph.D. student in the Fast-AM Laboratory and a visiting graduate student with the XSD-IMG group at the Advanced Photon Source (APS), Argonne National Laboratory.",
+      "The CV does not list a public email address. Please write through LinkedIn, or start from the Fast-AM Laboratory page. Google Scholar and ORCID are the publication record."
+    ],
+    "cvNote": "The PDF is exported from the Word curriculum vitae. Both files are the same document.",
+    "links": [
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=6eHbSF8AAAAJ&hl=en&oi=ao"
+      },
+      {
+        "label": "ORCID",
+        "href": "https://orcid.org/0000-0002-5665-8317"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/dukyong-kim-3729a3257/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/dukyong414"
+      },
+      {
+        "label": "SMAXI",
+        "href": "https://github.com/dukyong414/SMAXI"
+      },
+      {
+        "label": "Fast-AM Lab",
+        "href": "https://fast-am.mech.northwestern.edu/"
+      }
+    ]
+  },
+  "footer": "© 2026 Dukyong Kim"
+}

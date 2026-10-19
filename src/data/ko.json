@@ -1,0 +1,944 @@
+{
+  "lang": "ko",
+  "home": "/ko/",
+  "meta": {
+    "title": "김덕용 · 노스웨스턴 대학교 기계공학",
+    "description": "노스웨스턴 대학교 기계공학과 박사과정. Tao Sun 교수 Fast-AM Laboratory에서 오페란도 방사광 X선 이미징, 레이저 적층제조, 오픈소스 소프트웨어 SMAXI를 연구합니다."
+  },
+  "nav": [
+    {
+      "href": "#about",
+      "label": "소개"
+    },
+    {
+      "href": "#research",
+      "label": "연구"
+    },
+    {
+      "href": "#publications",
+      "label": "논문"
+    },
+    {
+      "href": "#talks",
+      "label": "발표"
+    },
+    {
+      "href": "#awards",
+      "label": "수상"
+    },
+    {
+      "href": "#experience",
+      "label": "경력"
+    },
+    {
+      "href": "#skills",
+      "label": "역량"
+    },
+    {
+      "href": "#contact",
+      "label": "연락"
+    }
+  ],
+  "ui": {
+    "skip": "본문으로 건너뛰기",
+    "themeToLight": "라이트 모드로 전환",
+    "themeToDark": "다크 모드로 전환",
+    "language": "언어",
+    "downloadCv": "CV",
+    "cvPdf": "CV 받기 (PDF)",
+    "cvDocx": "CV 받기 (Word)",
+    "all": "전체",
+    "journal": "국제학술지",
+    "conference": "학술대회 논문",
+    "presenting": "발표",
+    "coauthor": "공동저자",
+    "article": "논문",
+    "doi": "DOI",
+    "play": "영상 재생",
+    "equal": "† 동일기여",
+    "corresponding": "* 교신저자",
+    "role": {
+      "first": "제1저자",
+      "coauthor": "공동저자",
+      "oral": "발표 (구두)",
+      "poster": "발표 (포스터)"
+    },
+    "kind": {
+      "education": "학력",
+      "employment": "경력",
+      "teaching": "교육",
+      "service": "병역"
+    },
+    "keywords": "키워드",
+    "beamtimeLabel": "APS 제안",
+    "labApproaches": "연구실이 밝힌 접근",
+    "labAttribution": "소개는 Fast-AM Laboratory 웹사이트의 공개 설명을 옮긴 것입니다.",
+    "pastLabAttribution": "소개는 Smart Manufacturing Laboratory 웹사이트의 공개 설명을 옮긴 것입니다.",
+    "scholarCta": "Google Scholar 프로필",
+    "talksFilters": "발표 필터",
+    "pubFilters": "논문 필터",
+    "external": "새 탭에서 열림"
+  },
+  "hero": {
+    "eyebrow": "기계공학 박사과정",
+    "name": "김덕용",
+    "altName": "Dukyong Kim",
+    "role": "Fast-AM Laboratory · 지도교수 Tao Sun",
+    "lede": "노스웨스턴 대학교에서 다원소 연선 레이저 직접 에너지 적층(L-DED)을 연구합니다. 오페란도 방사광 X선 이미징과 오픈소스 분석 소프트웨어로 결함이 생기는 과정을 봅니다.",
+    "affiliation": "Fast-AM Laboratory, 기계공학과, Northwestern University",
+    "affiliationHref": "https://fast-am.mech.northwestern.edu/",
+    "pi": "Tao Sun 교수",
+    "piHref": "https://fast-am.mech.northwestern.edu/",
+    "facts": [
+      {
+        "value": "Fast-AM",
+        "label": "노스웨스턴 · Tao Sun 교수",
+        "href": "https://fast-am.mech.northwestern.edu/"
+      },
+      {
+        "value": "PS&ED",
+        "label": "Cluster Fellow, 2026–2027"
+      },
+      {
+        "value": "APS",
+        "label": "아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS)"
+      }
+    ],
+    "links": [
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=6eHbSF8AAAAJ&hl=en&oi=ao"
+      },
+      {
+        "label": "ORCID",
+        "href": "https://orcid.org/0000-0002-5665-8317"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/dukyong-kim-3729a3257/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/dukyong414"
+      }
+    ]
+  },
+  "about": {
+    "title": "소개",
+    "dek": "서울에서 에반스턴으로. 레이저, 박막, 그리고 용융풀의 영상.",
+    "paragraphs": [
+      "노스웨스턴 대학교 기계공학과 박사과정이며, Tao Sun 교수의 Fast-AM Laboratory에서 연구하고 있습니다. 아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS) XSD-IMG 그룹의 방문 대학원생이기도 합니다.",
+      "서울에서 태어나 자랐고, 한양대학교에서 기계공학 학사(Summa Cum Laude)와 기계융합공학 석사를 했습니다. 석사 지도교수는 Smart Manufacturing Laboratory의 Seung Hwan Lee 교수입니다. Hot Wheels에서 Formula One까지 이어진 자동차에 대한 관심이 기계공학으로 데려왔고, 자동차·항공·조선·반도체 제조의 도구인 레이저가 거기에 머물게 했습니다.",
+      "학부에서는 다축 레이저 금속 적층에서 노즐 기울기와 기판 경사가 Inconel 625의 적층 품질을 어떻게 바꾸는지 살펴보았습니다. 석사과정에서는 국내 최초의 레이저 스폴레이션 시스템 구축에 기여했습니다. 펄스 레이저 충격파로 박막 계면 접착을 재는 방법입니다. 용접 피로 수명과 고분자 전해질 연료전지에 대한 물리 정보 기계학습도 함께 다뤘습니다.",
+      "박사과정은 적층제조에서 레이저와 재료가 만나며 결함이 생기는 과정을 오페란도 방사광 X선 이미징으로 보는 일입니다. 다원소 연선 레이저 직접 에너지 적층(L-DED)이 그 안에 있습니다. 전역 X선 영상을 위한 오픈소스 소프트웨어 SMAXI도 만들고 있습니다. 2026–2027 Predictive Science and Engineering Design (PS&ED) Cluster Fellow입니다."
+    ]
+  },
+  "media": {
+    "portraitAlt": "버킹엄 분수 앞에서 미소 짓는 Dukyong Kim. 뒤로 시카고 스카이라인이 보인다.",
+    "portraitCaption": "시카고",
+    "campusAlt": "에반스턴 노스웨스턴 대학교의 벽돌 건물과 잔디밭.",
+    "campusCaption": "Northwestern University, 에반스턴.",
+    "labAlt": "흰 실험복과 위생모를 쓴 Dukyong Kim이 실험실에 서 있는 사진.",
+    "labCaption": "실험실에서.",
+    "overviewAlt": "다축 레이저 적층, 구리 박막, 레이저 스폴레이션 배치, 피로와 연료전지 기계학습 모형을 담은 연구 그림 모음.",
+    "overviewCaption": "한양대학교에서 노스웨스턴으로 이어진 연구 주제: 다축 레이저 금속 적층, 레이저 스폴레이션, 물리 정보 학습.",
+    "spallationAlt": "레이저 헤드, 거울, 렌즈, 시편 스테이지가 놓인 레이저 스폴레이션 광학 테이블.",
+    "spallationCaption": "박막 접착 측정용 레이저 스폴레이션 시스템. 한양대학교 석사과정에 구축.",
+    "lmdAlt": "노즐 각도 알파와 기판 경사 베타가 표시된 다축 레이저 금속 적층 도식.",
+    "lmdCaption": "다축 레이저 금속 적층: 노즐 각도와 기판 경사."
+  },
+  "research": {
+    "title": "연구",
+    "dek": "레이저 적층제조의 오페란도 X선 이미징, 그 영상을 읽는 소프트웨어, 그리고 박막 접착과 물리 정보 예측에 대한 앞선 연구.",
+    "keywords": [
+      "금속 적층제조",
+      "방사광 X선 이미징",
+      "기계학습",
+      "소프트웨어",
+      "레이저 스폴레이션"
+    ],
+    "cards": [
+      {
+        "id": "xray",
+        "kicker": "방사광 이미징",
+        "title": "다원소 연선 레이저 직접 에너지 적층(L-DED)의 오페란도 이미징",
+        "body": "일리노이 Lemont의 아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS)에서, 다원소 연선 레이저 직접 에너지 적층(L-DED)이 진행되는 동안을 고속 방사광 X선으로 찍습니다. Fast-AM Laboratory가 다루는 에너지–물질 상호작용과 결함 생성 연구에 놓인 실험입니다.",
+        "tags": [
+          "L-DED",
+          "방사광 X선",
+          "다원소 연선"
+        ],
+        "links": [
+          {
+            "label": "Fast-AM Laboratory",
+            "href": "https://fast-am.mech.northwestern.edu/"
+          }
+        ]
+      },
+      {
+        "id": "smaxi",
+        "kicker": "오픈소스 소프트웨어",
+        "title": "SMAXI",
+        "body": "SMAXI는 다차원 전역 X선 영상 분석을 위한 오픈소스 소프트웨어입니다. 객체 주석과 추적에 최근 기계학습 모형을 넣었습니다. Journal of Synchrotron Radiation 논문의 교신저자는 Tao Sun 교수와 저입니다.",
+        "tags": [
+          "기계학습",
+          "X선 이미징",
+          "오픈소스"
+        ],
+        "links": [
+          {
+            "label": "소스 코드",
+            "href": "https://github.com/dukyong414/SMAXI"
+          },
+          {
+            "label": "논문",
+            "href": "https://journals.iucr.org/s/issues/2026/05/00/tv5094/index.html"
+          }
+        ]
+      },
+      {
+        "id": "spallation",
+        "kicker": "박막",
+        "title": "레이저 스폴레이션",
+        "body": "레이저 스폴레이션은 박막 계면 접착을 재는 펄스 레이저 충격파 시험입니다. 필 시험이나 스터드 풀 시험은 박막을 잡아 소성 변형이 값에 섞입니다. 충격파는 그렇지 않습니다. 한양대학교 석사과정에서는 국내 최초의 레이저 스폴레이션 시스템 구축에 기여했습니다. 펄스 레이저 광학과 Michelson 간섭계가 포함되고, SK Hynix의 패키징 신뢰성 연구와 맞닿아 있습니다. 학위논문은 LPCVD 질화규소와 구리의 계면을 측정했습니다 (UCI: I804:11062-200000826436).",
+        "tags": [
+          "레이저 스폴레이션",
+          "박막",
+          "간섭계"
+        ],
+        "links": [
+          {
+            "label": "Applied Surface Science Advances",
+            "href": "https://www.sciencedirect.com/science/article/pii/S2666523925000911"
+          },
+          {
+            "label": "IEEE ECTC",
+            "href": "https://ieeexplore.ieee.org/abstract/document/10565166"
+          },
+          {
+            "label": "Smart Manufacturing Lab",
+            "href": "https://smlab.hanyang.ac.kr/home"
+          }
+        ]
+      },
+      {
+        "id": "multiaxis",
+        "kicker": "적층제조",
+        "title": "다축 레이저 금속 적층",
+        "body": "프로펠러 날이나 로켓 엔진 케이스처럼 곡면과 오버행을 만들려면 노즐이나 기판을 기울여야 합니다. 그 경사에서 분말이 흐르는 일은 쉽게 어긋납니다. 학부에서 Inconel 625를 대상으로 레이저 출력과 빔 지름을 포함한 공정 변수가 극단적인 각도에서 적층 품질을 어떻게 바꾸는지 정리해 가이드라인으로 만들었습니다. 학부 논문은 적층 형상에 대한 가우시안 과정 모형입니다.",
+        "tags": [
+          "L-DED",
+          "Inconel 625",
+          "공정 변수"
+        ],
+        "links": [
+          {
+            "label": "Journal of Laser Applications",
+            "href": "https://pubs.aip.org/lia/jla/article/35/2/022025/2878595"
+          },
+          {
+            "label": "Virtual and Physical Prototyping",
+            "href": "https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163"
+          }
+        ]
+      },
+      {
+        "id": "piml",
+        "kicker": "기계학습",
+        "title": "물리 정보 예지",
+        "body": "블랙박스 모형은 공정 실험실이 감당하기 어려운 만큼의 실험이 필요하고, 부품의 역학을 담지 못합니다. 공동 제1저자와 함께 용접부 피로 수명을 위한 물리 정보 가우시안 과정, 그리고 고분자 전해질 연료전지의 잔여 수명을 위한 물리 정보 신경망을 연구했습니다.",
+        "tags": [
+          "가우시안 과정",
+          "신경망",
+          "피로",
+          "연료전지"
+        ],
+        "links": [
+          {
+            "label": "International Journal of Fatigue",
+            "href": "https://www.sciencedirect.com/science/article/pii/S0142112324005036?via%3Dihub"
+          },
+          {
+            "label": "Applied Energy",
+            "href": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480?dgcid=coauthor"
+          }
+        ]
+      }
+    ],
+    "experienceTitle": "연구 경력",
+    "experienceDek": "CV에 적힌 대로, 박사과정에서 학부 논문까지.",
+    "periods": [
+      {
+        "id": "nu",
+        "when": "2025.09 – 현재",
+        "where": "대학원생, Northwestern University",
+        "points": [
+          "아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS)과 함께 수행한 실험."
+        ]
+      },
+      {
+        "id": "hy-ms",
+        "when": "2023.03 – 2025.02",
+        "where": "대학원생, 한양대학교",
+        "points": [
+          "국내 최초의 레이저 스폴레이션 시스템 구축에 기여.",
+          "석사 논문: Measurement of the interfacial adhesion strength of low-pressure chemical vapor deposition processed Silicon Nitride and Copper thin films by laser spallation test (UCI: I804:11062-200000826436).",
+          "건전성 예측 및 관리(PHM)를 위한 물리 정보 기계학습 모형 개발."
+        ]
+      },
+      {
+        "id": "hy-bs",
+        "when": "2022.02 – 2023.03",
+        "where": "학부 연구생, 한양대학교",
+        "points": [
+          "지도교수: Seung Hwan Lee 교수.",
+          "다축 레이저 금속 적층(LMD)으로 만든 Inconel 625에서 레이저 노즐 기울기와 기판 경사각이 적층 품질에 미치는 영향을 탐구.",
+          "학부 논문: “Development of geometry prediction model based on Gaussian process regression for evaluation of Inconel 625 formed by LMD method.”"
+        ]
+      }
+    ],
+    "beamtimeTitle": "방사광 제안",
+    "beamtimeDek": "CV에 적힌 아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS) 제안입니다. 최신순이며, 제목이 같은 두 항목은 DOI와 날짜가 다릅니다.",
+    "beamtimes": [
+      {
+        "title": "Abnormal Columnar-to-Equiaxed Transition in Metals Processed Under Non-Equilibrium Conditions in Laser Additive Manufacturing",
+        "doi": "10.46936/APS-195894/60018199",
+        "date": "09.22.26"
+      },
+      {
+        "title": "Establishing a Data-Driven Predictive Framework for Spatter-Induced Porosity in Laser Additive Manufacturing through High-Throughput Synchrotron Micro-CT",
+        "doi": "10.46936/APS-195705/60018025",
+        "date": "09.11.26"
+      },
+      {
+        "title": "Micro computed tomography characterization of spatter-induced porosity in additive manufacturing Ti-6Al-4V",
+        "doi": "10.46936/APS-194891/60017462",
+        "date": "07.10.26"
+      },
+      {
+        "title": "Operando X-ray Imaging of Laser Directed Energy Deposition Process with Stranded Multi-Material Wires",
+        "doi": "10.46936/APS-193419/60016438",
+        "date": "03.30.26"
+      },
+      {
+        "title": "Abnormal Columnar-to-Equiaxed Transition in Metals Processed Under Non-Equilibrium Conditions in Laser Additive Manufacturing",
+        "doi": "10.46936/APS-193316/60016390",
+        "date": "03.25.26"
+      },
+      {
+        "title": "Development of hybrid manufacturing process for building large-scale stress-free metallic parts",
+        "doi": "10.46936/APS-191914/60015668",
+        "date": "12.19.25"
+      },
+      {
+        "title": "Simultaneous x-ray imaging and ultrasound detection of keyhole porosity in laser powder bed fusion",
+        "doi": "10.46936/APS-191010/60014768",
+        "date": "10.20.25"
+      }
+    ],
+    "projectsTitle": "참여 과제",
+    "projectsDek": "CV에 적힌 역할과 지원 기관.",
+    "projects": [
+      "연료전지 시스템 스마트 DPO (Design, Production, Operation) 개방형 플랫폼 개발, 2021–2025 (48개월), 연구원, 산업통상자원부, 한국",
+      "PHM (Prognostics and Health Management)을 이용한 연료전지 시스템 고장 진단 및 예지보전 기술 연구, 2021–2023 (24개월), 한양대학교 산학협력단, 한국",
+      "레이저 노즐 각도와 적층 품질의 관계 분석, 2022 (6개월), DN Solutions Incorporate, 한국",
+      "Die MLM 박막 계면 물성과 레이저 거동에 기반한 패키징 공정·신뢰성 예측 기술 개발, 2022–2024 (24개월), SK Hynix Incorporation, 한국"
+    ]
+  },
+  "lab": {
+    "name": "Fast-AM Laboratory",
+    "pi": "Tao Sun 교수",
+    "place": "Department of Mechanical Engineering, Northwestern University · 2145 Sheridan Rd, Evanston, IL 60208",
+    "url": "https://fast-am.mech.northwestern.edu/",
+    "urlLabel": "fast-am.mech.northwestern.edu",
+    "summary": "Fast-AM Laboratory는 현장(in situ)과 사후(ex situ) 특성 평가로 첨단 제조의 기초 문제를 연구합니다. 지금은 적층제조에서 에너지–물질 상호작용, 질량과 열의 흐름, 결함 생성, 재료 구조가 어떻게 만들어지는지를 보며, 더 지속 가능한 산업을 위한 제조 기술에 기여하는 것을 목표로 합니다.",
+    "approaches": [
+      "레이저 분말 베드 용융과 와이어-레이저 직접 에너지 적층",
+      "바인더 제팅과 직접 잉크 쓰기",
+      "고속 X선 이미징, 고에너지 회절, 4D X선 이미징",
+      "다중물리 시뮬레이션, 분자동역학, CALPHAD",
+      "공정 중 결함 검출과 시뮬레이션 최적화를 위한 기계학습"
+    ]
+  },
+  "pastLab": {
+    "name": "Smart Manufacturing Laboratory",
+    "pi": "Seung Hwan Lee 교수",
+    "place": "한양대학교 기계공학부, 서울",
+    "url": "https://smlab.hanyang.ac.kr/home",
+    "urlLabel": "smlab.hanyang.ac.kr",
+    "summary": "Smart Manufacturing Laboratory는 기존 제조를 더 똑똑하게 만드는 일을 합니다. 레이저, 인공지능, 금속학, CFD를 공정 기술과 엮어, 시도되지 않은 공정을 만들고 인공지능으로 생산 비용을 낮춥니다."
+  },
+  "publications": {
+    "title": "논문",
+    "dek": "CV의 논문 아홉 편입니다. 국제학술지를 먼저 두고, CV가 학술대회 논문으로 묶은 세 편을 뒤에 두었습니다. Dukyong Kim은 굵게 표시합니다. 논문제목과 학술지명은 원문을 유지했습니다.",
+    "items": [
+      {
+        "id": "smaxi-jsr",
+        "kind": "journal",
+        "role": "first",
+        "year": "2026/09",
+        "title": "SMAXI: A machine learning-powered open-source software for multidimensional full-field x-ray image analysis",
+        "venue": "Journal of Synchrotron Radiation",
+        "authors": [
+          {
+            "name": "Dukyong Kim",
+            "corresponding": true
+          },
+          {
+            "name": "Tao Sun",
+            "corresponding": true
+          }
+        ],
+        "href": "https://journals.iucr.org/s/issues/2026/05/00/tv5094/index.html",
+        "detail": "CV의 저자 표기는 2026/07, 학술지 표기는 2026/09입니다."
+      },
+      {
+        "id": "vpp-superalloys",
+        "kind": "journal",
+        "role": "coauthor",
+        "year": "2025/07",
+        "title": "Energy-Assisted additive manufacturing for weldable and non-weldable Ni-based superalloys: a review",
+        "venue": "Virtual and Physical Prototyping",
+        "authors": [
+          {
+            "name": "Junmyoung Jang"
+          },
+          {
+            "name": "Taehwan Ko"
+          },
+          {
+            "name": "Jaeheon Lee"
+          },
+          {
+            "name": "Dukyong Kim"
+          },
+          {
+            "name": "Hwani Hwang"
+          },
+          {
+            "name": "Taesoon Jeong"
+          },
+          {
+            "name": "Heuisu Kim"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163",
+        "doi": "10.1080/17452759.2025.2512163"
+      },
+      {
+        "id": "assa-spallation",
+        "kind": "journal",
+        "role": "first",
+        "year": "2025/03",
+        "title": "Measurement of interfacial adhesion strength of Copper- Silicon based dielectric interfaces via laser spallation test",
+        "venue": "Applied Surface Science Advances",
+        "authors": [
+          {
+            "name": "Young-Min Ju",
+            "equal": true
+          },
+          {
+            "name": "Dukyong Kim",
+            "equal": true
+          },
+          {
+            "name": "Se-Min Lee"
+          },
+          {
+            "name": "Daewoong Lee"
+          },
+          {
+            "name": "Yeontaek Hwang"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          },
+          {
+            "name": "Hak-Sung Kim",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.sciencedirect.com/science/article/pii/S2666523925000911"
+      },
+      {
+        "id": "apen-pinn",
+        "kind": "journal",
+        "role": "first",
+        "year": "2025/03",
+        "title": "Physics-informed neural network for long-term prognostics of proton exchange membrane fuel cell",
+        "venue": "Applied Energy",
+        "authors": [
+          {
+            "name": "Taehwan Ko",
+            "equal": true
+          },
+          {
+            "name": "Dukyong Kim",
+            "equal": true
+          },
+          {
+            "name": "Jaewoong Park"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480?dgcid=coauthor"
+      },
+      {
+        "id": "ijf-gpr",
+        "kind": "journal",
+        "role": "first",
+        "year": "2024/10",
+        "title": "Physics-informed Gaussian process regression model for predicting the fatigue life of welded joints",
+        "venue": "International Journal of Fatigue",
+        "authors": [
+          {
+            "name": "Dukyong Kim",
+            "equal": true
+          },
+          {
+            "name": "Dong-Yoon Kim",
+            "equal": true
+          },
+          {
+            "name": "Taehwan Ko",
+            "equal": true
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://www.sciencedirect.com/science/article/pii/S0142112324005036?via%3Dihub"
+      },
+      {
+        "id": "jla-lmd",
+        "kind": "journal",
+        "role": "first",
+        "year": "2023/05",
+        "title": "Study on the influence of processing variables under various tilting angles of laser nozzle and substrate on the deposition quality of the multi-axis laser metal deposition",
+        "venue": "Journal of Laser Applications",
+        "authors": [
+          {
+            "name": "Dukyong Kim"
+          },
+          {
+            "name": "Taehwan Ko"
+          },
+          {
+            "name": "Seung Hwan Lee",
+            "corresponding": true
+          }
+        ],
+        "href": "https://pubs.aip.org/lia/jla/article/35/2/022025/2878595"
+      },
+      {
+        "id": "jwj-monitoring",
+        "kind": "conference",
+        "role": "coauthor",
+        "year": "2024/07",
+        "title": "Review on welding process monitoring based on deep learning using time-series data",
+        "venue": "Journal of Welding and Joining",
+        "authors": [],
+        "href": "https://www.e-jwj.org/journal/view.php?number=2032344"
+      },
+      {
+        "id": "jwj-pinn",
+        "kind": "conference",
+        "role": "coauthor",
+        "year": "2024/07",
+        "title": "Review of recent additive manufacturing and welding research with application of physics-informed neural networks",
+        "venue": "Journal of Welding and Joining",
+        "authors": [],
+        "href": "https://www.e-jwj.org/journal/view.php?number=2032346"
+      },
+      {
+        "id": "ectc-2024",
+        "kind": "conference",
+        "role": "coauthor",
+        "year": "2024/05",
+        "title": "Measurement of the interfacial strength of thin metal film by laser spallation method for advanced wafer level package",
+        "venue": "2024 IEEE 74th Electronic Components and Technology Conference",
+        "authors": [],
+        "href": "https://ieeexplore.ieee.org/abstract/document/10565166"
+      }
+    ]
+  },
+  "talks": {
+    "title": "발표와 영상",
+    "dek": "발표 여섯 편, 공동 발표 열한 편. AESCAPE 구두 발표는 2026년 9월 11일 텍사스 댈러스이며, 녹화 영상이 그 항목에 있습니다. 발표 제목은 원문입니다.",
+    "items": [
+      {
+        "id": "tms-poster-2027",
+        "role": "poster",
+        "title": "Multi-material stranded-wire laser directed energy deposition for in-space manufacturing",
+        "event": "The Minerals, Metals, and Materials (TMS) 156th Annual Meeting",
+        "date": "05.14.2027"
+      },
+      {
+        "id": "aescape-2026",
+        "role": "oral",
+        "title": "Machine learning accelerated open-source software for analyzing operando full-field x-ray image of additive manufacturing process",
+        "event": "AI-Empowered Simulations & CAE Applications via Engineering Software 2.0 and 3.0 2026 · Dallas, Texas",
+        "date": "09.11.2026",
+        "youtubeId": "GvaxMWbJm4k"
+      },
+      {
+        "id": "aps-seminar-2026",
+        "role": "oral",
+        "title": "Machine learning-powered open-source full-field x-ray image analysis software",
+        "event": "Advanced Photon Source (APS) User Science Seminar",
+        "date": "03.27.2026"
+      },
+      {
+        "id": "kwjs-2024-10",
+        "role": "oral",
+        "title": "Physics-informed Gaussian process regression model for predicting the fatigue life of welded joints",
+        "event": "The Korean Welding and Joining Society",
+        "date": "10.17.2024"
+      },
+      {
+        "id": "ismp-2023",
+        "role": "oral",
+        "title": "Laser spallation test for measuring interface strength of thin films",
+        "event": "21st International Symposium on Microelectronics and Packaging (ISMP)",
+        "date": "10.25.2023"
+      },
+      {
+        "id": "kwjs-2023",
+        "role": "oral",
+        "title": "Measurement of the interfacial adhesion of thin films by laser spallation test",
+        "event": "The Korean Welding and Joining Society",
+        "date": "10.12.2023"
+      },
+      {
+        "id": "tms-co-2027",
+        "role": "coauthor",
+        "title": "Operando X-ray Imaging of Porosity Formation During Wire-Laser Directed Energy Deposition",
+        "event": "The Minerals, Metals, and Materials (TMS) 156th Annual Meeting",
+        "date": "05.14.2027"
+      },
+      {
+        "id": "icam-2026",
+        "role": "coauthor",
+        "title": "Domain adaptation from bare-late to powder-bed data for real-time keyhole porosity detection in laser powder bed fusion",
+        "event": "ASTM International Conference on Advanced Manufacturing (ICAM 2026)",
+        "date": "10.01.2026"
+      },
+      {
+        "id": "asa-cavitation",
+        "role": "coauthor",
+        "title": "Direct observation of acoustic cavitation in laser additive manufacturing of Aluminum using high-speed synchrotron X-ray imaging",
+        "event": "Acoustical Society of America (ASA) conference",
+        "date": "05.11.2026"
+      },
+      {
+        "id": "asa-bubble",
+        "role": "coauthor",
+        "title": "From bubble to pore: Acoustic signatures of keyhole cavity collapse",
+        "event": "Acoustical Society of America (ASA) conference",
+        "date": "05.11.2026"
+      },
+      {
+        "id": "asa-ae",
+        "role": "coauthor",
+        "title": "X-Ray-Informed Acoustic Emission Modeling of Melt Pool and Keyhole Dynamics in Laser Powder Bed Fusion",
+        "event": "Acoustical Society of America (ASA) conference",
+        "date": "05.11.2026"
+      },
+      {
+        "id": "kspe-2025",
+        "role": "coauthor",
+        "title": "Evaluation of Interfacial Adhesion Strength Between Copper and Silicon Nitride Thin Films Deposited by LPCVD and PECVD Using Laser Spallation Test",
+        "event": "Korean Society for Precision Engineering",
+        "date": "05.14.2025"
+      },
+      {
+        "id": "icmdt-2025",
+        "role": "coauthor",
+        "title": "Laser spallation test for quantifying the interfacial adhesion between copper and silicon nitride thin films deposited by low-pressure chemical vapor deposition and plasma-enhanced chemical vapor deposition process",
+        "event": "The 10th International Conference on Manufacturing, Machine Design and Tribology",
+        "date": "04.24.2025"
+      },
+      {
+        "id": "ismp-2024",
+        "role": "coauthor",
+        "title": "Laser Spallation Test for Measurement of the Interfacial Adhesion of LPCVD and PECVD Silicon Nitride/Copper Films",
+        "event": "22nd International Symposium on Microelectronics and Packaging (ISMP)",
+        "date": "11.07.2024"
+      },
+      {
+        "id": "ksme-2024",
+        "role": "coauthor",
+        "title": "Investigation of adhesion at LPCVD and PECVD silicon nitride/copper film interface by laser spallation technique",
+        "event": "The Korean Society of Mechanical Engineers",
+        "date": "06.27.2024"
+      },
+      {
+        "id": "ectc-talk",
+        "role": "coauthor",
+        "title": "Measurement of the interfacial properties of thin metal film by laser spallation method for advanced wafer level package",
+        "event": "IEEE 74th Electronic Components and Technology Conference",
+        "date": "05.28.2024"
+      },
+      {
+        "id": "kmeps-2024",
+        "role": "coauthor",
+        "title": "Laser spallation test for measurement of interfacial properties of thin film",
+        "event": "The Korean Microelectronic and Packaging Society",
+        "date": "04.03.2024"
+      }
+    ],
+    "videosTitle": "영상",
+    "videosDek": "같은 채널의 SMAXI 영상입니다. 이미지를 누르면 재생됩니다.",
+    "videos": [
+      {
+        "youtubeId": "sCgA6VVVTUc",
+        "title": "SMAXI 소개 영상",
+        "detail": "소프트웨어 개요"
+      },
+      {
+        "youtubeId": "hc3nLJa31L8",
+        "title": "SMAXI 튜토리얼 영상",
+        "detail": "2026년 6월 11일 업데이트"
+      }
+    ]
+  },
+  "awards": {
+    "title": "수상과 펠로십",
+    "dek": "PS&ED 펠로십, 장학금, 발표상, 그리고 연구실 밖의 활동.",
+    "fellowship": {
+      "title": "Predictive Science and Engineering Design (PS&ED) Cluster Fellow",
+      "meta": "Northwestern University · 2026–2027",
+      "detail": "데이터 과학, 물리 기반 시뮬레이션, 불확실성 정량화를 첨단 공학 설계에 통합하는 노스웨스턴 대학교 대학원 학제 펠로십입니다."
+    },
+    "scholarshipsTitle": "장학금",
+    "scholarships": [
+      {
+        "title": "BK21 FOUR (Brain Korea 21) 연구조교 장학금",
+        "meta": "2023.09 – 2023.12"
+      },
+      {
+        "title": "HY-IN 장학금, 한양대학교 (석사과정)",
+        "meta": "2023.03 – 2024.12"
+      },
+      {
+        "title": "한양대학교 공과대학 국제학생 홍보대사 장학금",
+        "meta": "2021.03 – 2022.02"
+      },
+      {
+        "title": "이공계 국가 대학생 장학금",
+        "meta": "2017.03 – 2023.02 · 한국 정부 전액 지원"
+      }
+    ],
+    "awardsTitle": "수상",
+    "items": [
+      {
+        "title": "우수 구두 발표상",
+        "meta": "대한용접·접합학회 학술대회 · 2024/10"
+      },
+      {
+        "title": "학사 성적우수, Summa Cum Laude",
+        "meta": "2023/02"
+      },
+      {
+        "title": "한양 영어 에세이 대회 우수상",
+        "meta": "2020/12"
+      }
+    ],
+    "activitiesTitle": "활동",
+    "activities": [
+      "노스웨스턴 대학교 기계공학과 대학원 학생회 소셜 체어 (2026)",
+      "S. Kalpakjian, “Manufacturing Engineering and Technology” 공동 번역 (2023, 6개월)",
+      "한양대학교 공과대학 국제학생 홍보대사 (2021, 12개월)",
+      "한양대학교 재료공학 밴드 동아리 회장 (2020, 12개월)"
+    ]
+  },
+  "timeline": {
+    "title": "학력과 경력",
+    "dek": "학위, 임용, 교육, 병역. 학점은 CV에 적힌 값입니다.",
+    "items": [
+      {
+        "id": "phd",
+        "kind": "education",
+        "dates": "2025.09 – 현재",
+        "place": "일리노이, 미국",
+        "title": "박사과정, 기계공학",
+        "org": "Northwestern University, Evanston",
+        "orgUrl": "https://fast-am.mech.northwestern.edu/",
+        "points": [
+          "기계공학과.",
+          "Fast-AM Laboratory (지도교수: Tao Sun 교수).",
+          "누적 GPA: 3.92/4.0.",
+          "Predictive Science and Engineering Design (PS&ED) Cluster Fellow (2026–2027)."
+        ]
+      },
+      {
+        "id": "aps",
+        "kind": "employment",
+        "dates": "2026.08 – 현재",
+        "place": "일리노이, 미국",
+        "title": "방문 대학원생",
+        "org": "아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS) · XSD-IMG 그룹",
+        "points": []
+      },
+      {
+        "id": "ta-char",
+        "kind": "teaching",
+        "dates": "2026.09",
+        "place": "",
+        "title": "조교",
+        "org": "Characterization of Materials",
+        "points": []
+      },
+      {
+        "id": "elp",
+        "kind": "teaching",
+        "dates": "2026.06–07",
+        "place": "",
+        "title": "ELP Foundations 온라인 피어 멘토",
+        "org": "English Language Programs",
+        "points": []
+      },
+      {
+        "id": "kidi",
+        "kind": "employment",
+        "dates": "2025.06 – 2025.07",
+        "place": "서울",
+        "title": "자동차 사고 분류 분석",
+        "org": "보험개발원 · 자동차기술연구소 (Korea Automobile Insurance Repair Research & Training Center)",
+        "points": []
+      },
+      {
+        "id": "hyri",
+        "kind": "employment",
+        "dates": "2025.03 – 2025.06",
+        "place": "서울",
+        "title": "대학원 연구원 (4개월)",
+        "org": "한양대학교 산업과학연구소",
+        "points": []
+      },
+      {
+        "id": "ms",
+        "kind": "education",
+        "dates": "2023.03 – 2025.02",
+        "place": "서울",
+        "title": "석사, 기계융합공학",
+        "org": "한양대학교",
+        "orgUrl": "https://smlab.hanyang.ac.kr/home",
+        "points": [
+          "Smart Manufacturing Laboratory (지도교수: Seung Hwan Lee 교수).",
+          "누적 GPA: 4.0/4.0."
+        ]
+      },
+      {
+        "id": "ta-linalg",
+        "kind": "teaching",
+        "dates": "2023.03, 2024.03",
+        "place": "",
+        "title": "조교",
+        "org": "Linear algebra and its applications",
+        "points": []
+      },
+      {
+        "id": "bs",
+        "kind": "education",
+        "dates": "2017.03 – 2023.02",
+        "place": "서울",
+        "title": "학사, 기계공학",
+        "org": "한양대학교",
+        "points": [
+          "누적 GPA: 3.84/4.0 (Summa Cum Laude).",
+          "전공 GPA: 3.84/4.0. 3–4학년 GPA: 3.92/4.0.",
+          "한국 정부 이공계 대학생 장학금 전액 지원.",
+          "학부 연구 지도교수: Seung Hwan Lee 교수."
+        ]
+      },
+      {
+        "id": "army",
+        "kind": "service",
+        "dates": "2018.03.12 – 2019.11.10",
+        "place": "대한민국",
+        "title": "대한민국 육군",
+        "org": "병역, 20개월",
+        "points": []
+      }
+    ]
+  },
+  "skills": {
+    "title": "역량",
+    "dek": "CV의 언어, 실험, 소프트웨어.",
+    "groups": [
+      {
+        "title": "언어",
+        "items": [
+          "한국어: 모국어",
+          "영어: 모국어",
+          "일본어: 중급",
+          "TOEFL, 2024년 2월 — 111/120 (읽기 30, 듣기 28, 말하기 25, 쓰기 28)",
+          "GRE General Test, 2022년 2월 — verbal 160/170 (84%), quantitative 170/170 (92%), analytical writing 4.0/6.0 (59%)"
+        ]
+      },
+      {
+        "title": "실험",
+        "items": [
+          "금속 적층제조: 레이저 분말 베드 용융, 분말 분사 및 와이어 L-DED",
+          "레이저 스폴레이션용 레이저 광학: Q-switched Nd:YAG, 디스크 레이저, 다이오드 여기 고체 레이저, Michelson 간섭계",
+          "만능시험기: 축 피로, 인장 전단",
+          "재료 특성 평가: SEM, EDS, EBSD"
+        ]
+      },
+      {
+        "title": "소프트웨어",
+        "items": [
+          "Python, MATLAB, NX (Siemens), Delmia (Dassault Systèmes), Adobe Creative Suite",
+          "Abaqus, Flow3D, ANSYS",
+          "컴퓨터활용능력 1급 (Computer Specialist in Spreadsheet and Database, Level 1)"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "연락",
+    "dek": "노스웨스턴 대학교 기계공학과, 일리노이 에반스턴.",
+    "paragraphs": [
+      "Fast-AM Laboratory 박사과정이며, 아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS) XSD-IMG 그룹의 방문 대학원생입니다.",
+      "CV에는 공개 이메일이 없습니다. LinkedIn으로 보내 주시거나 Fast-AM Laboratory 페이지에서 시작해 주세요. 논문 기록은 Google Scholar와 ORCID에 있습니다."
+    ],
+    "cvNote": "PDF는 Word 이력서에서 내보낸 파일입니다. 두 파일은 같은 문서입니다.",
+    "links": [
+      {
+        "label": "Google Scholar",
+        "href": "https://scholar.google.com/citations?user=6eHbSF8AAAAJ&hl=en&oi=ao"
+      },
+      {
+        "label": "ORCID",
+        "href": "https://orcid.org/0000-0002-5665-8317"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/dukyong-kim-3729a3257/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/dukyong414"
+      },
+      {
+        "label": "SMAXI",
+        "href": "https://github.com/dukyong414/SMAXI"
+      },
+      {
+        "label": "Fast-AM 연구실",
+        "href": "https://fast-am.mech.northwestern.edu/"
+      }
+    ]
+  },
+  "footer": "© 2026 김덕용"
+}

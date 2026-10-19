@@ -1,0 +1,7 @@
+---
+import Page from "../../components/Page.astro";
+import content from "../../data/ko.json";
+import type { SiteContent } from "../../data/types";
+---
+
+<Page content={content as unknown as SiteContent} />
