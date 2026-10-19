@@ -19,6 +19,11 @@ const SYNC_KEYS = new Set([
   "piHref",
   "orgUrl",
   "url",
+  "src",
+  "webp",
+  "avif",
+  "width",
+  "height",
 ]);
 
 const DENY = ["YONHEE", "kQS7nwHt0t0", "kdy0414@"];

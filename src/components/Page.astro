@@ -2,12 +2,22 @@
 import Base from "../layouts/Base.astro";
 import Icon from "./Icon.astro";
 import type { SiteContent } from "../data/types";
+import { publicImage } from "../lib/public-image";
 
 interface Props {
   content: SiteContent;
 }
 const { content: c } = Astro.props;
 const pubs = c.publications.items;
+const portrait = c.media.portrait;
+const portraitSrc = publicImage(portrait?.src);
+const portraitWebp = publicImage(portrait?.webp);
+const portraitAvif = publicImage(portrait?.avif);
+const campusSrc = publicImage(c.media.campus?.src);
+const overviewSrc = publicImage(c.media.overview?.src);
+const spallationSrc = publicImage(c.media.spallation?.src);
+const labSrc = publicImage(c.media.lab?.src);
+const lmdSrc = publicImage(c.media.lmd?.src);
 const journalCount = pubs.filter((item) => item.kind === "journal").length;
 const conferenceCount = pubs.length - journalCount;
 const presentingCount = c.talks.items.filter((item) => item.role !== "coauthor").length;
@@ -47,7 +57,7 @@ const coauthorCount = c.talks.items.length - presentingCount;
   <main id="main">
     <div class="wrap">
       <section class="hero" id="top">
-        <div class="hero-row">
+        <div class:list={["hero-row", !portraitSrc && "solo"]}>
           <div class="hero-copy">
             <p class="eyebrow">{c.hero.eyebrow}</p>
             <h1>{c.hero.name}</h1>
@@ -73,19 +83,16 @@ const coauthorCount = c.talks.items.length - presentingCount;
               </a>
             </div>
           </div>
-          <figure class="hero-photo">
-            <picture>
-              <source srcset="/images/portrait.avif" type="image/avif" />
-              <source srcset="/images/portrait.webp" type="image/webp" />
-              <img
-                src="/images/portrait.jpg"
-                width="2400"
-                height="1655"
-                alt={c.media.portraitAlt}
-              />
-            </picture>
-            <figcaption class="portrait-cap">{c.media.portraitCaption}</figcaption>
-          </figure>
+          {portraitSrc && portrait && (
+            <figure class="hero-photo">
+              <picture>
+                {portraitAvif && <source srcset={portraitAvif} type="image/avif" />}
+                {portraitWebp && <source srcset={portraitWebp} type="image/webp" />}
+                <img src={portraitSrc} width={portrait.width} height={portrait.height} alt={c.media.portraitAlt} />
+              </picture>
+              <figcaption class="portrait-cap">{c.media.portraitCaption}</figcaption>
+            </figure>
+          )}
         </div>
         <ul class="facts">
             {c.hero.facts.map((fact) => (
@@ -111,14 +118,16 @@ const coauthorCount = c.talks.items.length - presentingCount;
           <h2>{c.about.title}</h2>
           <p class="dek">{c.about.dek}</p>
         </header>
-        <div class="about-grid">
+        <div class:list={["about-grid", !campusSrc && "solo"]}>
           <div class="prose">
             {c.about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
           </div>
-          <figure>
-            <img class="frame campus" src="/images/campus.jpg" width="2000" height="1125" alt={c.media.campusAlt} />
-            <figcaption>{c.media.campusCaption}</figcaption>
-          </figure>
+          {campusSrc && c.media.campus && (
+            <figure>
+              <img class="frame campus" src={campusSrc} width={c.media.campus.width} height={c.media.campus.height} alt={c.media.campusAlt} />
+              <figcaption>{c.media.campusCaption}</figcaption>
+            </figure>
+          )}
         </div>
       </section>
 
@@ -154,24 +163,34 @@ const coauthorCount = c.talks.items.length - presentingCount;
           ))}
         </div>
 
-        <div class="mosaic">
-          <figure class="span">
-            <img class="frame" src="/images/research-overview.jpg" width="1259" height="874" alt={c.media.overviewAlt} />
-            <figcaption>{c.media.overviewCaption}</figcaption>
+        {(overviewSrc || spallationSrc || labSrc) && (
+          <div class="mosaic">
+            {overviewSrc && c.media.overview && (
+              <figure class="span">
+                <img class="frame" src={overviewSrc} width={c.media.overview.width} height={c.media.overview.height} alt={c.media.overviewAlt} />
+                <figcaption>{c.media.overviewCaption}</figcaption>
+              </figure>
+            )}
+            {spallationSrc && c.media.spallation && (
+              <figure>
+                <img class="frame" src={spallationSrc} width={c.media.spallation.width} height={c.media.spallation.height} alt={c.media.spallationAlt} />
+                <figcaption>{c.media.spallationCaption}</figcaption>
+              </figure>
+            )}
+            {labSrc && c.media.lab && (
+              <figure>
+                <img class="frame lab-photo" src={labSrc} width={c.media.lab.width} height={c.media.lab.height} alt={c.media.labAlt} />
+                <figcaption>{c.media.labCaption}</figcaption>
+              </figure>
+            )}
+          </div>
+        )}
+        {lmdSrc && c.media.lmd && (
+          <figure class="strip">
+            <img src={lmdSrc} width={c.media.lmd.width} height={c.media.lmd.height} alt={c.media.lmdAlt} />
+            <figcaption>{c.media.lmdCaption}</figcaption>
           </figure>
-          <figure>
-            <img class="frame" src="/images/spallation-system.jpg" width="900" height="704" alt={c.media.spallationAlt} />
-            <figcaption>{c.media.spallationCaption}</figcaption>
-          </figure>
-          <figure>
-            <img class="frame lab-photo" src="/images/lab.jpg" width="1400" height="1867" alt={c.media.labAlt} />
-            <figcaption>{c.media.labCaption}</figcaption>
-          </figure>
-        </div>
-        <figure class="strip">
-          <img src="/images/lmd-diagram.jpg" width="900" height="191" alt={c.media.lmdAlt} />
-          <figcaption>{c.media.lmdCaption}</figcaption>
-        </figure>
+        )}
 
         <h3 class="subhead">{c.research.experienceTitle}</h3>
         <p class="dek">{c.research.experienceDek}</p>

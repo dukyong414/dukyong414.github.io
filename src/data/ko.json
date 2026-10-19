@@ -136,16 +136,48 @@
   "media": {
     "portraitAlt": "버킹엄 분수 앞에서 미소 짓는 Dukyong Kim. 뒤로 시카고 스카이라인이 보인다.",
     "portraitCaption": "시카고",
+    "portrait": {
+      "src": "/images/portrait.jpg",
+      "webp": "/images/portrait.webp",
+      "avif": "/images/portrait.avif",
+      "width": 2400,
+      "height": 1655
+    },
     "campusAlt": "에반스턴 노스웨스턴 대학교의 벽돌 건물과 잔디밭.",
     "campusCaption": "Northwestern University, 에반스턴.",
+    "campus": {
+      "src": "/images/campus.jpg",
+      "width": 2000,
+      "height": 1125
+    },
     "labAlt": "흰 실험복과 위생모를 쓴 Dukyong Kim이 실험실에 서 있는 사진.",
     "labCaption": "실험실에서.",
+    "lab": {
+      "src": "/images/lab.jpg",
+      "width": 1400,
+      "height": 1867
+    },
     "overviewAlt": "다축 레이저 적층, 구리 박막, 레이저 스폴레이션 배치, 피로와 연료전지 기계학습 모형을 담은 연구 그림 모음.",
     "overviewCaption": "한양대학교에서 노스웨스턴으로 이어진 연구 주제: 다축 레이저 금속 적층, 레이저 스폴레이션, 물리 정보 학습.",
+    "overview": {
+      "src": "/images/research-overview.jpg",
+      "width": 1259,
+      "height": 874
+    },
     "spallationAlt": "레이저 헤드, 거울, 렌즈, 시편 스테이지가 놓인 레이저 스폴레이션 광학 테이블.",
     "spallationCaption": "박막 접착 측정용 레이저 스폴레이션 시스템. 한양대학교 석사과정에 구축.",
+    "spallation": {
+      "src": "/images/spallation-system.jpg",
+      "width": 900,
+      "height": 704
+    },
     "lmdAlt": "노즐 각도 알파와 기판 경사 베타가 표시된 다축 레이저 금속 적층 도식.",
-    "lmdCaption": "다축 레이저 금속 적층: 노즐 각도와 기판 경사."
+    "lmdCaption": "다축 레이저 금속 적층: 노즐 각도와 기판 경사.",
+    "lmd": {
+      "src": "/images/lmd-diagram.jpg",
+      "width": 900,
+      "height": 191
+    }
   },
   "research": {
     "title": "연구",

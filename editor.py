@@ -13,6 +13,7 @@ when a conversion is needed.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import os
 import re
@@ -31,7 +32,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 EN_PATH = ROOT / "src" / "data" / "en.json"
 KO_PATH = ROOT / "src" / "data" / "ko.json"
-PAGE_PATH = ROOT / "src" / "components" / "Page.astro"
 IMAGE_DIR = ROOT / "public" / "images"
 CV_DIR = ROOT / "public" / "cv"
 BACKUP_DIR = ROOT / ".editor-backups"
@@ -53,6 +53,19 @@ SYNC_KEYS = {
     "piHref",
     "orgUrl",
     "url",
+    "src",
+    "webp",
+    "avif",
+    "width",
+    "height",
+}
+LAYOUT_FIELDS = {
+    "portrait": "portrait",
+    "campus": "campus",
+    "research-overview": "overview",
+    "spallation-system": "spallation",
+    "lab": "lab",
+    "lmd-diagram": "lmd",
 }
 DENY = ("YONHEE", "kQS7nwHt0t0", "kdy0414@")
 YOUTUBE_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
@@ -150,6 +163,9 @@ def normalize(node: object) -> None:
         for key in ("youtubeId", "doi", "orgUrl"):
             if node.get(key) == "":
                 node.pop(key, None)
+        for key in ("width", "height"):
+            if isinstance(node.get(key), str) and node[key].isdigit():
+                node[key] = int(node[key])
         for value in list(node.values()):
             normalize(value)
     elif isinstance(node, list):
@@ -401,6 +417,19 @@ def json_path(parts: list) -> str:
     return text or "$"
 
 
+def image_slot(value: dict, names: set[str]) -> bool:
+    """A layout image object is only a path plus pixel size, so it can be removed whole."""
+    saw_file = False
+    for item in value.values():
+        if isinstance(item, str) and exact_image_ref(item, names):
+            saw_file = True
+        elif isinstance(item, (int, float)) and not isinstance(item, bool):
+            continue
+        else:
+            return False
+    return saw_file
+
+
 def collect_json_usage(node: object, parts: list, names: set[str], content: list, mentions: list, in_item: bool = False) -> None:
     if isinstance(node, dict):
         if in_item and any(isinstance(value, str) and exact_image_ref(value, names) for value in node.values()):
@@ -409,7 +438,10 @@ def collect_json_usage(node: object, parts: list, names: set[str], content: list
             return
         for key, value in node.items():
             child = parts + [key]
-            if isinstance(value, str) and exact_image_ref(value, names):
+            if isinstance(value, dict) and image_slot(value, names):
+                sample = next(item for item in value.values() if isinstance(item, str) and exact_image_ref(item, names))
+                content.append({"path": json_path(child), "parts": child, "kind": "field", "value": sample})
+            elif isinstance(value, str) and exact_image_ref(value, names):
                 content.append({"path": json_path(child), "parts": child, "kind": "field", "value": value})
             elif isinstance(value, str) and mentions_image(value, names):
                 mentions.append({"path": json_path(child), "value": value[:160]})
@@ -483,13 +515,12 @@ def image_usage(stem: str) -> dict:
     for lang, rows in (("en", en_mentions), ("ko", ko_mentions)):
         for row in rows:
             mentions.append({**row, "lang": lang})
-    blocked = bool(hardcoded or mentions)
     return {
         "ok": True,
         "id": stem,
         "files": group["files"],
         "label": group["label"],
-        "blocked": blocked,
+        "blocked": False,
         "hardcoded": hardcoded,
         "content": [{key: value for key, value in row.items() if key != "parts"} | {"parts": row["parts"]} for row in content],
         "mentions": mentions,
@@ -533,32 +564,86 @@ def apply_reference_removals(en: dict, ko: dict, content: list[dict]) -> None:
                 drop_path(tree, list(parent) + [index])
 
 
-def delete_image(stem: str, remove_references: bool) -> dict:
+def get_path(node: object, parts: list) -> object:
+    current = node
+    for part in parts:
+        if isinstance(part, int):
+            if not isinstance(current, list) or not 0 <= part < len(current):
+                return None
+            current = current[part]
+        else:
+            if not isinstance(current, dict) or part not in current:
+                return None
+            current = current[part]
+    return current
+
+
+def snapshot_removals(en: dict, ko: dict, content: list[dict]) -> list[dict]:
+    rows = []
+    for row in content:
+        parts = row["parts"]
+        rows.append({
+            "parts": parts,
+            "kind": row["kind"],
+            "en": copy.deepcopy(get_path(en, parts)),
+            "ko": copy.deepcopy(get_path(ko, parts)),
+        })
+    return rows
+
+
+def put_back(tree: dict, parts: list, value: object) -> bool:
+    if value is None or not parts:
+        return False
+    parent: object = tree
+    for part in parts[:-1]:
+        if isinstance(part, int):
+            if not isinstance(parent, list) or not 0 <= part < len(parent):
+                return False
+            parent = parent[part]
+        else:
+            if not isinstance(parent, dict):
+                return False
+            if part not in parent or not isinstance(parent[part], (dict, list)):
+                parent[part] = {}
+            parent = parent[part]
+    last = parts[-1]
+    if isinstance(last, int):
+        if not isinstance(parent, list):
+            return False
+        if any(item == value for item in parent):
+            return False
+        parent.insert(min(last, len(parent)), copy.deepcopy(value))
+        return True
+    if isinstance(parent, dict) and last not in parent:
+        parent[last] = copy.deepcopy(value)
+        return True
+    return False
+
+
+def apply_restores(en: dict, ko: dict, removals: list) -> bool:
+    changed = False
+    fields = [row for row in removals if isinstance(row, dict) and row.get("kind") != "item"]
+    items = [row for row in removals if isinstance(row, dict) and row.get("kind") == "item"]
+    items.sort(key=lambda row: row["parts"][-1] if isinstance(row.get("parts"), list) and isinstance(row["parts"][-1], int) else 0)
+    for row in fields + items:
+        parts = row.get("parts")
+        if not isinstance(parts, list) or not parts:
+            continue
+        changed = put_back(en, parts, row.get("en")) or changed
+        changed = put_back(ko, parts, row.get("ko")) or changed
+    return changed
+
+
+def delete_image(stem: str, remove_references: bool = True) -> dict:
     usage = image_usage(stem)
     if not usage.get("ok"):
         return usage
-    if usage["blocked"]:
-        return {
-            "ok": False,
-            "blocked": True,
-            "hardcoded": usage["hardcoded"],
-            "mentions": usage["mentions"],
-            "error": msg(
-                "This photo is built into the page, so it can’t be deleted. Use Replace.",
-                "이 사진은 페이지에 고정되어 있어 삭제할 수 없습니다. 교체를 사용하세요.",
-            ),
-        }
-    if usage["content"] and not remove_references:
-        return {
-            "ok": False,
-            "error": msg(
-                "This photo is still used in the text. Confirm that those entries should be removed in both languages.",
-                "이 사진이 글에 남아 있습니다. 영어와 한국어에서 그 항목을 지우는 것을 확인해 주세요.",
-            ),
-        }
     en = ko = None
+    removals: list[dict] = []
+    # Confirm always clears JSON references. The page hides a frame whose file or entry is gone.
     if usage["content"]:
         en, ko = load_pair()
+        removals = snapshot_removals(en, ko, usage["content"])
         apply_reference_removals(en, ko, usage["content"])
         problems = validate(en, ko)
         if problems:
@@ -578,6 +663,7 @@ def delete_image(stem: str, remove_references: bool) -> dict:
         "id": stem,
         "files": moved,
         "label": group["label"],
+        "removals": removals,
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if en is not None and ko is not None:
         try:
@@ -587,7 +673,13 @@ def delete_image(stem: str, remove_references: bool) -> dict:
                 shutil.move(str(dest / name), IMAGE_DIR / name)
             shutil.rmtree(dest, ignore_errors=True)
             raise
-    return {"ok": True, "backup": str(dest.relative_to(ROOT)), "files": moved, "contentChanged": en is not None}
+    return {
+        "ok": True,
+        "backup": str(dest.relative_to(ROOT)),
+        "files": moved,
+        "contentChanged": en is not None,
+        "hardcoded": usage["hardcoded"],
+    }
 
 
 def list_deleted() -> list[dict]:
@@ -638,11 +730,34 @@ def restore_deleted(stamp: str) -> dict:
             "A photo with that name is already on the site: " + ", ".join(conflicts),
             "같은 이름의 사진이 이미 있습니다: " + ", ".join(conflicts),
         )}
+    meta: dict = {}
+    meta_path = folder / "meta.json"
+    if meta_path.is_file():
+        try:
+            loaded = json.loads(meta_path.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                meta = loaded
+        except json.JSONDecodeError:
+            meta = {}
+    removals = meta.get("removals") if isinstance(meta.get("removals"), list) else []
+    en = ko = None
+    if removals:
+        loaded_en, loaded_ko = load_pair()
+        if apply_restores(loaded_en, loaded_ko, removals) and not validate(loaded_en, loaded_ko):
+            en, ko = loaded_en, loaded_ko
     IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    names = [path.name for path in files]
     for path in files:
         shutil.move(str(path), IMAGE_DIR / path.name)
+    if en is not None and ko is not None:
+        try:
+            save_pair(en, ko)
+        except Exception:
+            for name in names:
+                shutil.move(str(IMAGE_DIR / name), folder / name)
+            raise
     shutil.rmtree(folder, ignore_errors=True)
-    return {"ok": True, "files": [path.name for path in files]}
+    return {"ok": True, "files": names, "contentChanged": en is not None}
 
 
 def slug_stem(original: str) -> str:
@@ -728,43 +843,29 @@ def open_image(data: bytes):
     return image
 
 
-def portrait_markup(width: int, height: int) -> str:
-    lines = ["            <picture>"]
-    if (IMAGE_DIR / "portrait.avif").is_file():
-        lines.append('              <source srcset="/images/portrait.avif" type="image/avif" />')
-    if (IMAGE_DIR / "portrait.webp").is_file():
-        lines.append('              <source srcset="/images/portrait.webp" type="image/webp" />')
-    lines.extend([
-        "              <img",
-        '                src="/images/portrait.jpg"',
-        f'                width="{width}"',
-        f'                height="{height}"',
-        "                alt={c.media.portraitAlt}",
-        "              />",
-        "            </picture>",
-    ])
-    return "\n".join(lines)
-
-
-def write_portrait_markup(width: int, height: int) -> bool:
-    text = PAGE_PATH.read_text(encoding="utf-8")
-    block = portrait_markup(width, height)
-    new, count = re.subn(r"[ ]*<picture>[\s\S]*?</picture>", block, text, count=1)
-    if count != 1:
+def write_layout_image(stem: str, width: int | None, height: int | None, extras: dict[str, str]) -> bool:
+    field = LAYOUT_FIELDS.get(stem)
+    if not field:
         return False
-    if new != text:
-        PAGE_PATH.write_text(new, encoding="utf-8", newline="\n")
-    return True
-
-
-def update_img_size(filename: str, width: int, height: int) -> bool:
-    text = PAGE_PATH.read_text(encoding="utf-8")
-    pattern = re.compile(rf'(src="/images/{re.escape(filename)}"\s+width=")\d+("\s+height=")\d+(")')
-    new, count = pattern.subn(lambda match: f"{match.group(1)}{width}{match.group(2)}{height}{match.group(3)}", text, count=1)
-    if count != 1:
-        return False
-    if new != text:
-        PAGE_PATH.write_text(new, encoding="utf-8", newline="\n")
+    en, ko = load_pair()
+    src = f"/images/{stem}.jpg"
+    for tree in (en, ko):
+        media = tree.setdefault("media", {})
+        if not isinstance(media, dict):
+            return False
+        current = media.get(field)
+        slot = dict(current) if isinstance(current, dict) else {}
+        slot["src"] = src
+        if width and height:
+            slot["width"] = width
+            slot["height"] = height
+        for key in ("webp", "avif"):
+            if key in extras:
+                slot[key] = extras[key]
+            else:
+                slot.pop(key, None)
+        media[field] = slot
+    save_pair(en, ko)
     return True
 
 
@@ -785,7 +886,7 @@ def replace_image(stem: str, data: bytes) -> dict:
         return {"ok": False, "error": msg("That file is empty.", "파일이 비어 있습니다.")}
     group = groups[stem]
     paths = [IMAGE_DIR / name for name in group["files"]]
-    paths.append(PAGE_PATH)
+    paths.extend([EN_PATH, KO_PATH])
     backup(paths)
     notes: list[dict[str, str]] = []
     try:
@@ -807,6 +908,7 @@ def write_hero(data: bytes) -> list[dict[str, str]]:
         for name in ("portrait.webp", "portrait.avif"):
             (IMAGE_DIR / name).unlink(missing_ok=True)
         size = jpeg_size(data)
+        extras: dict[str, str] = {}
         notes.append(msg(
             "Saved the JPEG. WebP and AVIF were removed so the previous portrait is not shown.",
             "JPEG만 저장했습니다. 이전 사진이 남지 않도록 WebP와 AVIF는 지웠습니다.",
@@ -816,8 +918,10 @@ def write_hero(data: bytes) -> list[dict[str, str]]:
         image = open_image(data)
         image.save(IMAGE_DIR / "portrait.jpg", format="JPEG", quality=88, optimize=True)
         image.save(IMAGE_DIR / "portrait.webp", format="WEBP", quality=82, method=6)
+        extras = {"webp": "/images/portrait.webp"}
         try:
             image.save(IMAGE_DIR / "portrait.avif", format="AVIF", quality=50)
+            extras["avif"] = "/images/portrait.avif"
         except Exception:
             (IMAGE_DIR / "portrait.avif").unlink(missing_ok=True)
             notes.append(msg(
@@ -829,13 +933,8 @@ def write_hero(data: bytes) -> list[dict[str, str]]:
             "Regenerated the portrait files the site serves (JPEG, WebP, and AVIF when possible).",
             "사이트가 사용하는 프로필 사진(JPEG, WebP, 가능하면 AVIF)을 다시 만들었습니다.",
         ))
-    if size:
-        write_portrait_markup(*size)
-    else:
-        notes.append(msg(
-            "Could not read the pixel size, so the page template was left unchanged.",
-            "픽셀 크기를 읽지 못해 페이지 템플릿은 그대로 두었습니다.",
-        ))
+    width, height = size if size else (None, None)
+    write_layout_image("portrait", width, height, extras)
     return notes
 
 
@@ -852,12 +951,8 @@ def write_simple_image(group: dict, data: bytes) -> list[dict[str, str]]:
         image = open_image(data)
         image.save(dest, format="JPEG", quality=88, optimize=True)
         size = image.size
-    if size and filename.lower().endswith(".jpg"):
-        if not update_img_size(filename, *size):
-            notes.append(msg(
-                "The photo was saved. Its width and height in the page template were not found to update.",
-                "사진은 저장했습니다. 페이지 템플릿의 가로·세로 숫자는 찾지 못했습니다.",
-            ))
+    if size and group["id"] in LAYOUT_FIELDS:
+        write_layout_image(group["id"], size[0], size[1], {})
     return notes
 
 
@@ -1236,6 +1331,10 @@ class EditorHandler(BaseHTTPRequestHandler):
             return
         with LOCK:
             result = restore_deleted(str(payload.get("stamp") or ""))
+        if result.get("contentChanged"):
+            en, ko = load_pair()
+            result["en"] = en
+            result["ko"] = ko
         self.send_json(200 if result.get("ok") else 400, result)
 
     def handle_publish(self, body: bytes) -> None:

@@ -136,16 +136,48 @@
   "media": {
     "portraitAlt": "Dukyong Kim smiling in front of Buckingham Fountain, with the Chicago skyline behind him.",
     "portraitCaption": "Chicago",
+    "portrait": {
+      "src": "/images/portrait.jpg",
+      "webp": "/images/portrait.webp",
+      "avif": "/images/portrait.avif",
+      "width": 2400,
+      "height": 1655
+    },
     "campusAlt": "Brick university buildings and a lawn at Northwestern University in Evanston.",
     "campusCaption": "Northwestern University, Evanston.",
+    "campus": {
+      "src": "/images/campus.jpg",
+      "width": 2000,
+      "height": 1125
+    },
     "labAlt": "Dukyong Kim in a white lab coat and hairnet, standing in a laboratory.",
     "labCaption": "In the lab.",
+    "lab": {
+      "src": "/images/lab.jpg",
+      "width": 1400,
+      "height": 1867
+    },
     "overviewAlt": "Collage of research figures covering multi-axis laser deposition, copper thin films, a laser spallation layout, and machine-learning models for fatigue and fuel cells.",
     "overviewCaption": "Research themes carried from Hanyang to Northwestern: multi-axis laser metal deposition, laser spallation, and physics-informed learning.",
+    "overview": {
+      "src": "/images/research-overview.jpg",
+      "width": 1259,
+      "height": 874
+    },
     "spallationAlt": "Optical table with a laser spallation setup: a laser head, mirrors, lenses, and a sample stage.",
     "spallationCaption": "Laser spallation system for thin-film adhesion, built during the Hanyang master’s.",
+    "spallation": {
+      "src": "/images/spallation-system.jpg",
+      "width": 900,
+      "height": 704
+    },
     "lmdAlt": "Diagram of multi-axis laser metal deposition with nozzle angle alpha and substrate inclination beta.",
-    "lmdCaption": "Multi-axis laser metal deposition: nozzle angle and substrate inclination."
+    "lmdCaption": "Multi-axis laser metal deposition: nozzle angle and substrate inclination.",
+    "lmd": {
+      "src": "/images/lmd-diagram.jpg",
+      "width": 900,
+      "height": 191
+    }
   },
   "research": {
     "title": "Research",

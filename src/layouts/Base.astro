@@ -1,11 +1,13 @@
 ---
 import "../styles/global.css";
 import type { SiteContent } from "../data/types";
+import { publicImage } from "../lib/public-image";
 
 interface Props {
   content: SiteContent;
 }
 const { content } = Astro.props;
+const ogImage = publicImage(content.media.portrait?.src);
 const ld = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -41,7 +43,7 @@ const ld = {
     <meta property="og:title" content={content.meta.title} />
     <meta property="og:description" content={content.meta.description} />
     <meta property="og:type" content="profile" />
-    <meta property="og:image" content="/images/portrait.jpg" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
     <meta property="og:locale" content={content.lang === "ko" ? "ko_KR" : "en_US"} />
     <script is:inline>
       (function () {
