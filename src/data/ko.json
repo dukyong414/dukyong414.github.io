@@ -126,15 +126,15 @@
     "title": "소개",
     "dek": "서울에서 에반스턴으로. 레이저, 박막, 그리고 용융풀의 영상.",
     "paragraphs": [
-      "노스웨스턴 대학교 기계공학과 박사과정이며, Tao Sun 교수의 Fast-AM Laboratory에서 연구하고 있습니다. 아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS) XSD-IMG 그룹의 방문 대학원생이기도 합니다.",
+      "노스웨스턴 대학교 기계공학과 박사과정이며, Tao Sun 교수의 Fast-AM Laboratory에서 연구하고 있습니다. 아르곤 국립연구소(Argonne National Laboratory) 입자가속기 센터 (APS, Advanced Photon Source) XSD-IMG 그룹의 방문 대학원생이기도 합니다.",
       "서울에서 태어나 자랐고, 한양대학교에서 기계공학 학사(Summa Cum Laude)와 기계융합공학 석사를 했습니다. Hot Wheels에서 Formula One까지 이어진 자동차에 대한 관심이 기계공학으로 데려왔고, 자동차·항공·조선·반도체 제조의 도구인 레이저가 거기에 머물게 했습니다.",
-      "학부에서는 다축 레이저 금속 적층에서 노즐 기울기와 기판 경사가 Inconel 625의 적층 품질을 어떻게 바꾸는지 살펴보았습니다. 석사과정에서는 국내 최초의 레이저 스폴레이션 시스템 구축에 기여했습니다. 펄스 레이저 충격파로 박막 계면 접착을 재는 방법입니다. 용접 피로 수명과 고분자 전해질 연료전지에 대한 물리 정보 기계학습도 함께 다뤘습니다.",
-      "박사과정은 적층제조에서 레이저와 재료가 만나며 결함이 생기는 과정을 오페란도 방사광 X선 이미징으로 보는 일입니다. 다원소 연선 레이저 직접 에너지 적층(L-DED)이 그 안에 있습니다. 전역 X선 영상을 위한 오픈소스 소프트웨어 SMAXI도 만들고 있습니다. 2026–2027 Predictive Science and Engineering Design (PS&ED) Cluster Fellow입니다."
+      "학부에서는 다축 레이저 금속 적층에서 노즐 기울기와 기판 경사가 Inconel 625의 적층 품질을 어떻게 바꾸는지 살펴보았습니다. 석사과정에서는 국내 최초의 laser spallation system 구축에 기여했습니다. 펄스 레이저 충격파로 박막 계면 접착을 정량적으로 측정하는 방법입니다. 용접 피로 수명과 고분자 전해질 연료전지에 대한 물리 기반 머신 러닝 기술도 함께 개발했습니다.",
+      "박사과정은 적층제조에서 레이저와 재료가 만나며 결함이 생기는 과정을 실시간 방사광 X선 이미징으로 보는 일입니다. Multi-element 레이저 직접 에너지 적층(L-DED)이 그 안에 있습니다. 전역 X선 영상을 위한 오픈소스 소프트웨어 SMAXI도 만들고 있습니다. 2026–2027 Predictive Science and Engineering Design (PS&ED) Cluster Fellow입니다."
     ]
   },
   "media": {
-    "portraitAlt": "버킹엄 분수 앞에서 미소 짓는 Dukyong Kim. 뒤로 시카고 스카이라인이 보인다.",
-    "portraitCaption": "시카고",
+    "portraitAlt": "",
+    "portraitCaption": "",
     "portrait": {
       "src": "/images/portrait.jpg",
       "webp": "/images/portrait.webp",
@@ -142,8 +142,8 @@
       "width": 2400,
       "height": 1655
     },
-    "campusAlt": "에반스턴 노스웨스턴 대학교의 벽돌 건물과 잔디밭.",
-    "campusCaption": "Northwestern University, 에반스턴.",
+    "campusAlt": "",
+    "campusCaption": "Northwestern University, Evanston.",
     "campus": {
       "src": "/images/campus.jpg",
       "width": 2000,
@@ -347,12 +347,14 @@
       }
     ],
     "projectsTitle": "참여 과제",
-    "projectsDek": "CV에 적힌 역할과 지원 기관.",
+    "projectsDek": "",
     "projects": [
-      "연료전지 시스템 스마트 DPO (Design, Production, Operation) 개방형 플랫폼 개발, 2021–2025 (48개월), 연구원, 산업통상자원부, 한국",
-      "PHM (Prognostics and Health Management)을 이용한 연료전지 시스템 고장 진단 및 예지보전 기술 연구, 2021–2023 (24개월), 한양대학교 산학협력단, 한국",
+      "IMQCAM은 Institute for Model-based Qualification and Certification of Additive Manufacturing(적층제조 모델 기반 자격 부여 및 인증 연구소)의 약자입니다. 미 항공우주국(NASA)이 지원하는 우주기술연구소(STRI, Space Technology Research Institute) 프로젝트로, 카네기 멜런 대학(CMU)과 존스 홉킨스 대학(JHU) 등이 공동으로 이끌고 있습니다.",
+      "DARPA-funded project. 레이저 분말 베드 융합(LPBF) 금속 샘플의 피로 수명을 프린팅 후 예측할 수 있는 혁신적인 센싱-모델링 기술 개발.",
+      "Die MLM 박막 계면 물성과 레이저 거동에 기반한 패키징 공정·신뢰성 예측 기술 개발, 2022–2024 (24개월), SK Hynix Incorporation, 한국",
       "레이저 노즐 각도와 적층 품질의 관계 분석, 2022 (6개월), DN Solutions Incorporate, 한국",
-      "Die MLM 박막 계면 물성과 레이저 거동에 기반한 패키징 공정·신뢰성 예측 기술 개발, 2022–2024 (24개월), SK Hynix Incorporation, 한국"
+      "연료전지 시스템 스마트 DPO (Design, Production, Operation) 개방형 플랫폼 개발, 2021–2025 (48개월), 연구원, 산업통상자원부, 한국",
+      "PHM (Prognostics and Health Management)을 이용한 연료전지 시스템 고장 진단 및 예지보전 기술 연구, 2021–2023 (24개월), 한양대학교 산학협력단, 한국"
     ]
   },
   "lab": {

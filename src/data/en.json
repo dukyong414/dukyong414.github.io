@@ -126,15 +126,15 @@
     "title": "About",
     "dek": "Seoul, then Evanston. Lasers, thin films, and the images of a melt pool.",
     "paragraphs": [
-      "I am a Ph.D. student in the Department of Mechanical Engineering at Northwestern University, in the Fast-AM Laboratory with Professor Tao Sun. I am also a visiting graduate student in the XSD-IMG group at the Advanced Photon Source (APS), Argonne National Laboratory.",
+      "I am a Ph.D. student in the Department of Mechanical Engineering at Northwestern University, in the Fast-AM Laboratory with Professor Tao Sun. Currently, I am also a visiting graduate student in the XSD-IMG group at the Advanced Photon Source (APS), Argonne National Laboratory.",
       "I was born and raised in Seoul. I earned a B.S. in mechanical engineering at Hanyang University, Summa Cum Laude, and an M.S. in mechanical convergence engineering there, in the Smart Manufacturing Laboratory. An interest in automobiles — from Hot Wheels to Formula One — brought me into mechanical engineering. Lasers held me there: a manufacturing tool in the automotive, aerospace, shipbuilding, and semiconductor industries.",
       "As an undergraduate I studied multi-axis laser metal deposition, and how nozzle tilt and substrate inclination change the quality of Inconel 625. In the master’s I contributed to South Korea’s first laser spallation system, a pulsed-laser shock-wave method for the adhesion of thin films, and I worked on physics-informed machine learning for fatigue life and for proton-exchange membrane fuel cells.",
       "The doctorate is about laser–material interaction and defect formation in additive manufacturing, watched with operando synchrotron x-ray imaging, including multi-element stranded wire laser directed energy deposition (L-DED). Part of that work is SMAXI, open-source software for full-field x-ray images. I am a Predictive Science and Engineering Design (PS&ED) Cluster Fellow for 2026–2027."
     ]
   },
   "media": {
-    "portraitAlt": "Dukyong Kim smiling in front of Buckingham Fountain, with the Chicago skyline behind him.",
-    "portraitCaption": "Chicago",
+    "portraitAlt": "",
+    "portraitCaption": "",
     "portrait": {
       "src": "/images/portrait.jpg",
       "webp": "/images/portrait.webp",
@@ -142,7 +142,7 @@
       "width": 2400,
       "height": 1655
     },
-    "campusAlt": "Brick university buildings and a lawn at Northwestern University in Evanston.",
+    "campusAlt": "",
     "campusCaption": "Northwestern University, Evanston.",
     "campus": {
       "src": "/images/campus.jpg",
@@ -347,12 +347,14 @@
       }
     ],
     "projectsTitle": "Funded projects",
-    "projectsDek": "Roles and sponsors as listed on the CV.",
+    "projectsDek": "",
     "projects": [
-      "Development of smart DPO (Design, Production, Operation) open platform for fuel cell system, 2021–2025 (48 months), researcher, Ministry of Trade, Industry and Energy, Korea",
-      "Study on the technology of fault diagnosis and predictive maintenance of the fuel cell system using PHM (Prognostics and Health Management), 2021–2023 (24 months), Hanyang University Industry-University Cooperation Foundation, Korea",
+      "IMQCAM stands for the Institute for Model-based Qualification and Certification of Additive Manufacturing. It is a NASA-funded Space Technology Research Institute (STRI) co-led by Carnegie Mellon University (CMU) and Johns Hopkins University (JHU).",
+      "DARPA-funded project. To develop a groundbreaking, integrated sensing-modeling technology capable of predicting the fatigue life of Laser Powder Bed Fusion (LPBF) metallic samples.",
+      "Development of prediction technology of packaging process and reliability based on Die MLM thin film interface property and laser behavior, 2022–2024 (24 months), SK Hynix Incorporation, Korea",
       "Analysis of the relationship between the laser nozzle angle and the deposition quality, 2022 (6 months), DN Solutions Incorporate, Korea",
-      "Development of prediction technology of packaging process and reliability based on Die MLM thin film interface property and laser behavior, 2022–2024 (24 months), SK Hynix Incorporation, Korea"
+      "Development of smart DPO (Design, Production, Operation) open platform for fuel cell system, 2021–2025 (48 months), researcher, Ministry of Trade, Industry and Energy, Korea",
+      "Study on the technology of fault diagnosis and predictive maintenance of the fuel cell system using PHM (Prognostics and Health Management), 2021–2023 (24 months), Hanyang University Industry-University Cooperation Foundation, Korea"
     ]
   },
   "lab": {
