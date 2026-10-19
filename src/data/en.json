@@ -73,7 +73,6 @@
     "beamtimeLabel": "APS proposal",
     "labApproaches": "Approaches listed by the lab",
     "labAttribution": "Short description drawn from the public Fast-AM Laboratory website.",
-    "pastLabAttribution": "Short description drawn from the public Smart Manufacturing Laboratory website.",
     "scholarCta": "Google Scholar profile",
     "talksFilters": "Filter talks",
     "pubFilters": "Filter publications",
@@ -128,7 +127,7 @@
     "dek": "Seoul, then Evanston. Lasers, thin films, and the images of a melt pool.",
     "paragraphs": [
       "I am a Ph.D. student in the Department of Mechanical Engineering at Northwestern University, in the Fast-AM Laboratory with Professor Tao Sun. I am also a visiting graduate student in the XSD-IMG group at the Advanced Photon Source (APS), Argonne National Laboratory.",
-      "I was born and raised in Seoul. I earned a B.S. in mechanical engineering at Hanyang University, Summa Cum Laude, and an M.S. in mechanical convergence engineering there, in the Smart Manufacturing Laboratory with Professor Seung Hwan Lee. An interest in automobiles — from Hot Wheels to Formula One — brought me into mechanical engineering. Lasers held me there: a manufacturing tool in the automotive, aerospace, shipbuilding, and semiconductor industries.",
+      "I was born and raised in Seoul. I earned a B.S. in mechanical engineering at Hanyang University, Summa Cum Laude, and an M.S. in mechanical convergence engineering there, in the Smart Manufacturing Laboratory. An interest in automobiles — from Hot Wheels to Formula One — brought me into mechanical engineering. Lasers held me there: a manufacturing tool in the automotive, aerospace, shipbuilding, and semiconductor industries.",
       "As an undergraduate I studied multi-axis laser metal deposition, and how nozzle tilt and substrate inclination change the quality of Inconel 625. In the master’s I contributed to South Korea’s first laser spallation system, a pulsed-laser shock-wave method for the adhesion of thin films, and I worked on physics-informed machine learning for fatigue life and for proton-exchange membrane fuel cells.",
       "The doctorate is about laser–material interaction and defect formation in additive manufacturing, watched with operando synchrotron x-ray imaging, including multi-element stranded wire laser directed energy deposition (L-DED). Part of that work is SMAXI, open-source software for full-field x-ray images. I am a Predictive Science and Engineering Design (PS&ED) Cluster Fellow for 2026–2027."
     ]
@@ -303,7 +302,6 @@
         "when": "Feb. 2022 – Mar. 2023",
         "where": "Undergraduate research student, Hanyang University",
         "points": [
-          "Advisor: Prof. Seung Hwan Lee.",
           "Explored the effect of laser nozzle tilting and substrate inclination angle on the deposition quality of Inconel 625 fabricated by the multi-axis laser metal deposition (LMD) process.",
           "Undergraduate thesis: “Development of geometry prediction model based on Gaussian process regression for evaluation of Inconel 625 formed by LMD method.”"
         ]
@@ -372,14 +370,6 @@
       "Machine learning for in-process defect detection and simulation optimization"
     ]
   },
-  "pastLab": {
-    "name": "Smart Manufacturing Laboratory",
-    "pi": "Professor Seung Hwan Lee",
-    "place": "Department of Mechanical Engineering, Hanyang University, Seoul",
-    "url": "https://smlab.hanyang.ac.kr/home",
-    "urlLabel": "smlab.hanyang.ac.kr",
-    "summary": "The Smart Manufacturing Laboratory works on making conventional manufacturing smarter. The group combines process technology with lasers, artificial intelligence, metallurgy, and CFD — both to develop processes that had not been tried and to apply AI so production costs fall."
-  },
   "publications": {
     "title": "Publications",
     "dek": "Nine papers from the CV. Journal articles are listed first, then the three items the CV groups as conference papers. Dukyong Kim is marked in bold.",
@@ -432,10 +422,6 @@
           },
           {
             "name": "Heuisu Kim"
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163",
@@ -467,10 +453,6 @@
             "name": "Yeontaek Hwang"
           },
           {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
-          },
-          {
             "name": "Hak-Sung Kim",
             "corresponding": true
           }
@@ -495,10 +477,6 @@
           },
           {
             "name": "Jaewoong Park"
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480?dgcid=coauthor"
@@ -522,10 +500,6 @@
           {
             "name": "Taehwan Ko",
             "equal": true
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://www.sciencedirect.com/science/article/pii/S0142112324005036?via%3Dihub"
@@ -543,10 +517,6 @@
           },
           {
             "name": "Taehwan Ko"
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://pubs.aip.org/lia/jla/article/35/2/022025/2878595"
@@ -846,7 +816,7 @@
         "org": "Hanyang University, Seoul",
         "orgUrl": "https://smlab.hanyang.ac.kr/home",
         "points": [
-          "Smart Manufacturing Laboratory (PI: Prof. Seung Hwan Lee).",
+          "Smart Manufacturing Laboratory.",
           "Cumulative GPA: 4.0/4.0."
         ]
       },
@@ -869,8 +839,7 @@
         "points": [
           "Cumulative GPA: 3.84/4.0 (Summa Cum Laude).",
           "Major GPA: 3.84/4.0. Third- and fourth-year GPA: 3.92/4.0.",
-          "Supported by a full National Science and Engineering Undergraduate Scholarship from the Korean government.",
-          "Undergraduate research advisor: Prof. Seung Hwan Lee."
+          "Supported by a full National Science and Engineering Undergraduate Scholarship from the Korean government."
         ]
       },
       {

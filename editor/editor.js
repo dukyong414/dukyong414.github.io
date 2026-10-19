@@ -138,7 +138,7 @@ const SECTIONS = [
   { id: "files", paths: [], en: "Photos and CV", ko: "사진과 CV", files: true },
   { id: "about", paths: ["about", "media"], en: "About", ko: "소개" },
   { id: "research", paths: ["research"], en: "Research", ko: "연구" },
-  { id: "labs", paths: ["lab", "pastLab"], en: "Labs", ko: "연구실" },
+  { id: "labs", paths: ["lab"], en: "Lab", ko: "연구실" },
   {
     id: "publications",
     paths: ["publications"],

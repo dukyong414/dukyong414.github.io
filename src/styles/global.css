@@ -549,7 +549,7 @@ figure { margin: 0; }
 
 .lab-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.85fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 2.75rem;
   scroll-margin-top: calc(var(--header) + 1rem);

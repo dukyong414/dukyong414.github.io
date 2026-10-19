@@ -239,15 +239,6 @@ const coauthorCount = c.talks.items.length - presentingCount;
             <p><a href={c.lab.url} target="_blank" rel="noopener noreferrer">{c.lab.urlLabel}</a></p>
             <p class="note">{c.ui.labAttribution}</p>
           </article>
-          <article class="lab-card past">
-            <p class="badge">{c.lang === "ko" ? "석사과정" : "Master’s"}</p>
-            <h3>{c.pastLab.name}</h3>
-            <p class="pi">{c.pastLab.pi}</p>
-            <p class="place">{c.pastLab.place}</p>
-            <p>{c.pastLab.summary}</p>
-            <p><a href={c.pastLab.url} target="_blank" rel="noopener noreferrer">{c.pastLab.urlLabel}</a></p>
-            <p class="note">{c.ui.pastLabAttribution}</p>
-          </article>
         </div>
       </section>
 
@@ -481,8 +472,6 @@ const coauthorCount = c.talks.items.length - presentingCount;
         <span>{c.footer}</span>
         <span>
           <a href={c.lab.url} target="_blank" rel="noopener noreferrer">{c.lab.name}</a>
-          {" · "}
-          <a href={c.pastLab.url} target="_blank" rel="noopener noreferrer">{c.pastLab.name}</a>
         </span>
       </footer>
     </div>
