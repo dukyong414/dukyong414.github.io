@@ -43,6 +43,20 @@ const I18N = {
     addVideoBtn: "Add video",
     badUrl: "That is not a YouTube link.",
     replace: "Replace",
+    deletePhoto: "Delete / 삭제",
+    deleteTitle: "Delete this photo?",
+    deleteBlockedTitle: "This photo can’t be deleted",
+    deleteHelp: "The file is moved to a backup on this computer. You can restore it from the list below.",
+    deleteUsedHelp: "It is used in the text below. Removing it also removes those entries in English and Korean.",
+    deleteBlockedHelp: "It is built into the page layout. Use Replace to change the picture.",
+    deleteMentionHelp: "The text below mentions the file. Edit that text before deleting the photo.",
+    alsoRemove: "Also remove these entries in English and Korean",
+    restore: "Restore",
+    restoreTitle: "Recently deleted",
+    addPhoto: "Add photo",
+    saveBeforeDelete: "Save your text edits before deleting a photo that is used in the text.",
+    deletedOk: "Photo moved to the backup.",
+    restoredOk: "Photo restored.",
     photos: "Photos",
     cv: "CV files",
     current: "Open current file",
@@ -87,6 +101,20 @@ const I18N = {
     addVideoBtn: "영상 추가",
     badUrl: "유튜브 주소가 아닙니다.",
     replace: "교체",
+    deletePhoto: "Delete / 삭제",
+    deleteTitle: "이 사진을 삭제할까요?",
+    deleteBlockedTitle: "이 사진은 삭제할 수 없습니다",
+    deleteHelp: "파일은 이 컴퓨터의 백업으로 옮겨지며, 아래 목록에서 복원할 수 있습니다.",
+    deleteUsedHelp: "아래 글에서 사용 중입니다. 삭제하면 영어와 한국어에서 그 항목도 함께 지워집니다.",
+    deleteBlockedHelp: "페이지 레이아웃에 고정된 사진입니다. 그림을 바꾸려면 교체를 사용하세요.",
+    deleteMentionHelp: "아래 글에 파일 이름이 있습니다. 그 글을 고친 뒤에 사진을 삭제하세요.",
+    alsoRemove: "영어와 한국어에서 이 항목도 삭제",
+    restore: "복원",
+    restoreTitle: "최근 삭제한 사진",
+    addPhoto: "사진 추가",
+    saveBeforeDelete: "글에 쓰인 사진을 지우기 전에 텍스트 변경을 먼저 저장하세요.",
+    deletedOk: "사진을 백업으로 옮겼습니다.",
+    restoredOk: "사진을 복원했습니다.",
     photos: "사진",
     cv: "CV 파일",
     current: "현재 파일 열기",
@@ -586,6 +614,104 @@ function attachVideo(enItem, koItem) {
   return row;
 }
 
+function closeModal() {
+  const back = document.getElementById("modal");
+  back.hidden = true;
+  back.replaceChildren();
+}
+
+function refLine(row) {
+  const item = document.createElement("li");
+  const code = document.createElement("code");
+  if (row.file) {
+    code.textContent = `${row.file}:${row.line}`;
+    item.append(code, document.createTextNode(" " + (row.text || "")));
+  } else {
+    code.textContent = row.path;
+    const where = (row.langs || [row.lang]).filter(Boolean).join(", ");
+    item.append(code, document.createTextNode(` (${where}) ${row.value || ""}`));
+  }
+  return item;
+}
+
+function showDeleteDialog(image, usage) {
+  const back = document.getElementById("modal");
+  const modal = el("div", "modal");
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  const heading = document.createElement("h2");
+  heading.textContent = usage.blocked ? t("deleteBlockedTitle") : t("deleteTitle");
+  const help = el("p", usage.blocked ? "warn" : "hint");
+  if (usage.hardcoded && usage.hardcoded.length) help.textContent = t("deleteBlockedHelp");
+  else if (usage.mentions && usage.mentions.length) help.textContent = t("deleteMentionHelp");
+  else if (usage.content && usage.content.length) help.textContent = t("deleteUsedHelp");
+  else help.textContent = t("deleteHelp");
+  modal.append(heading, help);
+  const rows = [...(usage.hardcoded || []), ...(usage.mentions || []), ...(usage.content || [])];
+  if (rows.length) {
+    const list = document.createElement("ul");
+    list.className = "refs";
+    for (const row of rows) list.append(refLine(row));
+    modal.append(list);
+  }
+  let checkbox = null;
+  if (!usage.blocked && usage.content && usage.content.length) {
+    checkbox = el("label", "check");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = true;
+    checkbox.append(input, document.createTextNode(t("alsoRemove")));
+    modal.append(checkbox);
+  }
+  const actions = el("div", "actions");
+  actions.append(actionButton(t("cancel"), closeModal));
+  if (!usage.blocked) {
+    const go = actionButton(t("deletePhoto"), async () => {
+      if (usage.content && usage.content.length && dirty) {
+        window.alert(t("saveBeforeDelete"));
+        return;
+      }
+      go.disabled = true;
+      const response = await fetch("/api/delete-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: image.id,
+          removeReferences: checkbox ? checkbox.querySelector("input").checked : false,
+        }),
+      });
+      const data = await response.json();
+      if (!data.ok) {
+        window.alert((data.error && data.error[uiLang]) || t("saveFailed"));
+        go.disabled = false;
+        return;
+      }
+      if (data.en && data.ko) {
+        state.en = data.en;
+        state.ko = data.ko;
+        dirty = false;
+      }
+      closeModal();
+      toast(t("deletedOk"));
+      render();
+    }, "btn danger");
+    actions.append(go);
+  }
+  modal.append(actions);
+  back.replaceChildren(modal);
+  back.hidden = false;
+}
+
+async function askDelete(image) {
+  const response = await fetch(`/api/image-usage?id=${encodeURIComponent(image.id)}`);
+  const usage = await response.json();
+  if (!usage.ok) {
+    toast(usage.error ? usage.error[uiLang] : t("saveFailed"));
+    return;
+  }
+  showDeleteDialog(image, usage);
+}
+
 function renderFiles(mount) {
   const section = el("section", "section");
   section.id = "sec-files";
@@ -594,9 +720,26 @@ function renderFiles(mount) {
   section.append(heading);
   const hint = el("p", "hint");
   hint.textContent = uiLang === "ko"
-    ? "프로필 사진은 JPEG, WebP, AVIF 세 가지로 저장됩니다. 다른 사진은 JPEG 한 장입니다."
-    : "The portrait is stored as JPEG, WebP, and AVIF. Each other photo is a single JPEG.";
+    ? "프로필 사진은 JPEG, WebP, AVIF로 저장되며 삭제할 수 없습니다. 직접 추가한 사진은 삭제 후 복원할 수 있습니다."
+    : "The portrait is stored as JPEG, WebP, and AVIF and cannot be deleted. Photos you add can be deleted and restored.";
   section.append(hint);
+  const tools = el("div", "section-tools");
+  const addInput = document.createElement("input");
+  addInput.type = "file";
+  addInput.accept = "image/*";
+  addInput.className = "file-input";
+  addInput.addEventListener("change", () => {
+    const file = addInput.files && addInput.files[0];
+    addInput.value = "";
+    if (!file) return;
+    replaceFile(`/api/add-image?name=${encodeURIComponent(file.name)}`, file, () => render());
+  });
+  const addButton = el("button", "btn");
+  addButton.type = "button";
+  addButton.textContent = t("addPhoto");
+  addButton.addEventListener("click", () => addInput.click());
+  tools.append(addButton, addInput);
+  section.append(tools);
   fetch("/api/status").then((response) => response.json()).then((info) => {
     if (!info.pillow) {
       const note = el("p", "note");
@@ -637,8 +780,52 @@ function renderFiles(mount) {
       button.type = "button";
       button.textContent = t("replace");
       button.addEventListener("click", () => input.click());
-      card.append(img, caption, files, button, input);
+      const remove = el("button", "btn danger");
+      remove.type = "button";
+      remove.textContent = t("deletePhoto");
+      remove.addEventListener("click", () => askDelete(image));
+      const actions = el("div", "shot-actions");
+      actions.append(button, remove);
+      card.append(img, caption, files, actions, input);
       grid.append(card);
+    }
+    if (data.deleted && data.deleted.length) {
+      const deletedTitle = document.createElement("h3");
+      deletedTitle.textContent = t("restoreTitle");
+      const deletedGrid = el("div", "grid");
+      section.insertBefore(deletedTitle, cvTitle);
+      section.insertBefore(deletedGrid, cvTitle);
+      for (const image of data.deleted) {
+        const card = el("figure", "shot");
+        const img = document.createElement("img");
+        img.alt = (image.label && (image.label[uiLang] || image.label.en)) || image.id;
+        img.src = `/media/deleted/${encodeURIComponent(image.stamp)}/${encodeURIComponent(image.thumb)}`;
+        const caption = document.createElement("figcaption");
+        caption.textContent = img.alt;
+        const files = document.createElement("p");
+        files.textContent = image.files.join(", ");
+        const restore = el("button", "btn");
+        restore.type = "button";
+        restore.textContent = t("restore");
+        restore.addEventListener("click", () => {
+          restore.disabled = true;
+          fetch("/api/restore-image", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ stamp: image.stamp }),
+          }).then((response) => response.json()).then((payload) => {
+            if (!payload.ok) {
+              toast(payload.error ? payload.error[uiLang] : t("saveFailed"));
+              restore.disabled = false;
+              return;
+            }
+            toast(t("restoredOk"));
+            render();
+          }).catch(() => toast(t("saveFailed")));
+        });
+        card.append(img, caption, files, restore);
+        deletedGrid.append(card);
+      }
     }
     for (const cv of data.cvs) {
       const row = el("div", "cv-row");

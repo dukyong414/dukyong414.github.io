@@ -61,7 +61,7 @@ python editor.py
 - **영어·한국어 동일** 표시가 있는 칸은 논문 제목, DOI, 날짜, 유튜브 id, 링크처럼 두 언어가 같아야 하는 값입니다. 한쪽을 고치면 다른 쪽도 같이 바뀝니다. 논문 제목은 원어 그대로 둡니다.
 - 논문, 발표, 수상, 경력, 영상 목록은 **추가**, **위로**, **아래로**, **삭제** 가 있습니다. 순서를 바꾸거나 지울 때도 두 언어가 함께 움직입니다.
 - 영상은 유튜브 주소 전체를 붙여 넣습니다. `https://www.youtube.com/watch?v=…` 또는 `https://youtu.be/…` 모두 됩니다. 저장되는 것은 11글자 id 뿐입니다.
-- **사진과 CV** 에서 미리보기를 보고 **교체** 를 누릅니다. 프로필 사진은 사이트가 쓰는 JPEG, WebP, AVIF 를 다시 만듭니다. CV 의 PDF 와 Word 파일도 같은 화면에서 바꿉니다.
+- **사진과 CV** 에서 미리보기를 보고 **교체** 또는 **Delete / 삭제** 를 누릅니다. 프로필 사진처럼 페이지에 고정된 사진은 삭제되지 않습니다. 어디 쓰이는지 안내가 나오고, 바꾸려면 **교체** 를 씁니다. 글에만 들어 있는 사진은 확인 창에서 영어·한국어 항목을 함께 지울 수 있습니다. 삭제한 파일은 지워지지 않고 `.editor-backups/deleted-images/` 로 옮겨지며, 같은 화면의 **복원** 으로 되돌립니다. **사진 추가** 로 새 사진을 올릴 수 있습니다. 프로필 사진을 교체하면 사이트가 쓰는 JPEG, WebP, AVIF 를 다시 만듭니다. CV 의 PDF 와 Word 파일도 같은 화면에서 바꿉니다.
 
 고친 뒤에는 오른쪽 위의 **저장** 을 누릅니다. `Ctrl+S` 도 같습니다. 이전 내용은 `.editor-backups` 폴더에 시간별로 남습니다. 이 폴더는 GitHub 에 올라가지 않습니다.
 
@@ -156,7 +156,7 @@ Pick a section in the left menu.
 - A field marked **Same in EN and KO** is a value that must match: paper titles, DOIs, dates, YouTube ids, and links. Editing one side updates the other. Leave paper and talk titles in their original language.
 - Publications, talks, awards, experience, and videos have **Add**, **Up**, **Down**, and **Remove**. Reordering or deleting moves both languages together.
 - For a video, paste the whole YouTube URL (`https://www.youtube.com/watch?v=…` or `https://youtu.be/…`). Only the 11-character id is stored.
-- **Photos and CV** shows a thumbnail and a **Replace** button. The portrait is regenerated as the JPEG, WebP, and AVIF files the site serves. The CV PDF and Word file are replaced on the same screen.
+- **Photos and CV** shows a thumbnail, **Replace**, and **Delete / 삭제**. A photo that is built into the page, such as the portrait, cannot be deleted: the dialog lists where it is used and tells you to replace it. A photo that appears only in the text can be deleted together with those English and Korean entries. Deleted files are moved to `.editor-backups/deleted-images/`, not erased, and **Restore** on the same screen puts them back. **Add photo** uploads a new image. Replacing the portrait regenerates the JPEG, WebP, and AVIF files the site serves. The CV PDF and Word file are replaced on the same screen.
 
 Click **Save** (or press `Ctrl+S`). The previous files are copied into `.editor-backups`, one folder per save. That folder is not pushed to GitHub.
 
