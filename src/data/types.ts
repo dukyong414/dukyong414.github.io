@@ -1,5 +1,13 @@
 export type Link = { label: string; href: string };
 
+export interface LayoutImage {
+  src: string;
+  webp?: string;
+  avif?: string;
+  width: number;
+  height: number;
+}
+
 export type Author = {
   name: string;
   equal?: boolean;
@@ -140,16 +148,22 @@ export type SiteContent = {
   media: {
     portraitAlt: string;
     portraitCaption: string;
+    portrait?: LayoutImage;
     campusAlt: string;
     campusCaption: string;
+    campus?: LayoutImage;
     labAlt: string;
     labCaption: string;
+    lab?: LayoutImage;
     overviewAlt: string;
     overviewCaption: string;
+    overview?: LayoutImage;
     spallationAlt: string;
     spallationCaption: string;
+    spallation?: LayoutImage;
     lmdAlt: string;
     lmdCaption: string;
+    lmd?: LayoutImage;
   };
   research: {
     title: string;

@@ -3,6 +3,7 @@
 const SYNC_KEYS = new Set([
   "id", "href", "doi", "youtubeId", "year", "venue", "event", "date",
   "affiliationHref", "piHref", "orgUrl", "url",
+  "src", "webp", "avif", "width", "height",
 ]);
 const LONG_KEYS = new Set([
   "lede", "dek", "description", "summary", "body", "detail", "caption", "cvNote",
@@ -45,11 +46,11 @@ const I18N = {
     replace: "Replace",
     deletePhoto: "Delete / 삭제",
     deleteTitle: "Delete this photo?",
-    deleteBlockedTitle: "This photo can’t be deleted",
+    deleteBlockedTitle: "Delete this photo?",
     deleteHelp: "The file is moved to a backup on this computer. You can restore it from the list below.",
-    deleteUsedHelp: "It is used in the text below. Removing it also removes those entries in English and Korean.",
-    deleteBlockedHelp: "It is built into the page layout. Use Replace to change the picture.",
-    deleteMentionHelp: "The text below mentions the file. Edit that text before deleting the photo.",
+    deleteUsedHelp: "It is used in the places below. Deleting it clears those entries in English and Korean, and the page hides the picture. The files move to a backup on this computer.",
+    deleteBlockedHelp: "It is used in the places below. Deleting it clears those entries in English and Korean, and the page hides the picture. The files move to a backup on this computer.",
+    deleteMentionHelp: "The text below mentions this file. Deleting the photo leaves that sentence in place and moves the file to a backup.",
     alsoRemove: "Also remove these entries in English and Korean",
     restore: "Restore",
     restoreTitle: "Recently deleted",
@@ -103,11 +104,11 @@ const I18N = {
     replace: "교체",
     deletePhoto: "Delete / 삭제",
     deleteTitle: "이 사진을 삭제할까요?",
-    deleteBlockedTitle: "이 사진은 삭제할 수 없습니다",
+    deleteBlockedTitle: "이 사진을 삭제할까요?",
     deleteHelp: "파일은 이 컴퓨터의 백업으로 옮겨지며, 아래 목록에서 복원할 수 있습니다.",
-    deleteUsedHelp: "아래 글에서 사용 중입니다. 삭제하면 영어와 한국어에서 그 항목도 함께 지워집니다.",
-    deleteBlockedHelp: "페이지 레이아웃에 고정된 사진입니다. 그림을 바꾸려면 교체를 사용하세요.",
-    deleteMentionHelp: "아래 글에 파일 이름이 있습니다. 그 글을 고친 뒤에 사진을 삭제하세요.",
+    deleteUsedHelp: "아래 위치에서 사용 중입니다. 삭제하면 영어와 한국어에서 그 항목이 지워지고, 페이지에서 그림이 숨겨집니다. 파일은 이 컴퓨터의 백업으로 옮겨집니다.",
+    deleteBlockedHelp: "아래 위치에서 사용 중입니다. 삭제하면 영어와 한국어에서 그 항목이 지워지고, 페이지에서 그림이 숨겨집니다. 파일은 이 컴퓨터의 백업으로 옮겨집니다.",
+    deleteMentionHelp: "아래 글에 파일 이름이 있습니다. 사진을 삭제해도 그 문장은 남고, 파일은 백업으로 옮겨집니다.",
     alsoRemove: "영어와 한국어에서 이 항목도 삭제",
     restore: "복원",
     restoreTitle: "최근 삭제한 사진",
@@ -348,6 +349,7 @@ function setText(owner, key, value, mirror) {
     const extracted = extractYoutubeId(value);
     if (extracted) next = extracted;
   }
+  if ((key === "width" || key === "height") && /^\d+$/.test(String(value))) next = Number(value);
   owner[key] = next;
   if (mirror) mirror[key] = next;
   markDirty();
@@ -639,64 +641,50 @@ function showDeleteDialog(image, usage) {
   const modal = el("div", "modal");
   modal.setAttribute("role", "dialog");
   modal.setAttribute("aria-modal", "true");
+  const rows = [...(usage.hardcoded || []), ...(usage.mentions || []), ...(usage.content || [])];
   const heading = document.createElement("h2");
-  heading.textContent = usage.blocked ? t("deleteBlockedTitle") : t("deleteTitle");
-  const help = el("p", usage.blocked ? "warn" : "hint");
-  if (usage.hardcoded && usage.hardcoded.length) help.textContent = t("deleteBlockedHelp");
-  else if (usage.mentions && usage.mentions.length) help.textContent = t("deleteMentionHelp");
-  else if (usage.content && usage.content.length) help.textContent = t("deleteUsedHelp");
+  heading.textContent = t("deleteTitle");
+  const help = el("p", rows.length ? "warn" : "hint");
+  if (usage.mentions && usage.mentions.length && !(usage.content && usage.content.length) && !(usage.hardcoded && usage.hardcoded.length)) {
+    help.textContent = t("deleteMentionHelp");
+  } else if (rows.length) help.textContent = t("deleteUsedHelp");
   else help.textContent = t("deleteHelp");
   modal.append(heading, help);
-  const rows = [...(usage.hardcoded || []), ...(usage.mentions || []), ...(usage.content || [])];
   if (rows.length) {
     const list = document.createElement("ul");
     list.className = "refs";
     for (const row of rows) list.append(refLine(row));
     modal.append(list);
   }
-  let checkbox = null;
-  if (!usage.blocked && usage.content && usage.content.length) {
-    checkbox = el("label", "check");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.checked = true;
-    checkbox.append(input, document.createTextNode(t("alsoRemove")));
-    modal.append(checkbox);
-  }
   const actions = el("div", "actions");
   actions.append(actionButton(t("cancel"), closeModal));
-  if (!usage.blocked) {
-    const go = actionButton(t("deletePhoto"), async () => {
-      if (usage.content && usage.content.length && dirty) {
-        window.alert(t("saveBeforeDelete"));
-        return;
-      }
-      go.disabled = true;
-      const response = await fetch("/api/delete-image", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: image.id,
-          removeReferences: checkbox ? checkbox.querySelector("input").checked : false,
-        }),
-      });
-      const data = await response.json();
-      if (!data.ok) {
-        window.alert((data.error && data.error[uiLang]) || t("saveFailed"));
-        go.disabled = false;
-        return;
-      }
-      if (data.en && data.ko) {
-        state.en = data.en;
-        state.ko = data.ko;
-        dirty = false;
-      }
-      closeModal();
-      toast(t("deletedOk"));
-      render();
-    }, "btn danger");
-    actions.append(go);
-  }
+  const go = actionButton(t("deletePhoto"), async () => {
+    if (usage.content && usage.content.length && dirty) {
+      window.alert(t("saveBeforeDelete"));
+      return;
+    }
+    go.disabled = true;
+    const response = await fetch("/api/delete-image", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: image.id, removeReferences: true }),
+    });
+    const data = await response.json();
+    if (!data.ok) {
+      window.alert((data.error && data.error[uiLang]) || t("saveFailed"));
+      go.disabled = false;
+      return;
+    }
+    if (data.en && data.ko) {
+      state.en = data.en;
+      state.ko = data.ko;
+      dirty = false;
+    }
+    closeModal();
+    toast(t("deletedOk"));
+    render();
+  }, "btn danger");
+  actions.append(go);
   modal.append(actions);
   back.replaceChildren(modal);
   back.hidden = false;
@@ -720,8 +708,8 @@ function renderFiles(mount) {
   section.append(heading);
   const hint = el("p", "hint");
   hint.textContent = uiLang === "ko"
-    ? "프로필 사진은 JPEG, WebP, AVIF로 저장되며 삭제할 수 없습니다. 직접 추가한 사진은 삭제 후 복원할 수 있습니다."
-    : "The portrait is stored as JPEG, WebP, and AVIF and cannot be deleted. Photos you add can be deleted and restored.";
+    ? "어떤 사진이든 삭제할 수 있습니다. 없는 그림은 페이지에서 숨겨지고, 복원하면 파일과 페이지의 위치가 돌아옵니다."
+    : "Any photo can be deleted. A missing picture is hidden on the page, and Restore puts the file and its place back.";
   section.append(hint);
   const tools = el("div", "section-tools");
   const addInput = document.createElement("input");
@@ -808,6 +796,10 @@ function renderFiles(mount) {
         restore.type = "button";
         restore.textContent = t("restore");
         restore.addEventListener("click", () => {
+          if (dirty) {
+            window.alert(t("saveBeforeDelete"));
+            return;
+          }
           restore.disabled = true;
           fetch("/api/restore-image", {
             method: "POST",
@@ -818,6 +810,11 @@ function renderFiles(mount) {
               toast(payload.error ? payload.error[uiLang] : t("saveFailed"));
               restore.disabled = false;
               return;
+            }
+            if (payload.en && payload.ko) {
+              state.en = payload.en;
+              state.ko = payload.ko;
+              dirty = false;
             }
             toast(t("restoredOk"));
             render();

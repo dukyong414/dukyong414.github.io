@@ -212,6 +212,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
   gap: 2.75rem;
   align-items: center;
 }
+.hero-row.solo { grid-template-columns: 1fr; }
 
 .hero-copy {
   text-align: left;
@@ -372,6 +373,7 @@ figcaption {
   gap: 2.5rem;
   align-items: start;
 }
+.about-grid.solo { grid-template-columns: 1fr; }
 .prose p { margin: 0 0 1rem; }
 .prose p:last-child { margin-bottom: 0; }
 
