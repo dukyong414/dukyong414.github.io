@@ -80,11 +80,11 @@
     "external": "Opens in a new tab"
   },
   "hero": {
-    "eyebrow": "Ph.D. candidate · Mechanical Engineering",
+    "eyebrow": "Ph.D. candidate in Mechanical Engineering",
     "name": "Dukyong Kim",
     "altName": "김덕용",
     "role": "Fast-AM Laboratory · Advisor Professor Tao Sun",
-    "lede": "I study multi-element stranded wire laser directed energy deposition (L-DED) at Northwestern University, using operando synchrotron X-ray imaging and machine learning-powered open-source software. Primary focus is on enhancing the quality of build by tackling defect formation.",
+    "lede": "I study multi-element stranded wire laser directed energy deposition (L-DED) at Northwestern University, using operando synchrotron X-ray imaging, X-ray diffraction, and machine learning-powered open-source software. Primary focus is on enhancing the quality of build by tackling defect formation.",
     "affiliation": "Fast-AM Laboratory, Department of Mechanical Engineering, Northwestern University",
     "affiliationHref": "https://fast-am.mech.northwestern.edu/",
     "pi": "Professor Tao Sun",
