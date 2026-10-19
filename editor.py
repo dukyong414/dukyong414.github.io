@@ -300,18 +300,57 @@ def extract_youtube_id(text: str) -> str | None:
     return None
 
 
+IMAGE_SUFFIXES = {".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"}
+DELETED_DIR = BACKUP_DIR / "deleted-images"
+COMPONENT_SUFFIXES = {".astro", ".ts", ".tsx", ".js", ".mjs", ".css", ".svg"}
+
+
+def image_paths() -> list[Path]:
+    if not IMAGE_DIR.is_dir():
+        return []
+    return [
+        path for path in sorted(IMAGE_DIR.iterdir())
+        if path.is_file() and not path.name.startswith(".") and path.suffix.lower() in IMAGE_SUFFIXES
+    ]
+
+
+def variant_base(stem: str, stems: set[str]) -> str | None:
+    best = None
+    for other in stems:
+        if other != stem and (stem.startswith(other + "-") or stem.startswith(other + "_")):
+            if best is None or len(other) > len(best):
+                best = other
+    return best
+
+
+def ultimate_base(stem: str, stems: set[str]) -> str | None:
+    base = variant_base(stem, stems)
+    seen = set()
+    while base and base not in seen:
+        seen.add(base)
+        nxt = variant_base(base, stems)
+        if not nxt:
+            return base
+        base = nxt
+    return None
+
+
 def image_groups() -> list[dict]:
-    groups: dict[str, list[Path]] = {}
-    if IMAGE_DIR.is_dir():
-        for path in sorted(IMAGE_DIR.iterdir()):
-            if path.is_file() and not path.name.startswith("."):
-                groups.setdefault(path.stem, []).append(path)
+    by_stem: dict[str, list[Path]] = {}
+    for path in image_paths():
+        by_stem.setdefault(path.stem, []).append(path)
+    stems = set(by_stem)
+    folded: dict[str, list[Path]] = {stem: list(paths) for stem, paths in by_stem.items()}
+    for stem in list(by_stem):
+        base = ultimate_base(stem, stems)
+        if base and base != stem and stem in folded:
+            folded[base].extend(folded.pop(stem))
     items = []
-    for stem, paths in groups.items():
-        names = [path.name for path in paths]
+    for stem, paths in folded.items():
+        names = sorted({path.name for path in paths})
         hero = stem == "portrait" or any(path.suffix.lower() in {".webp", ".avif"} for path in paths)
-        label_en, label_ko = IMAGE_LABELS.get(stem, (stem.replace("-", " "), stem))
-        thumb = next((name for name in names if name.lower().endswith(".jpg")), names[0])
+        label_en, label_ko = IMAGE_LABELS.get(stem, (stem.replace("-", " ").replace("_", " "), stem))
+        thumb = next((name for name in names if name.lower().endswith((".jpg", ".jpeg"))), names[0])
         items.append({
             "id": stem,
             "label": {"en": label_en, "ko": label_ko},
@@ -320,8 +359,326 @@ def image_groups() -> list[dict]:
             "thumb": thumb,
             "mtime": max(int(path.stat().st_mtime) for path in paths),
         })
-    items.sort(key=lambda item: IMAGE_ORDER.index(item["id"]) if item["id"] in IMAGE_ORDER else 100)
+    items.sort(key=lambda item: (IMAGE_ORDER.index(item["id"]) if item["id"] in IMAGE_ORDER else 100, item["id"]))
     return items
+
+
+def group_by_id(stem: str) -> dict | None:
+    if not re.fullmatch(r"[A-Za-z0-9_-]+", stem):
+        return None
+    for item in image_groups():
+        if item["id"] == stem:
+            return item
+    return None
+
+
+def exact_image_ref(value: str, names: set[str]) -> bool:
+    text = value.strip().split("?", 1)[0].split("#", 1)[0]
+    for name in names:
+        if text == name or text.endswith("/" + name):
+            return True
+    return False
+
+
+def filename_in_text(text: str, name: str) -> bool:
+    """Match a file name as its own token, so lab.jpg does not match mylab.jpg."""
+    return re.search(r"(?<![\w.-])" + re.escape(name) + r"(?![\w.-])", text) is not None
+
+
+def mentions_image(value: str, names: set[str]) -> bool:
+    if exact_image_ref(value, names):
+        return False
+    return any(filename_in_text(value, name) for name in names)
+
+
+def json_path(parts: list) -> str:
+    text = ""
+    for part in parts:
+        if isinstance(part, int):
+            text += f"[{part}]"
+        else:
+            text += ("." if text else "") + str(part)
+    return text or "$"
+
+
+def collect_json_usage(node: object, parts: list, names: set[str], content: list, mentions: list, in_item: bool = False) -> None:
+    if isinstance(node, dict):
+        if in_item and any(isinstance(value, str) and exact_image_ref(value, names) for value in node.values()):
+            sample = next(value for value in node.values() if isinstance(value, str) and exact_image_ref(value, names))
+            content.append({"path": json_path(parts), "parts": parts, "kind": "item", "value": sample})
+            return
+        for key, value in node.items():
+            child = parts + [key]
+            if isinstance(value, str) and exact_image_ref(value, names):
+                content.append({"path": json_path(child), "parts": child, "kind": "field", "value": value})
+            elif isinstance(value, str) and mentions_image(value, names):
+                mentions.append({"path": json_path(child), "value": value[:160]})
+            else:
+                collect_json_usage(value, child, names, content, mentions, False)
+    elif isinstance(node, list):
+        for index, value in enumerate(node):
+            child = parts + [index]
+            if isinstance(value, str) and exact_image_ref(value, names):
+                content.append({"path": json_path(child), "parts": child, "kind": "item", "value": value})
+            elif isinstance(value, str) and mentions_image(value, names):
+                mentions.append({"path": json_path(child), "value": value[:160]})
+            else:
+                collect_json_usage(value, child, names, content, mentions, True)
+
+
+def component_usage(names: set[str]) -> list[dict]:
+    hits = []
+    src = ROOT / "src"
+    if not src.is_dir():
+        return hits
+    for path in sorted(src.rglob("*")):
+        if not path.is_file() or path.suffix.lower() not in COMPONENT_SUFFIXES:
+            continue
+        if path.parts[-2:] == ("src", "data") or "data" in path.relative_to(src).parts and path.parent.name == "data":
+            continue
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()
+        except OSError:
+            continue
+        rel = str(path.relative_to(ROOT))
+        for number, line in enumerate(lines, 1):
+            if any(filename_in_text(line, name) for name in names):
+                hits.append({"file": rel, "line": number, "text": line.strip()[:180]})
+    return hits
+
+
+def merge_content(en_hits: list[dict], ko_hits: list[dict]) -> list[dict]:
+    merged: dict[str, dict] = {}
+    for lang, hits in (("en", en_hits), ("ko", ko_hits)):
+        for hit in hits:
+            row = merged.setdefault(hit["path"], {
+                "path": hit["path"],
+                "parts": hit["parts"],
+                "kind": hit["kind"],
+                "value": hit["value"],
+                "langs": [],
+            })
+            if lang not in row["langs"]:
+                row["langs"].append(lang)
+            if lang == "ko" and hit["value"] != row["value"]:
+                row["valueKo"] = hit["value"]
+    return list(merged.values())
+
+
+def image_usage(stem: str) -> dict:
+    group = group_by_id(stem)
+    if group is None:
+        return {"ok": False, "error": msg("Unknown image.", "알 수 없는 사진입니다.")}
+    names = set(group["files"])
+    en, ko = load_pair()
+    en_hits: list[dict] = []
+    ko_hits: list[dict] = []
+    en_mentions: list[dict] = []
+    ko_mentions: list[dict] = []
+    collect_json_usage(en, [], names, en_hits, en_mentions)
+    collect_json_usage(ko, [], names, ko_hits, ko_mentions)
+    hardcoded = component_usage(names)
+    content = merge_content(en_hits, ko_hits)
+    mentions = []
+    for lang, rows in (("en", en_mentions), ("ko", ko_mentions)):
+        for row in rows:
+            mentions.append({**row, "lang": lang})
+    blocked = bool(hardcoded or mentions)
+    return {
+        "ok": True,
+        "id": stem,
+        "files": group["files"],
+        "label": group["label"],
+        "blocked": blocked,
+        "hardcoded": hardcoded,
+        "content": [{key: value for key, value in row.items() if key != "parts"} | {"parts": row["parts"]} for row in content],
+        "mentions": mentions,
+    }
+
+
+def drop_path(node: object, parts: list) -> None:
+    if not parts:
+        return
+    parent: object = node
+    for part in parts[:-1]:
+        if isinstance(part, int):
+            if not isinstance(parent, list) or part >= len(parent):
+                return
+            parent = parent[part]
+        else:
+            if not isinstance(parent, dict) or part not in parent:
+                return
+            parent = parent[part]
+    last = parts[-1]
+    if isinstance(last, int):
+        if isinstance(parent, list) and last < len(parent):
+            parent.pop(last)
+    elif isinstance(parent, dict):
+        parent.pop(last, None)
+
+
+def apply_reference_removals(en: dict, ko: dict, content: list[dict]) -> None:
+    field_paths = [row["parts"] for row in content if row["kind"] == "field"]
+    index_groups: dict[tuple, set[int]] = {}
+    for row in content:
+        if row["kind"] != "item":
+            continue
+        parent = tuple(row["parts"][:-1])
+        index_groups.setdefault(parent, set()).add(row["parts"][-1])
+    for tree in (en, ko):
+        for parts in field_paths:
+            drop_path(tree, parts)
+        for parent, indexes in index_groups.items():
+            for index in sorted(indexes, reverse=True):
+                drop_path(tree, list(parent) + [index])
+
+
+def delete_image(stem: str, remove_references: bool) -> dict:
+    usage = image_usage(stem)
+    if not usage.get("ok"):
+        return usage
+    if usage["blocked"]:
+        return {
+            "ok": False,
+            "blocked": True,
+            "hardcoded": usage["hardcoded"],
+            "mentions": usage["mentions"],
+            "error": msg(
+                "This photo is built into the page, so it can’t be deleted. Use Replace.",
+                "이 사진은 페이지에 고정되어 있어 삭제할 수 없습니다. 교체를 사용하세요.",
+            ),
+        }
+    if usage["content"] and not remove_references:
+        return {
+            "ok": False,
+            "error": msg(
+                "This photo is still used in the text. Confirm that those entries should be removed in both languages.",
+                "이 사진이 글에 남아 있습니다. 영어와 한국어에서 그 항목을 지우는 것을 확인해 주세요.",
+            ),
+        }
+    en = ko = None
+    if usage["content"]:
+        en, ko = load_pair()
+        apply_reference_removals(en, ko, usage["content"])
+        problems = validate(en, ko)
+        if problems:
+            return {"ok": False, "errors": problems}
+    group = group_by_id(stem)
+    assert group is not None
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S-%f")
+    dest = DELETED_DIR / stamp
+    dest.mkdir(parents=True, exist_ok=True)
+    moved = []
+    for name in group["files"]:
+        source = IMAGE_DIR / name
+        if source.is_file():
+            shutil.move(str(source), dest / name)
+            moved.append(name)
+    (dest / "meta.json").write_text(json.dumps({
+        "id": stem,
+        "files": moved,
+        "label": group["label"],
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if en is not None and ko is not None:
+        try:
+            save_pair(en, ko)
+        except Exception:
+            for name in moved:
+                shutil.move(str(dest / name), IMAGE_DIR / name)
+            shutil.rmtree(dest, ignore_errors=True)
+            raise
+    return {"ok": True, "backup": str(dest.relative_to(ROOT)), "files": moved, "contentChanged": en is not None}
+
+
+def list_deleted() -> list[dict]:
+    if not DELETED_DIR.is_dir():
+        return []
+    rows = []
+    folders = [path for path in DELETED_DIR.iterdir() if path.is_dir()]
+    for folder in sorted(folders, key=lambda path: path.name, reverse=True):
+        meta: dict = {}
+        meta_path = folder / "meta.json"
+        if meta_path.is_file():
+            try:
+                loaded = json.loads(meta_path.read_text(encoding="utf-8"))
+                if isinstance(loaded, dict):
+                    meta = loaded
+            except json.JSONDecodeError:
+                meta = {}
+        files = [
+            path.name for path in sorted(folder.iterdir())
+            if path.is_file() and path.suffix.lower() in IMAGE_SUFFIXES
+        ]
+        if not files:
+            continue
+        thumb = next((name for name in files if name.lower().endswith((".jpg", ".jpeg"))), files[0])
+        label = meta.get("label") if isinstance(meta.get("label"), dict) else {"en": meta.get("id") or folder.name, "ko": meta.get("id") or folder.name}
+        rows.append({
+            "stamp": folder.name,
+            "id": meta.get("id") or Path(files[0]).stem,
+            "files": files,
+            "thumb": thumb,
+            "label": label,
+        })
+    return rows[:40]
+
+
+def restore_deleted(stamp: str) -> dict:
+    if not re.fullmatch(r"\d{8}-\d{6}-\d{6}", stamp):
+        return {"ok": False, "error": msg("Unknown deleted photo.", "알 수 없는 삭제 사진입니다.")}
+    folder = (DELETED_DIR / stamp).resolve()
+    if folder.parent != DELETED_DIR.resolve() or not folder.is_dir():
+        return {"ok": False, "error": msg("Unknown deleted photo.", "알 수 없는 삭제 사진입니다.")}
+    files = [path for path in folder.iterdir() if path.is_file() and path.suffix.lower() in IMAGE_SUFFIXES]
+    if not files:
+        return {"ok": False, "error": msg("That backup has no image file.", "그 백업에는 사진 파일이 없습니다.")}
+    conflicts = [path.name for path in files if (IMAGE_DIR / path.name).exists()]
+    if conflicts:
+        return {"ok": False, "error": msg(
+            "A photo with that name is already on the site: " + ", ".join(conflicts),
+            "같은 이름의 사진이 이미 있습니다: " + ", ".join(conflicts),
+        )}
+    IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    for path in files:
+        shutil.move(str(path), IMAGE_DIR / path.name)
+    shutil.rmtree(folder, ignore_errors=True)
+    return {"ok": True, "files": [path.name for path in files]}
+
+
+def slug_stem(original: str) -> str:
+    stem = Path(original or "photo").stem.lower()
+    stem = re.sub(r"[^a-z0-9]+", "-", stem).strip("-")[:40] or "photo"
+    return stem
+
+
+def unique_stem(stem: str) -> str:
+    taken = {item["id"] for item in image_groups()}
+    taken.update(path.stem for path in image_paths())
+    if stem not in taken:
+        return stem
+    number = 2
+    while f"{stem}-{number}" in taken:
+        number += 1
+    return f"{stem}-{number}"
+
+
+def add_image(original_name: str, data: bytes) -> dict:
+    if len(data) < 32:
+        return {"ok": False, "error": msg("That file is empty.", "파일이 비어 있습니다.")}
+    stem = unique_stem(slug_stem(original_name))
+    dest = IMAGE_DIR / f"{stem}.jpg"
+    IMAGE_DIR.mkdir(parents=True, exist_ok=True)
+    try:
+        if Image is None:
+            if not data.startswith(b"\xff\xd8"):
+                return {"ok": False, "error": pillow_hint()}
+            dest.write_bytes(data)
+        else:
+            image = open_image(data)
+            image.save(dest, format="JPEG", quality=88, optimize=True)
+    except Exception as exc:
+        return {"ok": False, "error": msg(f"Could not read that image. {exc}", f"이미지를 읽지 못했습니다. {exc}")}
+    return {"ok": True, "id": stem, "file": dest.name}
 
 
 def jpeg_size(data: bytes) -> tuple[int, int] | None:
@@ -612,7 +969,8 @@ def publish(message: str) -> dict:
         text = "Update site content"
     if text.startswith("-") or len(text) > 200:
         return {"ok": False, "error": msg("Use a short commit message.", "짧은 커밋 메시지를 쓰세요.")}
-    added = run_command(["git", "add", "--", *PUBLISH_PATHS])
+    # -A records deletions under public/images, not only new or edited files.
+    added = run_command(["git", "add", "-A", "--", *PUBLISH_PATHS])
     if added is None or added.returncode != 0:
         detail = "" if added is None else (added.stderr or added.stdout)
         return {"ok": False, "error": msg(f"Could not stage files. {detail}", f"파일을 올리지 못했습니다. {detail}")}
@@ -750,13 +1108,22 @@ class EditorHandler(BaseHTTPRequestHandler):
             self.serve_named(IMAGE_DIR, path[len("/media/images/"):], None)
         elif path.startswith("/media/cv/"):
             self.serve_named(CV_DIR, path[len("/media/cv/"):], None)
+        elif path.startswith("/media/deleted/"):
+            self.serve_deleted(path[len("/media/deleted/"):])
         elif path == "/api/content":
             en, ko = load_pair()
             self.send_json(200, {"en": en, "ko": ko, "syncKeys": sorted(SYNC_KEYS)})
         elif path == "/api/status":
             self.send_json(200, status())
         elif path == "/api/files":
-            self.send_json(200, {"images": image_groups(), "cvs": cv_entries(), "pillow": Image is not None})
+            self.send_json(200, {
+                "images": image_groups(),
+                "cvs": cv_entries(),
+                "deleted": list_deleted(),
+                "pillow": Image is not None,
+            })
+        elif path == "/api/image-usage":
+            self.send_json(200, image_usage(query.get("id", [""])[0]))
         elif path == "/api/changes":
             blocked = git_ok()
             if blocked:
@@ -798,6 +1165,13 @@ class EditorHandler(BaseHTTPRequestHandler):
                 kind = query.get("kind", [""])[0]
                 with LOCK:
                     self.send_json(200, replace_cv(kind, body))
+            elif parsed.path == "/api/add-image":
+                with LOCK:
+                    self.send_json(200, add_image(query.get("name", ["photo.jpg"])[0], body))
+            elif parsed.path == "/api/delete-image":
+                self.handle_delete_image(body)
+            elif parsed.path == "/api/restore-image":
+                self.handle_restore_image(body)
             elif parsed.path == "/api/preview":
                 self.send_json(200, start_preview())
             elif parsed.path == "/api/publish":
@@ -836,6 +1210,34 @@ class EditorHandler(BaseHTTPRequestHandler):
                 return
         self.send_json(200, {"ok": True, "backup": str(dest.relative_to(ROOT))})
 
+    def handle_delete_image(self, body: bytes) -> None:
+        try:
+            payload = json.loads(body.decode("utf-8") or "{}")
+        except Exception:
+            self.send_json(400, {"ok": False, "error": msg("Invalid request.", "잘못된 요청입니다.")})
+            return
+        with LOCK:
+            try:
+                result = delete_image(str(payload.get("id") or ""), bool(payload.get("removeReferences")))
+            except Exception as exc:
+                self.send_json(500, {"ok": False, "error": msg(str(exc), str(exc))})
+                return
+        if result.get("contentChanged"):
+            en, ko = load_pair()
+            result["en"] = en
+            result["ko"] = ko
+        self.send_json(200 if result.get("ok") else 400, result)
+
+    def handle_restore_image(self, body: bytes) -> None:
+        try:
+            payload = json.loads(body.decode("utf-8") or "{}")
+        except Exception:
+            self.send_json(400, {"ok": False, "error": msg("Invalid request.", "잘못된 요청입니다.")})
+            return
+        with LOCK:
+            result = restore_deleted(str(payload.get("stamp") or ""))
+        self.send_json(200 if result.get("ok") else 400, result)
+
     def handle_publish(self, body: bytes) -> None:
         try:
             payload = json.loads(body.decode("utf-8") or "{}")
@@ -851,6 +1253,25 @@ class EditorHandler(BaseHTTPRequestHandler):
         with LOCK:
             result = publish(str(payload.get("message") or ""))
         self.send_json(200 if result.get("ok") else 400, result)
+
+    def serve_deleted(self, spec: str) -> None:
+        parts = [part for part in spec.split("/") if part]
+        if len(parts) != 2:
+            self.send_error(404)
+            return
+        stamp, name = parts
+        if not re.fullmatch(r"\d{8}-\d{6}-\d{6}", stamp):
+            self.send_error(404)
+            return
+        folder = (DELETED_DIR / stamp).resolve()
+        if folder.parent != DELETED_DIR.resolve():
+            self.send_error(404)
+            return
+        path = safe_child(folder, urllib.parse.unquote(name))
+        if path is None:
+            self.send_error(404)
+            return
+        self.send_file(path, guess_type(path))
 
     def serve_named(self, folder: Path, name: str, content_type: str | None) -> None:
         path = safe_child(folder, urllib.parse.unquote(name))

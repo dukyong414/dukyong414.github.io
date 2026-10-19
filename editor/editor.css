@@ -308,6 +308,24 @@ textarea { min-height: 6.5rem; resize: vertical; }
 
 .shot p { margin: 0.15rem 0 0.5rem; color: var(--muted); font-size: 0.8rem; }
 
+.shot-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.section-tools { display: flex; justify-content: space-between; gap: 0.6rem; align-items: center; margin: 0 0 0.8rem; }
+
+.refs { margin: 0.4rem 0 0.8rem; padding-left: 1.1rem; max-height: 220px; overflow: auto; }
+
+.refs li { margin: 0.25rem 0; }
+
+.refs code { font-size: 0.82rem; }
+
+.modal .warn {
+  background: #fff1f2;
+  color: var(--danger);
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+  margin: 0 0 0.7rem;
+}
+
 .file-input { display: none; }
 
 .cv-row {
