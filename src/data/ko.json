@@ -84,10 +84,10 @@
     "name": "김덕용",
     "altName": "Dukyong Kim",
     "role": "Fast-AM Laboratory · 지도교수 Tao Sun",
-    "lede": "노스웨스턴 대학교에서 다원소 연선 레이저 직접 에너지 적층(L-DED)을 연구합니다. 오페란도 방사광 X선 이미징과 오픈소스 분석 소프트웨어로 결함이 생기는 과정을 봅니다.",
+    "lede": "Northwestern University에서 동축 와이어 레이저 직접 에너지 적층 공정(L-DED)을 연구합니다. 입자가속기 기반 실시간 X선 이미징과 오픈소스 분석 소프트웨어로 공정 중 발생하는 결함에 대한 연구를 진행하고 있습니다.",
     "affiliation": "Fast-AM Laboratory, 기계공학과, Northwestern University",
     "affiliationHref": "https://fast-am.mech.northwestern.edu/",
-    "pi": "Tao Sun 교수",
+    "pi": "Tao Sun 교수님",
     "piHref": "https://fast-am.mech.northwestern.edu/",
     "facts": [
       {
@@ -96,12 +96,12 @@
         "href": "https://fast-am.mech.northwestern.edu/"
       },
       {
-        "value": "PS&ED",
-        "label": "Cluster Fellow, 2026–2027"
+        "value": "APS 방문 대학원 연구원",
+        "label": "아르곤 국립연구소(Argonne National Laboratory) 입자가속기 센터"
       },
       {
-        "value": "APS",
-        "label": "아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS)"
+        "value": "PS&ED (Predictive Science and Engineering Design)",
+        "label": "Cluster Fellow, 2026–2027"
       }
     ],
     "links": [
@@ -152,32 +152,12 @@
     },
     "labAlt": "흰 실험복과 위생모를 쓴 Dukyong Kim이 실험실에 서 있는 사진.",
     "labCaption": "실험실에서.",
-    "lab": {
-      "src": "/images/lab.jpg",
-      "width": 1400,
-      "height": 1867
-    },
     "overviewAlt": "다축 레이저 적층, 구리 박막, 레이저 스폴레이션 배치, 피로와 연료전지 기계학습 모형을 담은 연구 그림 모음.",
     "overviewCaption": "한양대학교에서 노스웨스턴으로 이어진 연구 주제: 다축 레이저 금속 적층, 레이저 스폴레이션, 물리 정보 학습.",
-    "overview": {
-      "src": "/images/research-overview.jpg",
-      "width": 1259,
-      "height": 874
-    },
     "spallationAlt": "레이저 헤드, 거울, 렌즈, 시편 스테이지가 놓인 레이저 스폴레이션 광학 테이블.",
     "spallationCaption": "박막 접착 측정용 레이저 스폴레이션 시스템. 한양대학교 석사과정에 구축.",
-    "spallation": {
-      "src": "/images/spallation-system.jpg",
-      "width": 900,
-      "height": 704
-    },
     "lmdAlt": "노즐 각도 알파와 기판 경사 베타가 표시된 다축 레이저 금속 적층 도식.",
-    "lmdCaption": "다축 레이저 금속 적층: 노즐 각도와 기판 경사.",
-    "lmd": {
-      "src": "/images/lmd-diagram.jpg",
-      "width": 900,
-      "height": 191
-    }
+    "lmdCaption": "다축 레이저 금속 적층: 노즐 각도와 기판 경사."
   },
   "research": {
     "title": "연구",

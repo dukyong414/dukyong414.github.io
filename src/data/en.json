@@ -80,11 +80,11 @@
     "external": "Opens in a new tab"
   },
   "hero": {
-    "eyebrow": "Ph.D. student · Mechanical Engineering",
+    "eyebrow": "Ph.D. candidate · Mechanical Engineering",
     "name": "Dukyong Kim",
     "altName": "김덕용",
     "role": "Fast-AM Laboratory · Advisor Professor Tao Sun",
-    "lede": "I study multi-element stranded wire laser directed energy deposition (L-DED) at Northwestern University, using operando synchrotron x-ray imaging and open-source analysis software to see how defects form.",
+    "lede": "I study multi-element stranded wire laser directed energy deposition (L-DED) at Northwestern University, using operando synchrotron X-ray imaging and machine learning-powered open-source software. Primary focus is on enhancing the quality of build by tackling defect formation.",
     "affiliation": "Fast-AM Laboratory, Department of Mechanical Engineering, Northwestern University",
     "affiliationHref": "https://fast-am.mech.northwestern.edu/",
     "pi": "Professor Tao Sun",
@@ -96,12 +96,12 @@
         "href": "https://fast-am.mech.northwestern.edu/"
       },
       {
-        "value": "PS&ED",
-        "label": "Cluster Fellow, 2026–2027"
+        "value": "APS Visiting Student",
+        "label": "Advanced Photon Source (APS), Argonne National Laboratory"
       },
       {
-        "value": "APS",
-        "label": "Advanced Photon Source (APS), Argonne National Laboratory"
+        "value": "PS&ED (Predictive Science and Engineering Design)",
+        "label": "Cluster Fellow, 2026–2027"
       }
     ],
     "links": [
@@ -152,32 +152,12 @@
     },
     "labAlt": "Dukyong Kim in a white lab coat and hairnet, standing in a laboratory.",
     "labCaption": "In the lab.",
-    "lab": {
-      "src": "/images/lab.jpg",
-      "width": 1400,
-      "height": 1867
-    },
     "overviewAlt": "Collage of research figures covering multi-axis laser deposition, copper thin films, a laser spallation layout, and machine-learning models for fatigue and fuel cells.",
     "overviewCaption": "Research themes carried from Hanyang to Northwestern: multi-axis laser metal deposition, laser spallation, and physics-informed learning.",
-    "overview": {
-      "src": "/images/research-overview.jpg",
-      "width": 1259,
-      "height": 874
-    },
     "spallationAlt": "Optical table with a laser spallation setup: a laser head, mirrors, lenses, and a sample stage.",
     "spallationCaption": "Laser spallation system for thin-film adhesion, built during the Hanyang master’s.",
-    "spallation": {
-      "src": "/images/spallation-system.jpg",
-      "width": 900,
-      "height": 704
-    },
     "lmdAlt": "Diagram of multi-axis laser metal deposition with nozzle angle alpha and substrate inclination beta.",
-    "lmdCaption": "Multi-axis laser metal deposition: nozzle angle and substrate inclination.",
-    "lmd": {
-      "src": "/images/lmd-diagram.jpg",
-      "width": 900,
-      "height": 191
-    }
+    "lmdCaption": "Multi-axis laser metal deposition: nozzle angle and substrate inclination."
   },
   "research": {
     "title": "Research",
