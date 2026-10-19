@@ -73,7 +73,6 @@
     "beamtimeLabel": "APS 제안",
     "labApproaches": "연구실이 밝힌 접근",
     "labAttribution": "소개는 Fast-AM Laboratory 웹사이트의 공개 설명을 옮긴 것입니다.",
-    "pastLabAttribution": "소개는 Smart Manufacturing Laboratory 웹사이트의 공개 설명을 옮긴 것입니다.",
     "scholarCta": "Google Scholar 프로필",
     "talksFilters": "발표 필터",
     "pubFilters": "논문 필터",
@@ -128,7 +127,7 @@
     "dek": "서울에서 에반스턴으로. 레이저, 박막, 그리고 용융풀의 영상.",
     "paragraphs": [
       "노스웨스턴 대학교 기계공학과 박사과정이며, Tao Sun 교수의 Fast-AM Laboratory에서 연구하고 있습니다. 아르곤 국립연구소(Argonne National Laboratory) 첨단광자광원(APS) XSD-IMG 그룹의 방문 대학원생이기도 합니다.",
-      "서울에서 태어나 자랐고, 한양대학교에서 기계공학 학사(Summa Cum Laude)와 기계융합공학 석사를 했습니다. 석사 지도교수는 Smart Manufacturing Laboratory의 Seung Hwan Lee 교수입니다. Hot Wheels에서 Formula One까지 이어진 자동차에 대한 관심이 기계공학으로 데려왔고, 자동차·항공·조선·반도체 제조의 도구인 레이저가 거기에 머물게 했습니다.",
+      "서울에서 태어나 자랐고, 한양대학교에서 기계공학 학사(Summa Cum Laude)와 기계융합공학 석사를 했습니다. Hot Wheels에서 Formula One까지 이어진 자동차에 대한 관심이 기계공학으로 데려왔고, 자동차·항공·조선·반도체 제조의 도구인 레이저가 거기에 머물게 했습니다.",
       "학부에서는 다축 레이저 금속 적층에서 노즐 기울기와 기판 경사가 Inconel 625의 적층 품질을 어떻게 바꾸는지 살펴보았습니다. 석사과정에서는 국내 최초의 레이저 스폴레이션 시스템 구축에 기여했습니다. 펄스 레이저 충격파로 박막 계면 접착을 재는 방법입니다. 용접 피로 수명과 고분자 전해질 연료전지에 대한 물리 정보 기계학습도 함께 다뤘습니다.",
       "박사과정은 적층제조에서 레이저와 재료가 만나며 결함이 생기는 과정을 오페란도 방사광 X선 이미징으로 보는 일입니다. 다원소 연선 레이저 직접 에너지 적층(L-DED)이 그 안에 있습니다. 전역 X선 영상을 위한 오픈소스 소프트웨어 SMAXI도 만들고 있습니다. 2026–2027 Predictive Science and Engineering Design (PS&ED) Cluster Fellow입니다."
     ]
@@ -303,7 +302,6 @@
         "when": "2022.02 – 2023.03",
         "where": "학부 연구생, 한양대학교",
         "points": [
-          "지도교수: Seung Hwan Lee 교수.",
           "다축 레이저 금속 적층(LMD)으로 만든 Inconel 625에서 레이저 노즐 기울기와 기판 경사각이 적층 품질에 미치는 영향을 탐구.",
           "학부 논문: “Development of geometry prediction model based on Gaussian process regression for evaluation of Inconel 625 formed by LMD method.”"
         ]
@@ -372,14 +370,6 @@
       "공정 중 결함 검출과 시뮬레이션 최적화를 위한 기계학습"
     ]
   },
-  "pastLab": {
-    "name": "Smart Manufacturing Laboratory",
-    "pi": "Seung Hwan Lee 교수",
-    "place": "한양대학교 기계공학부, 서울",
-    "url": "https://smlab.hanyang.ac.kr/home",
-    "urlLabel": "smlab.hanyang.ac.kr",
-    "summary": "Smart Manufacturing Laboratory는 기존 제조를 더 똑똑하게 만드는 일을 합니다. 레이저, 인공지능, 금속학, CFD를 공정 기술과 엮어, 시도되지 않은 공정을 만들고 인공지능으로 생산 비용을 낮춥니다."
-  },
   "publications": {
     "title": "논문",
     "dek": "CV의 논문 아홉 편입니다. 국제학술지를 먼저 두고, CV가 학술대회 논문으로 묶은 세 편을 뒤에 두었습니다. Dukyong Kim은 굵게 표시합니다. 논문제목과 학술지명은 원문을 유지했습니다.",
@@ -432,10 +422,6 @@
           },
           {
             "name": "Heuisu Kim"
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://www.tandfonline.com/doi/full/10.1080/17452759.2025.2512163",
@@ -467,10 +453,6 @@
             "name": "Yeontaek Hwang"
           },
           {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
-          },
-          {
             "name": "Hak-Sung Kim",
             "corresponding": true
           }
@@ -495,10 +477,6 @@
           },
           {
             "name": "Jaewoong Park"
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://www.sciencedirect.com/science/article/abs/pii/S0306261925000480?dgcid=coauthor"
@@ -522,10 +500,6 @@
           {
             "name": "Taehwan Ko",
             "equal": true
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://www.sciencedirect.com/science/article/pii/S0142112324005036?via%3Dihub"
@@ -543,10 +517,6 @@
           },
           {
             "name": "Taehwan Ko"
-          },
-          {
-            "name": "Seung Hwan Lee",
-            "corresponding": true
           }
         ],
         "href": "https://pubs.aip.org/lia/jla/article/35/2/022025/2878595"
@@ -846,7 +816,7 @@
         "org": "한양대학교",
         "orgUrl": "https://smlab.hanyang.ac.kr/home",
         "points": [
-          "Smart Manufacturing Laboratory (지도교수: Seung Hwan Lee 교수).",
+          "Smart Manufacturing Laboratory.",
           "누적 GPA: 4.0/4.0."
         ]
       },
@@ -869,8 +839,7 @@
         "points": [
           "누적 GPA: 3.84/4.0 (Summa Cum Laude).",
           "전공 GPA: 3.84/4.0. 3–4학년 GPA: 3.92/4.0.",
-          "한국 정부 이공계 대학생 장학금 전액 지원.",
-          "학부 연구 지도교수: Seung Hwan Lee 교수."
+          "한국 정부 이공계 대학생 장학금 전액 지원."
         ]
       },
       {

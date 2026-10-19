@@ -121,7 +121,6 @@ export type SiteContent = {
     beamtimeLabel: string;
     labApproaches: string;
     labAttribution: string;
-    pastLabAttribution: string;
     scholarCta: string;
     talksFilters: string;
     pubFilters: string;
@@ -188,14 +187,6 @@ export type SiteContent = {
     urlLabel: string;
     summary: string;
     approaches: string[];
-  };
-  pastLab: {
-    name: string;
-    pi: string;
-    place: string;
-    url: string;
-    urlLabel: string;
-    summary: string;
   };
   publications: {
     title: string;
